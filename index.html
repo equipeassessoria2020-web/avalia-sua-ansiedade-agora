@@ -3,18 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Teste de Ansiedade Gratuito: Avalia sua Paz Mental</title>
+    <title>Teste de Autoavaliação: Mente Blindada e Vida Leve</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        body { background-color: #f4f6f9; color: #2b2d42; line-height: 1.6; padding-bottom: 3rem; }
-        header { background: linear-gradient(135deg, #1d3557, #457b9d); color: white; text-align: center; padding: 3rem 1rem; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        body { background-color: #f4f6f9; color: #2b2d42; line-height: 1.6; padding-top: 70px; padding-bottom: 3rem; }
+        
+        .menu-topo { position: fixed; top: 0; left: 0; width: 100%; background-color: #1d3557; color: white; display: flex; justify-content: center; gap: 15px; padding: 12px; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.2); }
+        .btn-menu { background: none; border: 1px solid rgba(255,255,255,0.4); color: white; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-weight: bold; font-size: 0.9rem; transition: all 0.2s; }
+        .btn-menu:hover { background-color: white; color: #1d3557; }
+        .btn-home { background-color: #e63946; border: none; }
+        .btn-home:hover { background-color: #c1121f; color: white; }
+
+        header { background: linear-gradient(135deg, #1d3557, #457b9d); color: white; text-align: center; padding: 2.5rem 1rem; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
         header h1 { font-size: 2.2rem; margin-bottom: 0.5rem; }
         header p { font-size: 1.1rem; opacity: 0.9; max-width: 700px; margin: 0 auto; }
         .container { max-width: 900px; margin: 2rem auto; padding: 0 1rem; }
         .card { background: white; padding: 2.5rem; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); margin-bottom: 1.5rem; }
         .instrucoes { background-color: #edf2f4; border-left: 5px solid #457b9d; padding: 1rem; border-radius: 4px; margin-bottom: 2rem; font-size: 0.95rem; color: #1d3557; }
         
-        /* 🎨 ORGANIZAÇÃO EM GRADE (VITRINE ESTILO QUIZUR) */
         .grade-testes { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; margin-top: 1.5rem; }
         .item-teste { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.05); cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; border: 1px solid #e5e5e5; text-align: center; }
         .item-teste:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.15); }
@@ -39,183 +45,172 @@
 </head>
 <body>
 
+    <nav class="menu-topo">
+        <button class="btn-menu btn-home" onclick="irParaPainel()">🏠 Início / Ver Todos</button>
+        <button class="btn-menu" onclick="abrirTeste('cobranca')">🧠 Autocobrança</button>
+        <button class="btn-menu" onclick="abrirTeste('sensibilidade')">🛡️ Sensibilidade</button>
+        <button class="btn-menu" onclick="abrirTeste('procrastinacao')">⏳ Procrastinação</button>
+    </nav>
+
     <header>
         <h1>Painel de Autoavaliação Emocional</h1>
-        <p>Clique diretamente na imagem do teste desejado para iniciar sua avaliação gratuita.</p>
+        <p>Faça o teste totalmente gratuito clicando diretamente na imagem para iniciar a sua análise preliminar.</p>
     </header>
 
     <div class="container">
         
         <div id="tela-painel" style="display: block;">
-            <p style="text-align: center; font-weight: bold; color: #1d3557; margin-bottom: 1rem; font-size: 1.2rem;">💝 Testes 100% Gratuitos — Escolha um tema:</p>
+            <p style="text-align: center; font-weight: bold; color: #1d3557; margin-bottom: 1rem; font-size: 1.2rem;">💝 Avaliações Online — Faça o teste totalmente gratuito abaixo:</p>
             
             <div class="grade-testes">
-                <div class="item-teste" onclick="abrirTeste('ansiedade')">
-                    <img src="capa1.png" alt="Teste de Ansiedade Geral">
-                    <h3>1. Ansiedade Geral</h3>
+                <div class="item-teste" onclick="abrirTeste('cobranca')">
+                    <img src="capa4.png" alt="Teste do Crítico Interno">
+                    <h3>1. Teste do Crítico Interno (Autocobrança)</h3>
                 </div>
-
-                <div class="item-teste" onclick="abrirTeste('sono')">
-                    <img src="capa2.png" alt="Teste de Mente Acelerada e Sono">
-                    <h3>2. Mente Acelerada e Sono</h3>
+                <div class="item-teste" onclick="abrirTeste('sensibilidade')">
+                    <img src="capa5.png" alt="Teste de Sensibilidade Emocional">
+                    <h3>2. Teste de Sensibilidade Emocional</h3>
                 </div>
-
-                <div class="item-teste" onclick="abrirTeste('trabalho')">
-                    <img src="capa3.png" alt="Teste de Esgotamento no Trabalho">
-                    <h3>3. Esgotamento no Trabalho</h3>
+                <div class="item-teste" onclick="abrirTeste('procrastinacao')">
+                    <img src="capa6.png" alt="Teste da Mente Paralisada (Procrastinação)">
+                    <h3>3. Teste da Mente Paralisada</h3>
                 </div>
             </div>
         </div>
 
-        <form id="form-ansiedade" class="card" style="display: none;" onsubmit="calcularAnsiedade(event)">
-            <div class="instrucoes"><strong>Teste de Ansiedade Geral:</strong> Responda às 7 questões com base nas últimas semanas.</div>
+        <form id="form-cobranca" class="card" style="display: none;" onsubmit="calcularCobranca(event)">
+            <div class="instrucoes"><strong>Teste do Crítico Interno:</strong> Faça o teste totalmente gratuito e descubra se você está se cobrando além da conta.</div>
             <div class="pergunta">
-                <p>1. Com que frequência você sente palpitações, aceleração cardíaca ou falta de ar em momentos de preocupação?</p>
+                <p>1. Quando comete um pequeno erro na sua rotina, você passa horas ou dias se culpando e repassando a cena na mente?</p>
                 <div class="opcoes">
-                    <label class="opcao"><input type="radio" name="ans1" value="0" required> Raramente ou nunca</label>
-                    <label class="opcao"><input type="radio" name="ans1" value="1"> Algumas vezes por mês</label>
-                    <label class="opcao"><input type="radio" name="ans1" value="2"> Constantemente / Muito Forte</label>
+                    <label class="opcao"><input type="radio" name="cob1" value="0" required> Não, aceito o erro e sigo em frente</label>
+                    <label class="opcao"><input type="radio" name="cob1" value="1"> Fico chateado(a) por um tempo curto</label>
+                    <label class="opcao"><input type="radio" name="cob1" value="2"> Sim, me puno mentalmente e sofro muito</label>
                 </div>
             </div>
             <div class="pergunta">
-                <p>2. Você sente dificuldade permanente para pegar no sono ou acorda cansado devido a pensamentos sobre o amanhã?</p>
+                <p>2. Você sente que mesmo fazendo muitas coisas certas no dia, foca apenas naquilo que ficou faltando?</p>
                 <div class="opcoes">
-                    <label class="opcao"><input type="radio" name="ans2" value="0" required> Não, durmo com facilidade</label>
-                    <label class="opcao"><input type="radio" name="ans2" value="1"> Ocasionalmente sinto insônia</label>
-                    <label class="opcao"><input type="radio" name="ans2" value="2"> Constantemente / Noites em claro</label>
+                    <label class="opcao"><input type="radio" name="cob2" value="0" required> Consigo valorizar minhas vitórias</label>
+                    <label class="opcao"><input type="radio" name="cob2" value="1"> Às vezes me cobro pelo que faltou</label>
+                    <label class="opcao"><input type="radio" name="cob2" value="2"> Sim, sinto que nunca faço o suficiente</label>
                 </div>
             </div>
             <div class="pergunta">
-                <p>3. Sente tensões musculares, dores no pescoço/ombros ou dores de cabeça causadas por estresse?</p>
+                <p>3. A sua busca por fazer tudo perfeito faz com que você demore muito para entregar tarefas simples?</p>
                 <div class="opcoes">
-                    <label class="opcao"><input type="radio" name="ans3" value="0" required> Não apresento queixas físicas</label>
-                    <label class="opcao"><input type="radio" name="ans3" value="1"> Sinto dores musculares esporádicas</label>
-                    <label class="opcao"><input type="radio" name="ans3" value="2"> Sim, sofro com dores intensas frequentes</label>
+                    <label class="opcao"><input type="radio" name="cob3" value="0" required> Não, entrego com facilidade</label>
+                    <label class="opcao"><input type="radio" name="cob3" value="1"> Ocasionalmente reviso mais do que o necessário</label>
+                    <label class="opcao"><input type="radio" name="cob3" value="2"> Sim, reviso mil vezes com medo de falhar</label>
                 </div>
             </div>
             <div class="pergunta">
-                <p>4. Costuma sofrer por antecipação, construindo cenários negativos na mente sobre o futuro?</p>
+                <p>4. Sente dificuldade para aceitar elogios sinceros, achando que as pessoas estão apenas sendo gentis?</p>
                 <div class="opcoes">
-                    <label class="opcao"><input type="radio" name="ans4" value="0" required> Não, lido bem com o amanhã</label>
-                    <label class="opcao"><input type="radio" name="ans4" value="1"> Às vezes penso de forma negativa</label>
-                    <label class="opcao"><input type="radio" name="ans4" value="2"> Sim, vivo preso ao sofrimento antecipado</label>
+                    <label class="opcao"><input type="radio" name="cob4" value="0" required> Recebo e agradeço bem</label>
+                    <label class="opcao"><input type="radio" name="cob4" value="1"> Às vezes fico um pouco sem jeito</label>
+                    <label class="opcao"><input type="radio" name="cob4" value="2"> Sim, sempre acho que não mereço tanto</label>
                 </div>
             </div>
             <div class="pergunta">
-                <p>5. Apresenta picos de irritabilidade, perda de paciência ou pressa excessiva com rotinas diárias?</p>
+                <p>5. O medo de decepcionar os outros faz com que você assuma mais responsabilidades do que seu corpo aguenta?</p>
                 <div class="opcoes">
-                    <label class="opcao"><input type="radio" name="ans5" value="0" required> Não, mantenho o autocontrole tranquilo</label>
-                    <label class="opcao"><input type="radio" name="ans5" value="1"> Ocasionalmente fico sem paciência</label>
-                    <label class="opcao"><input type="radio" name="ans5" value="2"> Totalmente sem paciência e estressado(a)</label>
+                    <label class="opcao"><input type="radio" name="cob5" value="0" required> Sei impor limites saudáveis</label>
+                    <label class="opcao"><input type="radio" name="cob5" value="1"> Às vezes me sobrecarrego para agradar</label>
+                    <label class="opcao"><input type="radio" name="cob5" value="2"> Sim, digo 'sim' para tudo com medo de falhar</label>
                 </div>
             </div>
-            <div class="pergunta">
-                <p>6. Sente que perdeu a capacidade de desacelerar os pensamentos, gerando cansaço mental contínuo?</p>
-                <div class="opcoes">
-                    <label class="opcao"><input type="radio" name="ans6" value="0" required> Raciocínio normal e mente descansada</label>
-                    <label class="opcao"><input type="radio" name="ans6" value="1"> Lapsos e cansaço muito esporádicos</label>
-                    <label class="opcao"><input type="radio" name="ans6" value="2"> Bloqueio mental frequente e exaustão</label>
-                </div>
-            </div>
-            <div class="pergunta">
-                <p>7. Esse estado de alerta constante tem atrapalhado seu rendimento profissional ou a paz no lar?</p>
-                <div class="opcoes">
-                    <label class="opcao"><input type="radio" name="ans7" value="0" required> Não, as minhas áreas seguem equilibradas</label>
-                    <label class="opcao"><input type="radio" name="ans7" value="1"> Sinto atritos e perda de foco moderados</label>
-                    <label class="opcao"><input type="radio" name="ans7" value="2"> Sim, está afetando severamente meu lar e trabalho</label>
-                </div>
-            </div>
-            <button type="submit" class="btn-enviar">Concluir Avaliação de Ansiedade</button>
+            <button type="submit" class="btn-enviar">Concluir Avaliação de Autocobrança</button>
         </form>
 
-        <form id="form-sono" class="card" style="display: none;" onsubmit="calcularSono(event)">
-            <div class="instrucoes"><strong>Teste de Mente Acelerada e Sono:</strong> Entenda como seus pensamentos afetam sua noite.</div>
+        <form id="form-sensibilidade" class="card" style="display: none;" onsubmit="calcularSensibilidade(event)">
+            <div class="instrucoes"><strong>Teste de Sensibilidade Emocional:</strong> Faça o teste totalmente gratuito e descubra se você absorve o estresse do ambiente externo.</div>
             <div class="pergunta">
-                <p>1. Quando deita na cama, sua mente começa a repassar tudo o que fez no dia ou o que tem que fazer amanhã?</p>
+                <p>1. Quando convive com alguém estressado ou de mau humor, você repara que o seu dia azeda na mesma hora?</p>
                 <div class="opcoes">
-                    <label class="opcao"><input type="radio" name="son1" value="0" required> Consigo desligar a mente rápido</label>
-                    <label class="opcao"><input type="radio" name="son1" value="1"> Às vezes demoro um pouco pensando</label>
-                    <label class="opcao"><input type="radio" name="son1" value="2"> Sim, minha mente fica extremamente agitada</label>
+                    <label class="opcao"><input type="radio" name="sen1" value="0" required> Consigo manter minha energia intacta</label>
+                    <label class="opcao"><input type="radio" name="sen1" value="1"> Me sinto desconfortável, mas logo passa</label>
+                    <label class="opcao"><input type="radio" name="sen1" value="2"> Sim, absorvo e fico mal igual à pessoa</label>
                 </div>
             </div>
             <div class="pergunta">
-                <p>2. Com que frequência você acorda no meio da noite e encontra dificuldades para voltar a dormir?</p>
+                <p>2. Você costuma perder o sono pensando em problemas ou brigas que não são suas, mas de amigos ou parentes?</p>
                 <div class="opcoes">
-                    <label class="opcao"><input type="radio" name="son2" value="0" required> Raramente ou nunca acordo</label>
-                    <label class="opcao"><input type="radio" name="son2" value="1"> Acontece poucas vezes no mês</label>
-                    <label class="opcao"><input type="radio" name="son2" value="2"> Praticamente todas as noites</label>
+                    <label class="opcao"><input type="radio" name="sen2" value="0" required> Não, sei separar o que é meu do outro</label>
+                    <label class="opcao"><input type="radio" name="sen2" value="1"> Às vezes me preocupo de forma moderada</label>
+                    <label class="opcao"><input type="radio" name="sen2" value="2"> Sim, trago o sofrimento dos outros para a minha cama</label>
                 </div>
             </div>
             <div class="pergunta">
-                <p>3. Você sente cansaço físico e mental logo pela manhã, como se não tivesse dormido nada?</p>
+                <p>3. Ambientes barulhentos, muito cheios ou com muitas cobranças visuais te deixam esgotado rapidamente?</p>
                 <div class="opcoes">
-                    <label class="opcao"><input type="radio" name="son3" value="0" required> Acordo descansado(a)</label>
-                    <label class="opcao"><input type="radio" name="son3" value="1"> Às vezes sinto um leve cansaço</label>
-                    <label class="opcao"><input type="radio" name="son3" value="2"> Sim, acordo sempre exausto(a)</label>
+                    <label class="opcao"><input type="radio" name="sen3" value="0" required> Lido bem com agitações externas</label>
+                    <label class="opcao"><input type="radio" name="sen3" value="1"> Sinto um incômodo leve após muito tempo</label>
+                    <label class="opcao"><input type="radio" name="sen3" value="2"> Sim, sinto uma exaustão física imediata nesses lugares</label>
                 </div>
             </div>
             <div class="pergunta">
-                <p>4. Você faz uso excessivo do celular na cama por não conseguir pegar no sono?</p>
+                <p>4. Você evita dar a sua opinião sincera em conversas com medo de criar conflitos ou ser julgado?</p>
                 <div class="opcoes">
-                    <label class="opcao"><input type="radio" name="son4" value="0" required> Não uso o celular antes de dormir</label>
-                    <label class="opcao"><input type="radio" name="son4" value="1"> Uso um pouco, mas logo pego no sono</label>
-                    <label class="opcao"><input type="radio" name="son4" value="2"> Sim, fico navegando horas por falta de sono</label>
+                    <label class="opcao"><input type="radio" name="sen4" value="0" required> Falo o que penso com tranquilidade</label>
+                    <label class="opcao"><input type="radio" name="sen4" value="1"> Às vezes guardo para mim para evitar atrito</label>
+                    <label class="opcao"><input type="radio" name="sen4" value="2"> Sim, prefiro me anular para não sofrer rejeição</label>
                 </div>
             </div>
             <div class="pergunta">
-                <p>5. O medo de não conseguir dormir te gera ansiedade antes mesmo de ir para o quarto?</p>
+                <p>5. Sente que o seu corpo reage fortemente às notícias ruins da TV ou internet, gerando angústia real?</p>
                 <div class="opcoes">
-                    <label class="opcao"><input type="radio" name="son5" value="0" required> Não, vou dormir tranquilo(a)</label>
-                    <label class="opcao"><input type="radio" name="son5" value="1"> Às vezes me preocupo um pouco</label>
-                    <label class="opcao"><input type="radio" name="son5" value="2"> Sim, fico tenso(a) só de pensar em ir deitar</label>
+                    <label class="opcao"><input type="radio" name="sen5" value="0" required> Vejo as notícias de forma neutra</label>
+                    <label class="opcao"><input type="radio" name="sen5" value="1"> Fico triste, mas sigo o dia normalmente</label>
+                    <label class="opcao"><input type="radio" name="sen5" value="2"> Sim, sinto um aperto no peito e mal-estar físico</label>
                 </div>
             </div>
-            <button type="submit" class="btn-enviar">Concluir Avaliação de Sono</button>
+            <button type="submit" class="btn-enviar">Concluir Avaliação de Sensibilidade</button>
         </form>
 
-        <form id="form-trabalho" class="card" style="display: none;" onsubmit="calcularTrabalho(event)">
-            <div class="instrucoes"><strong>Teste de Esgotamento no Trabalho:</strong> Meça o impacto das tarefas no seu bem-estar.</div>
+        <form id="form-procrastinacao" class="card" style="display: none;" onsubmit="calcularProcrastinacao(event)">
+            <div class="instrucoes"><strong>Teste da Mente Paralisada:</strong> Faça o teste totalmente gratuito e avalie o nível de adiamento das suas tarefas fundamentais.</div>
             <div class="pergunta">
-                <p>1. Você sente falta de energia crônica para começar a sua jornada ou suas obrigações diárias?</p>
+                <p>1. Quando surge uma tarefa importante e complexa, você costuma inventar outras pequenas distrações para não começar?</p>
                 <div class="opcoes">
-                    <label class="opcao"><input type="radio" name="trab1" value="0" required> Sinto energia normal</label>
-                    <label class="opcao"><input type="radio" name="trab1" value="1"> Sinto desânimo em alguns dias</label>
-                    <label class="opcao"><input type="radio" name="trab1" value="2"> Sim, sinto um esgotamento pesado diário</label>
+                    <label class="opcao"><input type="radio" name="pro1" value="0" required> Enfrento a tarefa e começo logo</label>
+                    <label class="opcao"><input type="radio" name="pro1" value="1"> Enrolo um pouco, mas acabo pegando no tranco</label>
+                    <label class="opcao"><input type="radio" name="pro1" value="2"> Sim, arrumo a casa, vejo o celular, faço tudo menos ela</label>
                 </div>
             </div>
             <div class="pergunta">
-                <p>2. Você repara que sua paciência com colegas, clientes ou com a própria rotina sumiu?</p>
+                <p>2. Você vive com a sensação de culpa e cansaço por saber que tem coisas acumuladas para fazer?</p>
                 <div class="opcoes">
-                    <label class="opcao"><input type="radio" name="trab2" value="0" required> Mantenho a paciência sob controle</label>
-                    <label class="opcao"><input type="radio" name="trab2" value="1"> Fico irritado(a) de forma esporádica</label>
-                    <label class="opcao"><input type="radio" name="trab2" value="2"> Sim, estou operando no limite da tolerância</label>
+                    <label class="opcao"><input type="radio" name="pro2" value="0" required> Não, mantenho minhas obrigações em dia</label>
+                    <label class="opcao"><input type="radio" name="pro2" value="1"> Sinto esse peso apenas em semanas cheias</label>
+                    <label class="opcao"><input type="radio" name="pro2" value="2"> Sim, a sensação de pendência me esgota diariamente</label>
                 </div>
             </div>
             <div class="pergunta">
-                <p>3. Sente que mesmo trabalhando muito, sua produtividade caiu por falta de foco ou esquecimentos?</p>
+                <p>3. A maioria das suas decisões ou projetos importantes só saem do papel quando o prazo está estourando?</p>
                 <div class="opcoes">
-                    <label class="opcao"><input type="radio" name="trab3" value="0" required> Foco e rendimento normais</label>
-                    <label class="opcao"><input type="radio" name="trab3" value="1"> Sinto lapsos de foco de vez em quando</label>
-                    <label class="opcao"><input type="radio" name="trab3" value="2"> Sim, minha mente está travada e falhando</label>
+                    <label class="opcao"><input type="radio" name="pro3" value="0" required> Me organizo e entrego com antecedência</label>
+                    <label class="opcao"><input type="radio" name="pro3" value="1"> Às vezes deixo para a última semana</label>
+                    <label class="opcao"><input type="radio" name="pro3" value="2"> Sim, só funciono sob pressão extrema e desespero</label>
                 </div>
             </div>
             <div class="pergunta">
-                <p>4. Você leva as preocupações das tarefas do trabalho para dentro do seu momento de lazer familiar?</p>
+                <p>4. Você desiste de começar um plano novo (exercícios, cursos, projetos) porque acha que vai dar muito trabalho?</p>
                 <div class="opcoes">
-                    <label class="opcao"><input type="radio" name="trab4" value="0" required> Consigo separar totalmente as áreas</label>
-                    <label class="opcao"><input type="radio" name="trab4" value="1"> Às vezes comento ou penso nos problemas</label>
-                    <label class="opcao"><input type="radio" name="trab4" value="2"> Sim, não desligo do trabalho nem no recesso do lar</label>
+                    <label class="opcao"><input type="radio" name="pro4" value="0" required> Começo e mantenho a constância</label>
+                    <label class="opcao"><input type="radio" name="pro4" value="1"> Demoro a engrenar, mas insisto um pouco</label>
+                    <label class="opcao"><input type="radio" name="pro4" value="2"> Sim, paraliso na hora do planejamento e desisto</label>
                 </div>
             </div>
             <div class="pergunta">
-                <p>5. O estresse profissional tem gerado sintomas físicos como dor de estômago ou dores nos ombros?</p>
+                <p>5. O hábito de adiar tarefas já gerou prejuízos reais na sua carreira profissional ou nas finanças?</p>
                 <div class="opcoes">
-                    <label class="opcao"><input type="radio" name="trab5" value="0" required> Não apresento queixas físicas</label>
-                    <label class="opcao"><input type="radio" name="trab5" value="1"> Sinto dores musculares leves às vezes</label>
-                    <label class="opcao"><input type="radio" name="trab5" value="2"> Sim, meu corpo já está gritando de dor</label>
+                    <label class="opcao"><input type="radio" name="pro5" value="0" required> Nunca tive prejuízos por atraso</label>
+                    <label class="opcao"><input type="radio" name="pro5" value="1"> Tive pequenos problemas contornáveis</label>
+                    <label class="opcao"><input type="radio" name="pro5" value="2"> Sim, perdi prazos, oportunidades ou dinheiro por adiar</label>
                 </div>
             </div>
-            <button type="submit" class="btn-enviar">Concluir Avaliação de Trabalho</button>
+            <button type="submit" class="btn-enviar">Concluir Avaliação de Procrastinação</button>
         </form>
 
         <div id="resultado" class="card" style="display: none;">
@@ -228,17 +223,16 @@
             </div>
 
             <div class="box-download">
-                <h3>🎁 Reconquiste o Equilíbrio e a Paz Mental</h3>
-                <p>Aprenda estratégias práticas e comprovadas para domar os pensamentos acelerados e remover todo o esgotamento do seu organismo. Baixe agora mesmo o nosso e-book informativo!</p>
-                <img src="capa1.png" id="imagemEbookDinamica" alt="Capa do E-book" class="imagem-ebook">
+                <h3>🎁 Reconquiste a Leveza e a Blindagem Emocional</h3>
+                <p>Aprenda estratégias baseadas em inteligência emocional e no controle comportamental para desarmar o seu crítico interno, parar de absorver o estresse dos outros e destravar de vez a sua produtividade.</p>
                 
                 <div class="card-ebook">
-                    <p style="margin: 0; font-weight: bold; color: #1d3557;">📚 Conteúdo Digital: Tirando a ANSIEDADE E TRAZENDO A VIDA & LEVEZA</p>
-                    <p style="margin: 5px 0 0 0; font-size: 0.9rem; color: #555;">Uma leitura super rápida, simples e direta, desenvolvida sob medida para você ler direto no seu celular ou computador a qualquer hora do dia. Descubra ferramentas neuropsicopedagógicas profundas criadas para restaurar a saúde das suas emoções e devolver a leveza ao seu cotidiano.</p>
+                    <p style="margin: 0; font-weight: bold; color: #1d3557;">📚 Mente Blindada, Vida Leve</p>
+                    <p style="margin: 5px 0 0 0; font-size: 0.9rem; color: #555;">Uma leitura super rápida, simples e direta, desenvolvida sob medida para você ler direto no seu celular. Descubra ferramentas criadas para remover todo o esgotamento do seu organismo, acalmar as cobranças internas e devolver a leveza ao seu cotidiano.</p>
                 </div>
 
-                <a href="https://go.hotmart.com/E61115249H?dp=1" target="_blank" class="btn-download">
-                    Clique aqui e baixe o Ebook e controle a Ansiedade
+                <a href="https://go.hotmart.com/L106186655F" target="_blank" class="btn-download">
+                    Clique aqui e baixe o Ebook Mente Blindada
                 </a>
             </div>
             <center><button class="btn-voltar" onclick="irParaPainel()">⬅ Voltar ao Menu de Testes</button></center>
@@ -249,52 +243,54 @@
     <script>
         function abrirTeste(tipo) {
             document.getElementById('tela-painel').style.display = 'none';
-            if(tipo === 'ansiedade') document.getElementById('form-ansiedade').style.display = 'block';
-            if(tipo === 'sono') document.getElementById('form-sono').style.display = 'block';
-            if(tipo === 'trabalho') document.getElementById('form-trabalho').style.display = 'block';
+            document.getElementById('form-cobranca').style.display = 'none';
+            document.getElementById('form-sensibilidade').style.display = 'none';
+            document.getElementById('form-procrastinacao').style.display = 'none';
+            document.getElementById('resultado').style.display = 'none';
+            
+            if(tipo === 'cobranca') document.getElementById('form-cobranca').style.display = 'block';
+            if(tipo === 'sensibilidade') document.getElementById('form-sensibilidade').style.display = 'block';
+            if(tipo === 'procrastinacao') document.getElementById('form-procrastinacao').style.display = 'block';
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
         function irParaPainel() {
             document.getElementById('resultado').style.display = 'none';
-            document.getElementById('form-ansiedade').style.display = 'none';
-            document.getElementById('form-sono').style.display = 'none';
-            document.getElementById('form-trabalho').style.display = 'none';
-            document.getElementById('form-ansiedade').reset();
-            document.getElementById('form-sono').reset();
-            document.getElementById('form-trabalho').reset();
+            document.getElementById('form-cobranca').style.display = 'none';
+            document.getElementById('form-sensibilidade').style.display = 'none';
+            document.getElementById('form-procrastinacao').style.display = 'none';
+            document.getElementById('form-cobranca').reset();
+            document.getElementById('form-sensibilidade').reset();
+            document.getElementById('form-procrastinacao').reset();
             document.getElementById('tela-painel').style.display = 'block';
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        function calcularAnsiedade(e) {
+        function calcularCobranca(e) {
             e.preventDefault();
             let total = 0;
-            for (let i = 1; i <= 7; i++) { total += parseInt(document.querySelector('input[name="ans' + i + '"]:checked').value); }
-            document.getElementById('imagemEbookDinamica').src = 'capa1.png';
-            exibirResultado(total, 14, "Ansiedade");
+            for (let i = 1; i <= 5; i++) { total += parseInt(document.querySelector('input[name="cob' + i + '"]:checked').value); }
+            exibirResultado(total, 10, "Autocobrança e Crítico Interno");
         }
 
-        function calcularSono(e) {
+        function calcularSensibilidade(e) {
             e.preventDefault();
             let total = 0;
-            for (let i = 1; i <= 5; i++) { total += parseInt(document.querySelector('input[name="son' + i + '"]:checked').value); }
-            document.getElementById('imagemEbookDinamica').src = 'capa2.png';
-            exibirResultado(total, 10, "Mente Acelerada e Sono");
+            for (let i = 1; i <= 5; i++) { total += parseInt(document.querySelector('input[name="sen' + i + '"]:checked').value); }
+            exibirResultado(total, 10, "Sensibilidade Emocional");
         }
 
-        function calcularTrabalho(e) {
+        function calcularProcrastinacao(e) {
             e.preventDefault();
             let total = 0;
-            for (let i = 1; i <= 5; i++) { total += parseInt(document.querySelector('input[name="trab' + i + '"]:checked').value); }
-            document.getElementById('imagemEbookDinamica').src = 'capa3.png';
-            exibirResultado(total, 10, "Estresse e Trabalho");
+            for (let i = 1; i <= 5; i++) { total += parseInt(document.querySelector('input[name="pro' + i + '"]:checked').value); }
+            exibirResultado(total, 10, "Mente Paralisada e Procrastinação");
         }
 
         function exibirResultado(total, maximo, tipo) {
-            document.getElementById('form-ansiedade').style.display = 'none';
-            document.getElementById('form-sono').style.display = 'none';
-            document.getElementById('form-trabalho').style.display = 'none';
+            document.getElementById('form-cobranca').style.display = 'none';
+            document.getElementById('form-sensibilidade').style.display = 'none';
+            document.getElementById('form-procrastinacao').style.display = 'none';
             document.getElementById('resultado').style.display = 'block';
             
             const scoreTexto = document.getElementById('scoreTexto');
@@ -304,13 +300,13 @@
             let metade = maximo / 2;
             if (total <= (metade - 1)) {
                 scoreTexto.style.backgroundColor = "#d8f3dc"; scoreTexto.style.color = "#1b4332"; scoreTexto.style.border = "2px solid #52b788";
-                feedbackTexto.innerText = "Nível Baixo / Estável: Os seus indicadores demonstram equilíbrio emocional nesta categoria. Para manter sua mente blindada, a leitura preventiva do nosso conteúdo digital é altamente recomendada.";
+                feedbackTexto.innerText = "Nível Baixo / Estável: Parabéns! Seus indicadores mostram que você consegue filtrar os estresses desse tema e manter uma relação saudável consigo mesmo. Para continuar blindado, a leitura preventiva do nosso e-book é recomendada.";
             } else if (total <= metade + 2) {
                 scoreTexto.style.backgroundColor = "#fefae0"; scoreTexto.style.color = "#606c38"; scoreTexto.style.border = "2px solid #dda15e";
-                feedbackTexto.innerText = "Nível Moderado / Alerta: Sua mente e corpo apresentam sinais visíveis de desgaste provocados pela rotina. Recomenda-se aplicar técnicas de desaceleração emocional imediatamente para evitar o esgotamento.";
+                feedbackTexto.innerText = "Nível Moderado / Alerta: Sua mente está começando a dar sinais claros de estafa e sobrecarga emocional. Atitudes do cotidiano estão minando suas energias. Recomenda-se adotar o nosso guia prático de desaceleração emocional para evitar o esgotamento completo.";
             } else {
                 scoreTexto.style.backgroundColor = "#f8d7da"; scoreTexto.style.color = "#842029"; scoreTexto.style.border = "2px solid #f5c2c7";
-                feedbackTexto.innerText = "Nível Crítico / Sobrecarga Elevada: Seus índices indicam alto grau de esgotamento e picos acelerados. É fundamental adotar medidas práticas de restauração mental e buscar suporte de ferramentas direcionadas.";
+                feedbackTexto.innerText = "Nível Crítico / Sobrecarga Elevada: Alerta vermelho! Os seus índices de desgaste, cobrança e travamento mental estão operando no limite. Isso consome sua felicidade diária. É fundamental buscar ferramentas estruturadas para restaurar sua saúde emocional o quanto antes.";
             }
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
