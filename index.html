@@ -25,11 +25,15 @@
         .btn-enviar { background-color: #e63946; color: white; border: none; width: 100%; padding: 1.2rem; font-size: 1.2rem; font-weight: bold; border-radius: 8px; cursor: pointer; box-shadow: 0 4px 12px rgba(230, 57, 70, 0.3); }
         .btn-enviar:hover { background-color: #c1121f; }
         .score-box { padding: 1.5rem; text-align: center; font-size: 1.4rem; font-weight: bold; border-radius: 8px; margin-bottom: 1.5rem; }
-        .box-download { background-color: #fff; border: 2px solid #1d3557; border-radius: 10px; padding: 2rem; margin-top: 2.5rem; text-align: center; }
+        
+        /* ESTILO DO AVISO PROFISSIONAL */
+        .nota-profissional { background-color: #fff3cd; border: 1px solid #ffeba2; color: #664d03; padding: 1.2rem; border-radius: 8px; font-size: 0.95rem; text-align: center; margin-top: 1rem; margin-bottom: 2rem; line-height: 1.5; box-shadow: 0 2px 5px rgba(0,0,0,0.02); }
+        
+        .box-download { background-color: #fff; border: 2px solid #1d3557; border-radius: 10px; padding: 2rem; margin-top: 1rem; text-align: center; }
         .imagem-ebook { max-width: 260px; height: auto; border-radius: 8px; margin: 0 auto 1.5rem auto; display: block; box-shadow: 0 4px 8px rgba(0,0,0,0.15); }
         .card-ebook { background-color: #f8f9fa; border-radius: 8px; padding: 1.2rem; margin-bottom: 1.5rem; border-left: 5px solid #e63946; text-align: left; }
         .btn-download { background-color: #e63946; color: white; text-decoration: none; padding: 1.1rem 2.5rem; border-radius: 50px; font-weight: bold; font-size: 1.15rem; display: inline-block; box-shadow: 0 4px 12px rgba(230, 57, 70, 0.3); }
-        .btn-voltar { background-color: #6c757d; color: white; border: none; padding: 0.6rem 1.5rem; font-size: 0.9rem; font-weight: bold; border-radius: 4px; cursor: pointer; margin-top: 1rem; }
+        .btn-voltar { background-color: #6c757d; color: white; border: none; padding: 0.6rem 1.5rem; font-size: 0.9rem; font-weight: bold; border-radius: 4px; cursor: pointer; margin-top: 1.5rem; }
     </style>
 </head>
 <body>
@@ -208,7 +212,12 @@
         <div id="resultado" class="card" style="display: none;">
             <h2 class="resultado-titulo">Resultado da Análise Preliminar</h2>
             <div class="score-box" id="scoreTexto">Pontuação Total: 0</div>
+            
             <p id="feedbackTexto" style="margin-bottom: 1.5rem; text-align: center; color: #4a5568; font-size: 1.05rem; font-weight: 500;"></p>
+
+            <div class="nota-profissional">
+                <strong>Nota Importante de Saúde Emocional:</strong> Esta triagem é uma análise estatística preliminar com objetivos puramente informativos e educativos. Ela <u>não substitui</u>, sob nenhuma hipótese, o parecer ou diagnóstico clínico de <strong>psicólogos, psiquiatras, terapeutas</strong> ou outros profissionais de saúde mental especializados.
+            </div>
 
             <div class="box-download">
                 <h3>🎁 Reconquiste o Equilíbrio e a Paz Mental</h3>
