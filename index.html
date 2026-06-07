@@ -10,13 +10,17 @@
         header { background: linear-gradient(135deg, #1d3557, #457b9d); color: white; text-align: center; padding: 3rem 1rem; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
         header h1 { font-size: 2.2rem; margin-bottom: 0.5rem; }
         header p { font-size: 1.1rem; opacity: 0.9; max-width: 700px; margin: 0 auto; }
-        .container { max-width: 700px; margin: 2rem auto; padding: 0 1rem; }
+        .container { max-width: 900px; margin: 2rem auto; padding: 0 1rem; }
         .card { background: white; padding: 2.5rem; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); margin-bottom: 1.5rem; }
-        .imagem-painel { width: 100%; height: auto; border-radius: 12px; box-shadow: 0 6px 18px rgba(0,0,0,0.15); margin-bottom: 1.5rem; display: block; }
         .instrucoes { background-color: #edf2f4; border-left: 5px solid #457b9d; padding: 1rem; border-radius: 4px; margin-bottom: 2rem; font-size: 0.95rem; color: #1d3557; }
-        .lista-botoes { display: flex; flex-direction: column; gap: 1rem; margin-top: 1.5rem; }
-        .btn-escolha { display: flex; align-items: center; justify-content: space-between; background: #f8f9fa; color: #1d3557; text-decoration: none; padding: 1.2rem; border-radius: 8px; font-weight: bold; border: 1px solid #e5e5e5; cursor: pointer; font-size: 1.1rem; text-align: left; transition: all 0.2s; }
-        .btn-escolha:hover { background: #edf2f4; transform: translateY(-2px); }
+        
+        /* 🎨 ORGANIZAÇÃO EM GRADE (VITRINE ESTILO QUIZUR) */
+        .grade-testes { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; margin-top: 1.5rem; }
+        .item-teste { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.05); cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; border: 1px solid #e5e5e5; text-align: center; }
+        .item-teste:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.15); }
+        .item-teste img { width: 100%; height: auto; display: block; border-bottom: 1px solid #edf2f4; }
+        .item-teste h3 { padding: 1rem; color: #1d3557; font-size: 1.15rem; font-weight: bold; }
+        
         .pergunta { margin-bottom: 2rem; border-bottom: 1px solid #edf2f4; padding-bottom: 1.5rem; }
         .pergunta p { font-size: 1.1rem; font-weight: 600; margin-bottom: 1.2rem; color: #1d3557; }
         .opcoes { display: flex; flex-direction: column; gap: 0.6rem; }
@@ -25,10 +29,7 @@
         .btn-enviar { background-color: #e63946; color: white; border: none; width: 100%; padding: 1.2rem; font-size: 1.2rem; font-weight: bold; border-radius: 8px; cursor: pointer; box-shadow: 0 4px 12px rgba(230, 57, 70, 0.3); }
         .btn-enviar:hover { background-color: #c1121f; }
         .score-box { padding: 1.5rem; text-align: center; font-size: 1.4rem; font-weight: bold; border-radius: 8px; margin-bottom: 1.5rem; }
-        
-        /* ESTILO DO AVISO PROFISSIONAL */
-        .nota-profissional { background-color: #fff3cd; border: 1px solid #ffeba2; color: #664d03; padding: 1.2rem; border-radius: 8px; font-size: 0.95rem; text-align: center; margin-top: 1rem; margin-bottom: 2rem; line-height: 1.5; box-shadow: 0 2px 5px rgba(0,0,0,0.02); }
-        
+        .nota-profissional { background-color: #fff3cd; border: 1px solid #ffeba2; color: #664d03; padding: 1.2rem; border-radius: 8px; font-size: 0.95rem; text-align: center; margin-top: 1rem; margin-bottom: 2rem; line-height: 1.5; }
         .box-download { background-color: #fff; border: 2px solid #1d3557; border-radius: 10px; padding: 2rem; margin-top: 1rem; text-align: center; }
         .imagem-ebook { max-width: 260px; height: auto; border-radius: 8px; margin: 0 auto 1.5rem auto; display: block; box-shadow: 0 4px 8px rgba(0,0,0,0.15); }
         .card-ebook { background-color: #f8f9fa; border-radius: 8px; padding: 1.2rem; margin-bottom: 1.5rem; border-left: 5px solid #e63946; text-align: left; }
@@ -40,25 +41,34 @@
 
     <header>
         <h1>Painel de Autoavaliação Emocional</h1>
-        <p>Escolha um dos nossos testes gratuitos abaixo para avaliar o seu nível de estresse e equilíbrio hoje.</p>
+        <p>Clique diretamente na imagem do teste desejado para iniciar sua avaliação gratuita.</p>
     </header>
 
     <div class="container">
         
-        <div id="tela-painel" class="card" style="padding: 1.5rem;">
-            <img src="capa.png" alt="Escolha seu Teste" class="imagem-painel">
-            <p style="text-align: center; font-weight: bold; color: #1d3557; margin-bottom: 1rem;">💝 Clique no teste desejado para iniciar a avaliação gratuita:</p>
+        <div id="tela-painel" style="display: block;">
+            <p style="text-align: center; font-weight: bold; color: #1d3557; margin-bottom: 1rem; font-size: 1.2rem;">💝 Testes 100% Gratuitos — Escolha um tema:</p>
             
-            <div class="lista-botoes">
-                <button class="btn-escolha" onclick="abrirTeste('ansiedade')" style="border-left: 6px solid #e63946;">🧠 1. Teste de Ansiedade Geral <span>▶</span></button>
-                <button class="btn-escolha" onclick="abrirTeste('sono')" style="border-left: 6px solid #ffb703;">🌙 2. Teste de Mente Acelerada e Sono <span>▶</span></button>
-                <button class="btn-escolha" onclick="abrirTeste('trabalho')" style="border-left: 6px solid #457b9d;">💼 3. Teste de Esgotamento no Trabalho <span>▶</span></button>
+            <div class="grade-testes">
+                <div class="item-teste" onclick="abrirTeste('ansiedade')">
+                    <img src="capa1.png" alt="Teste de Ansiedade Geral">
+                    <h3>1. Ansiedade Geral</h3>
+                </div>
+
+                <div class="item-teste" onclick="abrirTeste('sono')">
+                    <img src="capa2.png" alt="Teste de Mente Acelerada e Sono">
+                    <h3>2. Mente Acelerada e Sono</h3>
+                </div>
+
+                <div class="item-teste" onclick="abrirTeste('trabalho')">
+                    <img src="capa3.png" alt="Teste de Esgotamento no Trabalho">
+                    <h3>3. Esgotamento no Trabalho</h3>
+                </div>
             </div>
         </div>
 
         <form id="form-ansiedade" class="card" style="display: none;" onsubmit="calcularAnsiedade(event)">
             <div class="instrucoes"><strong>Teste de Ansiedade Geral:</strong> Responda às 7 questões com base nas últimas semanas.</div>
-            
             <div class="pergunta">
                 <p>1. Com que frequência você sente palpitações, aceleração cardíaca ou falta de ar em momentos de preocupação?</p>
                 <div class="opcoes">
@@ -115,7 +125,6 @@
                     <label class="opcao"><input type="radio" name="ans7" value="2"> Sim, está afetando severamente meu lar e trabalho</label>
                 </div>
             </div>
-
             <button type="submit" class="btn-enviar">Concluir Avaliação de Ansiedade</button>
         </form>
 
@@ -212,7 +221,6 @@
         <div id="resultado" class="card" style="display: none;">
             <h2 class="resultado-titulo">Resultado da Análise Preliminar</h2>
             <div class="score-box" id="scoreTexto">Pontuação Total: 0</div>
-            
             <p id="feedbackTexto" style="margin-bottom: 1.5rem; text-align: center; color: #4a5568; font-size: 1.05rem; font-weight: 500;"></p>
 
             <div class="nota-profissional">
@@ -222,7 +230,7 @@
             <div class="box-download">
                 <h3>🎁 Reconquiste o Equilíbrio e a Paz Mental</h3>
                 <p>Aprenda estratégias práticas e comprovadas para domar os pensamentos acelerados e remover todo o esgotamento do seu organismo. Baixe agora mesmo o nosso e-book informativo!</p>
-                <img src="capa.png" alt="Capa do E-book" class="imagem-ebook">
+                <img src="capa1.png" id="imagemEbookDinamica" alt="Capa do E-book" class="imagem-ebook">
                 
                 <div class="card-ebook">
                     <p style="margin: 0; font-weight: bold; color: #1d3557;">📚 Conteúdo Digital: Tirando a ANSIEDADE E TRAZENDO A VIDA & LEVEZA</p>
@@ -263,6 +271,7 @@
             e.preventDefault();
             let total = 0;
             for (let i = 1; i <= 7; i++) { total += parseInt(document.querySelector('input[name="ans' + i + '"]:checked').value); }
+            document.getElementById('imagemEbookDinamica').src = 'capa1.png';
             exibirResultado(total, 14, "Ansiedade");
         }
 
@@ -270,6 +279,7 @@
             e.preventDefault();
             let total = 0;
             for (let i = 1; i <= 5; i++) { total += parseInt(document.querySelector('input[name="son' + i + '"]:checked').value); }
+            document.getElementById('imagemEbookDinamica').src = 'capa2.png';
             exibirResultado(total, 10, "Mente Acelerada e Sono");
         }
 
@@ -277,6 +287,7 @@
             e.preventDefault();
             let total = 0;
             for (let i = 1; i <= 5; i++) { total += parseInt(document.querySelector('input[name="trab' + i + '"]:checked').value); }
+            document.getElementById('imagemEbookDinamica').src = 'capa3.png';
             exibirResultado(total, 10, "Estresse e Trabalho");
         }
 
