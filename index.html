@@ -5,326 +5,214 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Teste de Ansiedade Gratuito: Avalia sua Paz Mental</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        body {
-            background-color: #f4f6f9;
-            color: #2b2d42;
-            line-height: 1.6;
-            padding-bottom: 3rem;
-        }
-        header {
-            background: linear-gradient(135deg, #1d3557, #457b9d);
-            color: white;
-            text-align: center;
-            padding: 3rem 1rem;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        }
-        .alerta-importancia {
-            background-color: #ffb703;
-            color: #023047;
-            display: inline-block;
-            padding: 0.5rem 1.2rem;
-            border-radius: 4px;
-            font-size: 1rem;
-            font-weight: bold;
-            margin-bottom: 1.2rem;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.15);
-        }
-        header h1 {
-            font-size: 2.2rem;
-            margin-bottom: 0.5rem;
-        }
-        header p {
-            font-size: 1.1rem;
-            opacity: 0.9;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-        .badge-nr1 {
-            background-color: #e63946;
-            color: white;
-            display: inline-block;
-            padding: 0.4rem 1rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: bold;
-            margin-top: 1rem;
-            letter-spacing: 1px;
-        }
-        .imagem-cabecalho {
-            max-width: 260px;
-            width: 100%;
-            height: auto;
-            border-radius: 8px;
-            margin-top: 1.5rem;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-        }
-        .container {
-            max-width: 700px;
-            margin: 2rem auto;
-            padding: 0 1rem;
-        }
-        .card {
-            background: white;
-            padding: 2.5rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            margin-bottom: 1.5rem;
-        }
-        .instrucoes {
-            background-color: #edf2f4;
-            border-left: 5px solid #457b9d;
-            padding: 1rem;
-            border-radius: 4px;
-            margin-bottom: 2rem;
-            font-size: 0.95rem;
-            color: #1d3557;
-        }
-        .pergunta {
-            margin-bottom: 2rem;
-            border-bottom: 1px solid #edf2f4;
-            padding-bottom: 1.5rem;
-        }
-        .pergunta p {
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 1.2rem;
-            color: #1d3557;
-        }
-        .opcoes {
-            display: flex;
-            flex-direction: column;
-            gap: 0.6rem;
-        }
-        .opcao {
-            display: flex;
-            align-items: center;
-            background: #f8f9fa;
-            padding: 0.9rem 1.2rem;
-            border-radius: 8px;
-            cursor: pointer;
-            border: 1px solid #e5e5e5;
-            transition: all 0.2s ease;
-        }
-        .opcao:hover {
-            background: #edf2f4;
-            border-color: #457b9d;
-        }
-        .opcao input {
-            margin-right: 12px;
-            transform: scale(1.2);
-            accent-color: #1d3557;
-        }
-        .btn-enviar {
-            background-color: #e63946;
-            color: white;
-            border: none;
-            width: 100%;
-            padding: 1.2rem;
-            font-size: 1.2rem;
-            font-weight: bold;
-            border-radius: 8px;
-            cursor: pointer;
-            box-shadow: 0 4px 12px rgba(230, 57, 70, 0.3);
-            transition: background 0.2s;
-        }
-        .btn-enviar:hover {
-            background-color: #c1121f;
-        }
-        #resultado {
-            display: none;
-        }
-        .resultado-titulo {
-            font-size: 1.6rem;
-            color: #1d3557;
-            margin-bottom: 12px;
-            text-align: center;
-            font-weight: bold;
-        }
-        .score-box {
-            padding: 1.5rem;
-            text-align: center;
-            font-size: 1.4rem;
-            font-weight: bold;
-            border-radius: 8px;
-            margin-bottom: 1.5rem;
-            transition: all 0.3s ease;
-        }
-        
-        .nota-profissional {
-            background-color: #f8f9fa;
-            border: 1px dashed #6c757d;
-            color: #495057;
-            padding: 1rem;
-            border-radius: 6px;
-            font-size: 0.9rem;
-            text-align: center;
-            margin-top: 1rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        .box-download {
-            background-color: #fff;
-            border: 2px solid #1d3557;
-            border-radius: 10px;
-            padding: 2rem;
-            margin-top: 2.5rem;
-            text-align: center;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-        }
-        .box-download h3 {
-            color: #1d3557;
-            font-size: 1.4rem;
-            margin-bottom: 0.8rem;
-        }
-        .box-download p {
-            color: #333;
-            font-size: 1rem;
-            margin-bottom: 1.5rem;
-            line-height: 1.5;
-        }
-        .imagem-ebook {
-            max-width: 260px;
-            height: auto;
-            border-radius: 8px;
-            margin: 0 auto 1.5rem auto;
-            display: block;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-        }
-        .card-ebook {
-            background-color: #f8f9fa;
-            border-radius: 8px;
-            padding: 1.2rem;
-            margin-bottom: 1.5rem;
-            border-left: 5px solid #e63946;
-            text-align: left;
-        }
-        .btn-download {
-            background-color: #e63946;
-            color: white;
-            text-decoration: none;
-            padding: 1.1rem 2.5rem;
-            border-radius: 50px;
-            font-weight: bold;
-            font-size: 1.15rem;
-            display: inline-block;
-            box-shadow: 0 4px 12px rgba(230, 57, 70, 0.3);
-            transition: background 0.3s;
-        }
-        .btn-download:hover {
-            background-color: #c1121f;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background-color: #f4f6f9; color: #2b2d42; line-height: 1.6; padding-bottom: 3rem; }
+        header { background: linear-gradient(135deg, #1d3557, #457b9d); color: white; text-align: center; padding: 3rem 1rem; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        header h1 { font-size: 2.2rem; margin-bottom: 0.5rem; }
+        header p { font-size: 1.1rem; opacity: 0.9; max-width: 700px; margin: 0 auto; }
+        .container { max-width: 700px; margin: 2rem auto; padding: 0 1rem; }
+        .card { background: white; padding: 2.5rem; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); margin-bottom: 1.5rem; }
+        .imagem-painel { width: 100%; height: auto; border-radius: 12px; box-shadow: 0 6px 18px rgba(0,0,0,0.15); margin-bottom: 1.5rem; display: block; }
+        .instrucoes { background-color: #edf2f4; border-left: 5px solid #457b9d; padding: 1rem; border-radius: 4px; margin-bottom: 2rem; font-size: 0.95rem; color: #1d3557; }
+        .lista-botoes { display: flex; flex-direction: column; gap: 1rem; margin-top: 1.5rem; }
+        .btn-escolha { display: flex; align-items: center; justify-content: space-between; background: #f8f9fa; color: #1d3557; text-decoration: none; padding: 1.2rem; border-radius: 8px; font-weight: bold; border: 1px solid #e5e5e5; cursor: pointer; font-size: 1.1rem; text-align: left; transition: all 0.2s; }
+        .btn-escolha:hover { background: #edf2f4; transform: translateY(-2px); }
+        .pergunta { margin-bottom: 2rem; border-bottom: 1px solid #edf2f4; padding-bottom: 1.5rem; }
+        .pergunta p { font-size: 1.1rem; font-weight: 600; margin-bottom: 1.2rem; color: #1d3557; }
+        .opcoes { display: flex; flex-direction: column; gap: 0.6rem; }
+        .opcao { display: flex; align-items: center; background: #f8f9fa; padding: 0.9rem 1.2rem; border-radius: 8px; cursor: pointer; border: 1px solid #e5e5e5; }
+        .opcao input { margin-right: 12px; transform: scale(1.2); accent-color: #1d3557; }
+        .btn-enviar { background-color: #e63946; color: white; border: none; width: 100%; padding: 1.2rem; font-size: 1.2rem; font-weight: bold; border-radius: 8px; cursor: pointer; box-shadow: 0 4px 12px rgba(230, 57, 70, 0.3); }
+        .btn-enviar:hover { background-color: #c1121f; }
+        .score-box { padding: 1.5rem; text-align: center; font-size: 1.4rem; font-weight: bold; border-radius: 8px; margin-bottom: 1.5rem; }
+        .box-download { background-color: #fff; border: 2px solid #1d3557; border-radius: 10px; padding: 2rem; margin-top: 2.5rem; text-align: center; }
+        .imagem-ebook { max-width: 260px; height: auto; border-radius: 8px; margin: 0 auto 1.5rem auto; display: block; box-shadow: 0 4px 8px rgba(0,0,0,0.15); }
+        .card-ebook { background-color: #f8f9fa; border-radius: 8px; padding: 1.2rem; margin-bottom: 1.5rem; border-left: 5px solid #e63946; text-align: left; }
+        .btn-download { background-color: #e63946; color: white; text-decoration: none; padding: 1.1rem 2.5rem; border-radius: 50px; font-weight: bold; font-size: 1.15rem; display: inline-block; box-shadow: 0 4px 12px rgba(230, 57, 70, 0.3); }
+        .btn-voltar { background-color: #6c757d; color: white; border: none; padding: 0.6rem 1.5rem; font-size: 0.9rem; font-weight: bold; border-radius: 4px; cursor: pointer; margin-top: 1rem; }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="alerta-importancia">💝 Descubra como está o seu nível de equilíbrio emocional hoje!</div>
-        
-        <h1>Teste de Ansiedade Gratuito: Avalia sua Paz Mental</h1>
-        <p>Análise de equilíbrio, controle emocional e suporte preventivo contra o esgotamento mental diário.</p>
-        <div class="badge-nr1">SUPORTE PSICOSSOCIAL</div>
-        <br>
-        <img src="capa.png" alt="Capa do E-book" class="imagem-cabecalho">
+        <h1>Painel de Autoavaliação Emocional</h1>
+        <p>Escolha um dos nossos testes gratuitos abaixo para avaliar o seu nível de estresse e equilíbrio hoje.</p>
     </header>
 
     <div class="container">
         
-        <form id="burnoutForm" class="card" onsubmit="calcularResultado(event)">
-            <div class="instrucoes">
-                <strong>Instruções:</strong> Responda às 7 questões abaixo com base nos seus sentimentos e rotina das últimas semanas. O teste ajuda a identificar precocemente sinais de sobrecarga.
+        <div id="tela-painel" class="card" style="padding: 1.5rem;">
+            <img src="capa.png" alt="Escolha seu Teste" class="imagem-painel">
+            <p style="text-align: center; font-weight: bold; color: #1d3557; margin-bottom: 1rem;">💝 Clique no teste desejado para iniciar a avaliação gratuita:</p>
+            
+            <div class="lista-botoes">
+                <button class="btn-escolha" onclick="abrirTeste('ansiedade')" style="border-left: 6px solid #e63946;">🧠 1. Teste de Ansiedade Geral <span>▶</span></button>
+                <button class="btn-escolha" onclick="abrirTeste('sono')" style="border-left: 6px solid #ffb703;">🌙 2. Teste de Mente Acelerada e Sono <span>▶</span></button>
+                <button class="btn-escolha" onclick="abrirTeste('trabalho')" style="border-left: 6px solid #457b9d;">💼 3. Teste de Esgotamento no Trabalho <span>▶</span></button>
             </div>
+        </div>
+
+        <form id="form-ansiedade" class="card" style="display: none;" onsubmit="calcularAnsiedade(event)">
+            <div class="instrucoes"><strong>Teste de Ansiedade Geral:</strong> Responda às 7 questões com base nas últimas semanas.</div>
             
             <div class="pergunta">
                 <p>1. Com que frequência você sente palpitações, aceleração cardíaca ou falta de ar em momentos de preocupação?</p>
                 <div class="opcoes">
-                    <label class="opcao"><input type="radio" name="p1" value="0" required> Raramente ou nunca</label>
-                    <label class="opcao"><input type="radio" name="p1" value="1"> Algumas vezes por mês</label>
-                    <label class="opcao"><input type="radio" name="p1" value="2"> Constantemente / Muito Forte</label>
+                    <label class="opcao"><input type="radio" name="ans1" value="0" required> Raramente ou nunca</label>
+                    <label class="opcao"><input type="radio" name="ans1" value="1"> Algumas vezes por mês</label>
+                    <label class="opcao"><input type="radio" name="ans1" value="2"> Constantemente / Muito Forte</label>
                 </div>
             </div>
-
             <div class="pergunta">
                 <p>2. Você sente dificuldade permanente para pegar no sono ou acorda cansado devido a pensamentos sobre o amanhã?</p>
                 <div class="opcoes">
-                    <label class="opcao"><input type="radio" name="p2" value="0" required> Não, durmo com facilidade</label>
-                    <label class="opcao"><input type="radio" name="p2" value="1"> Ocasionalmente sinto insônia</label>
-                    <label class="opcao"><input type="radio" name="p2" value="2"> Constantemente / Noites em claro</label>
+                    <label class="opcao"><input type="radio" name="ans2" value="0" required> Não, durmo com facilidade</label>
+                    <label class="opcao"><input type="radio" name="ans2" value="1"> Ocasionalmente sinto insônia</label>
+                    <label class="opcao"><input type="radio" name="ans2" value="2"> Constantemente / Noites em claro</label>
                 </div>
             </div>
-
             <div class="pergunta">
                 <p>3. Sente tensões musculares, dores no pescoço/ombros ou dores de cabeça causadas por estresse?</p>
                 <div class="opcoes">
-                    <label class="opcao"><input type="radio" name="p3" value="0" required> Não apresento queixas físicas</label>
-                    <label class="opcao"><input type="radio" name="p3" value="1"> Sinto dores musculares esporádicas</label>
-                    <label class="opcao"><input type="radio" name="p3" value="2"> Sim, sofro com dores intensas frequentes</label>
+                    <label class="opcao"><input type="radio" name="ans3" value="0" required> Não apresento queixas físicas</label>
+                    <label class="opcao"><input type="radio" name="ans3" value="1"> Sinto dores musculares esporádicas</label>
+                    <label class="opcao"><input type="radio" name="ans3" value="2"> Sim, sofro com dores intensas frequentes</label>
                 </div>
             </div>
-
             <div class="pergunta">
                 <p>4. Costuma sofrer por antecipação, construindo cenários negativos na mente sobre o futuro?</p>
                 <div class="opcoes">
-                    <label class="opcao"><input type="radio" name="p4" value="0" required> Não, lido bem com o amanhã</label>
-                    <label class="opcao"><input type="radio" name="p4" value="1"> Às vezes penso de forma negativa</label>
-                    <label class="opcao"><input type="radio" name="p4" value="2"> Sim, vivo preso ao sofrimento antecipado</label>
+                    <label class="opcao"><input type="radio" name="ans4" value="0" required> Não, lido bem com o amanhã</label>
+                    <label class="opcao"><input type="radio" name="ans4" value="1"> Às vezes penso de forma negativa</label>
+                    <label class="opcao"><input type="radio" name="ans4" value="2"> Sim, vivo preso ao sofrimento antecipado</label>
                 </div>
             </div>
-
             <div class="pergunta">
                 <p>5. Apresenta picos de irritabilidade, perda de paciência ou pressa excessiva com rotinas diárias?</p>
                 <div class="opcoes">
-                    <label class="opcao"><input type="radio" name="p5" value="0" required> Não, mantenho o autocontrole tranquilo</label>
-                    <label class="opcao"><input type="radio" name="p5" value="1"> Ocasionalmente fico sem paciência</label>
-                    <label class="opcao"><input type="radio" name="p5" value="2"> Totalmente sem paciência e estressado(a)</label>
+                    <label class="opcao"><input type="radio" name="ans5" value="0" required> Não, mantenho o autocontrole tranquilo</label>
+                    <label class="opcao"><input type="radio" name="ans5" value="1"> Ocasionalmente fico sem paciência</label>
+                    <label class="opcao"><input type="radio" name="ans5" value="2"> Totalmente sem paciência e estressado(a)</label>
                 </div>
             </div>
-
             <div class="pergunta">
                 <p>6. Sente que perdeu a capacidade de desacelerar os pensamentos, gerando cansaço mental contínuo?</p>
                 <div class="opcoes">
-                    <label class="opcao"><input type="radio" name="p6" value="0" required> Raciocínio normal e mente descansada</label>
-                    <label class="opcao"><input type="radio" name="p6" value="1"> Lapsos e cansaço muito esporádicos</label>
-                    <label class="opcao"><input type="radio" name="p6" value="2"> Bloqueio mental frequente e exaustão</label>
+                    <label class="opcao"><input type="radio" name="ans6" value="0" required> Raciocínio normal e mente descansada</label>
+                    <label class="opcao"><input type="radio" name="ans6" value="1"> Lapsos e cansaço muito esporádicos</label>
+                    <label class="opcao"><input type="radio" name="ans6" value="2"> Bloqueio mental frequente e exaustão</label>
                 </div>
             </div>
-
             <div class="pergunta">
                 <p>7. Esse estado de alerta constante tem atrapalhado seu rendimento profissional ou a paz no lar?</p>
                 <div class="opcoes">
-                    <label class="opcao"><input type="radio" name="p7" value="0" required> Não, as minhas áreas seguem equilibradas</label>
-                    <label class="opcao"><input type="radio" name="p7" value="1"> Sinto atritos e perda de foco moderados</label>
-                    <label class="opcao"><input type="radio" name="p7" value="2"> Sim, está afetando severamente meu lar e trabalho</label>
+                    <label class="opcao"><input type="radio" name="ans7" value="0" required> Não, as minhas áreas seguem equilibradas</label>
+                    <label class="opcao"><input type="radio" name="ans7" value="1"> Sinto atritos e perda de foco moderados</label>
+                    <label class="opcao"><input type="radio" name="ans7" value="2"> Sim, está afetando severamente meu lar e trabalho</label>
                 </div>
             </div>
 
-            <button type="submit" class="btn-enviar">Concluir Avaliação</button>
+            <button type="submit" class="btn-enviar">Concluir Avaliação de Ansiedade</button>
         </form>
 
-        <div id="resultado" class="card">
+        <form id="form-sono" class="card" style="display: none;" onsubmit="calcularSono(event)">
+            <div class="instrucoes"><strong>Teste de Mente Acelerada e Sono:</strong> Entenda como seus pensamentos afetam sua noite.</div>
+            <div class="pergunta">
+                <p>1. Quando deita na cama, sua mente começa a repassar tudo o que fez no dia ou o que tem que fazer amanhã?</p>
+                <div class="opcoes">
+                    <label class="opcao"><input type="radio" name="son1" value="0" required> Consigo desligar a mente rápido</label>
+                    <label class="opcao"><input type="radio" name="son1" value="1"> Às vezes demoro um pouco pensando</label>
+                    <label class="opcao"><input type="radio" name="son1" value="2"> Sim, minha mente fica extremamente agitada</label>
+                </div>
+            </div>
+            <div class="pergunta">
+                <p>2. Com que frequência você acorda no meio da noite e encontra dificuldades para voltar a dormir?</p>
+                <div class="opcoes">
+                    <label class="opcao"><input type="radio" name="son2" value="0" required> Raramente ou nunca acordo</label>
+                    <label class="opcao"><input type="radio" name="son2" value="1"> Acontece poucas vezes no mês</label>
+                    <label class="opcao"><input type="radio" name="son2" value="2"> Praticamente todas as noites</label>
+                </div>
+            </div>
+            <div class="pergunta">
+                <p>3. Você sente cansaço físico e mental logo pela manhã, como se não tivesse dormido nada?</p>
+                <div class="opcoes">
+                    <label class="opcao"><input type="radio" name="son3" value="0" required> Acordo descansado(a)</label>
+                    <label class="opcao"><input type="radio" name="son3" value="1"> Às vezes sinto um leve cansaço</label>
+                    <label class="opcao"><input type="radio" name="son3" value="2"> Sim, acordo sempre exausto(a)</label>
+                </div>
+            </div>
+            <div class="pergunta">
+                <p>4. Você faz uso excessivo do celular na cama por não conseguir pegar no sono?</p>
+                <div class="opcoes">
+                    <label class="opcao"><input type="radio" name="son4" value="0" required> Não uso o celular antes de dormir</label>
+                    <label class="opcao"><input type="radio" name="son4" value="1"> Uso um pouco, mas logo pego no sono</label>
+                    <label class="opcao"><input type="radio" name="son4" value="2"> Sim, fico navegando horas por falta de sono</label>
+                </div>
+            </div>
+            <div class="pergunta">
+                <p>5. O medo de não conseguir dormir te gera ansiedade antes mesmo de ir para o quarto?</p>
+                <div class="opcoes">
+                    <label class="opcao"><input type="radio" name="son5" value="0" required> Não, vou dormir tranquilo(a)</label>
+                    <label class="opcao"><input type="radio" name="son5" value="1"> Às vezes me preocupo um pouco</label>
+                    <label class="opcao"><input type="radio" name="son5" value="2"> Sim, fico tenso(a) só de pensar em ir deitar</label>
+                </div>
+            </div>
+            <button type="submit" class="btn-enviar">Concluir Avaliação de Sono</button>
+        </form>
+
+        <form id="form-trabalho" class="card" style="display: none;" onsubmit="calcularTrabalho(event)">
+            <div class="instrucoes"><strong>Teste de Esgotamento no Trabalho:</strong> Meça o impacto das tarefas no seu bem-estar.</div>
+            <div class="pergunta">
+                <p>1. Você sente falta de energia crônica para começar a sua jornada ou suas obrigações diárias?</p>
+                <div class="opcoes">
+                    <label class="opcao"><input type="radio" name="trab1" value="0" required> Sinto energia normal</label>
+                    <label class="opcao"><input type="radio" name="trab1" value="1"> Sinto desânimo em alguns dias</label>
+                    <label class="opcao"><input type="radio" name="trab1" value="2"> Sim, sinto um esgotamento pesado diário</label>
+                </div>
+            </div>
+            <div class="pergunta">
+                <p>2. Você repara que sua paciência com colegas, clientes ou com a própria rotina sumiu?</p>
+                <div class="opcoes">
+                    <label class="opcao"><input type="radio" name="trab2" value="0" required> Mantenho a paciência sob controle</label>
+                    <label class="opcao"><input type="radio" name="trab2" value="1"> Fico irritado(a) de forma esporádica</label>
+                    <label class="opcao"><input type="radio" name="trab2" value="2"> Sim, estou operando no limite da tolerância</label>
+                </div>
+            </div>
+            <div class="pergunta">
+                <p>3. Sente que mesmo trabalhando muito, sua produtividade caiu por falta de foco ou esquecimentos?</p>
+                <div class="opcoes">
+                    <label class="opcao"><input type="radio" name="trab3" value="0" required> Foco e rendimento normais</label>
+                    <label class="opcao"><input type="radio" name="trab3" value="1"> Sinto lapsos de foco de vez em quando</label>
+                    <label class="opcao"><input type="radio" name="trab3" value="2"> Sim, minha mente está travada e falhando</label>
+                </div>
+            </div>
+            <div class="pergunta">
+                <p>4. Você leva as preocupações das tarefas do trabalho para dentro do seu momento de lazer familiar?</p>
+                <div class="opcoes">
+                    <label class="opcao"><input type="radio" name="trab4" value="0" required> Consigo separar totalmente as áreas</label>
+                    <label class="opcao"><input type="radio" name="trab4" value="1"> Às vezes comento ou penso nos problemas</label>
+                    <label class="opcao"><input type="radio" name="trab4" value="2"> Sim, não desligo do trabalho nem no recesso do lar</label>
+                </div>
+            </div>
+            <div class="pergunta">
+                <p>5. O estresse profissional tem gerado sintomas físicos como dor de estômago ou dores nos ombros?</p>
+                <div class="opcoes">
+                    <label class="opcao"><input type="radio" name="trab5" value="0" required> Não apresento queixas físicas</label>
+                    <label class="opcao"><input type="radio" name="trab5" value="1"> Sinto dores musculares leves às vezes</label>
+                    <label class="opcao"><input type="radio" name="trab5" value="2"> Sim, meu corpo já está gritando de dor</label>
+                </div>
+            </div>
+            <button type="submit" class="btn-enviar">Concluir Avaliação de Trabalho</button>
+        </form>
+
+        <div id="resultado" class="card" style="display: none;">
             <h2 class="resultado-titulo">Resultado da Análise Preliminar</h2>
-            
-            <div class="score-box" id="scoreTexto">
-                Pontuação Total: 0 de 14
-            </div>
-
-            <p id="feedbackTexto" style="margin-bottom: 1rem; text-align: center; color: #4a5568; font-size: 1.05rem; font-weight: 500;"></p>
-
-            <div class="nota-profissional">
-                <strong>Nota Importante:</strong> Esta triagem é uma análise estatística preliminar de caráter informativo e educativo. Ela <u>não substitui</u> parecer de psicólogos ou médicos especializados.
-            </div>
+            <div class="score-box" id="scoreTexto">Pontuação Total: 0</div>
+            <p id="feedbackTexto" style="margin-bottom: 1.5rem; text-align: center; color: #4a5568; font-size: 1.05rem; font-weight: 500;"></p>
 
             <div class="box-download">
                 <h3>🎁 Reconquiste o Equilíbrio e a Paz Mental</h3>
-                <p>
-                    Aprenda estratégias práticas e comprovadas para domar os pensamentos acelerados e remover todo o esgotamento do seu organismo. Baixe agora mesmo o nosso e-book informativo!
-                </p>
-                
+                <p>Aprenda estratégias práticas e comprovadas para domar os pensamentos acelerados e remover todo o esgotamento do seu organismo. Baixe agora mesmo o nosso e-book informativo!</p>
                 <img src="capa.png" alt="Capa do E-book" class="imagem-ebook">
                 
                 <div class="card-ebook">
@@ -336,45 +224,74 @@
                     Clique aqui e baixe o Ebook e controle a Ansiedade
                 </a>
             </div>
+            <center><button class="btn-voltar" onclick="irParaPainel()">⬅ Voltar ao Menu de Testes</button></center>
         </div>
 
     </div>
 
     <script>
-        function calcularResultado(event) {
-            event.preventDefault();
-            
+        function abrirTeste(tipo) {
+            document.getElementById('tela-painel').style.display = 'none';
+            if(tipo === 'ansiedade') document.getElementById('form-ansiedade').style.display = 'block';
+            if(tipo === 'sono') document.getElementById('form-sono').style.display = 'block';
+            if(tipo === 'trabalho') document.getElementById('form-trabalho').style.display = 'block';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function irParaPainel() {
+            document.getElementById('resultado').style.display = 'none';
+            document.getElementById('form-ansiedade').style.display = 'none';
+            document.getElementById('form-sono').style.display = 'none';
+            document.getElementById('form-trabalho').style.display = 'none';
+            document.getElementById('form-ansiedade').reset();
+            document.getElementById('form-sono').reset();
+            document.getElementById('form-trabalho').reset();
+            document.getElementById('tela-painel').style.display = 'block';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function calcularAnsiedade(e) {
+            e.preventDefault();
             let total = 0;
-            for (let i = 1; i <= 7; i++) {
-                const valor = document.querySelector('input[name="p' + i + '"]:checked').value;
-                total += parseInt(valor);
-            }
-            
-            document.getElementById('burnoutForm').style.display = 'none';
+            for (let i = 1; i <= 7; i++) { total += parseInt(document.querySelector('input[name="ans' + i + '"]:checked').value); }
+            exibirResultado(total, 14, "Ansiedade");
+        }
+
+        function calcularSono(e) {
+            e.preventDefault();
+            let total = 0;
+            for (let i = 1; i <= 5; i++) { total += parseInt(document.querySelector('input[name="son' + i + '"]:checked').value); }
+            exibirResultado(total, 10, "Mente Acelerada e Sono");
+        }
+
+        function calcularTrabalho(e) {
+            e.preventDefault();
+            let total = 0;
+            for (let i = 1; i <= 5; i++) { total += parseInt(document.querySelector('input[name="trab' + i + '"]:checked').value); }
+            exibirResultado(total, 10, "Estresse e Trabalho");
+        }
+
+        function exibirResultado(total, maximo, tipo) {
+            document.getElementById('form-ansiedade').style.display = 'none';
+            document.getElementById('form-sono').style.display = 'none';
+            document.getElementById('form-trabalho').style.display = 'none';
             document.getElementById('resultado').style.display = 'block';
             
             const scoreTexto = document.getElementById('scoreTexto');
             const feedbackTexto = document.getElementById('feedbackTexto');
+            scoreTexto.innerText = "Pontuação em " + tipo + ": " + total + " de " + maximo;
             
-            scoreTexto.innerText = "Pontuação Total: " + total + " de 14";
-            
-            if (total <= 4) {
-                scoreTexto.style.backgroundColor = "#d8f3dc";
-                scoreTexto.style.color = "#1b4332";
-                scoreTexto.style.border = "2px solid #52b788";
-                feedbackTexto.innerText = "Nível Baixo / Estável: Os seus indicadores demonstram equilíbrio emocional e bom controle das reações físicas diárias. Para manter sua mente blindada, a leitura preventiva do nosso conteúdo digital é altamente recomendada.";
-            } else if (total <= 9) {
-                scoreTexto.style.backgroundColor = "#fefae0";
-                scoreTexto.style.color = "#606c38";
-                scoreTexto.style.border = "2px solid #dda15e";
-                feedbackTexto.innerText = "Nível Moderado / Alerta: Sua mente e corpo apresentam sinais de desgaste provocados pela sobrecarga diária. Recomenda-se aplicar técnicas de desaceleração emocional imediatamente para evitar o esgotamento.";
+            let metade = maximo / 2;
+            if (total <= (metade - 1)) {
+                scoreTexto.style.backgroundColor = "#d8f3dc"; scoreTexto.style.color = "#1b4332"; scoreTexto.style.border = "2px solid #52b788";
+                feedbackTexto.innerText = "Nível Baixo / Estável: Os seus indicadores demonstram equilíbrio emocional nesta categoria. Para manter sua mente blindada, a leitura preventiva do nosso conteúdo digital é altamente recomendada.";
+            } else if (total <= metade + 2) {
+                scoreTexto.style.backgroundColor = "#fefae0"; scoreTexto.style.color = "#606c38"; scoreTexto.style.border = "2px solid #dda15e";
+                feedbackTexto.innerText = "Nível Moderado / Alerta: Sua mente e corpo apresentam sinais visíveis de desgaste provocados pela rotina. Recomenda-se aplicar técnicas de desaceleração emocional imediatamente para evitar o esgotamento.";
             } else {
-                scoreTexto.style.backgroundColor = "#f8d7da";
-                scoreTexto.style.color = "#842029";
-                scoreTexto.style.border = "2px solid #f5c2c7";
-                feedbackTexto.innerText = "Nível Crítico / Sobrecarga Elevada: Seus índices indicam alto grau de esgotamento e picos acelerados. É fundamental adotar medidas práticas de restauração da saúde mental e buscar suporte de ferramentas direcionadas.";
+                scoreTexto.style.backgroundColor = "#f8d7da"; scoreTexto.style.color = "#842029"; scoreTexto.style.border = "2px solid #f5c2c7";
+                feedbackTexto.innerText = "Nível Crítico / Sobrecarga Elevada: Seus índices indicam alto grau de esgotamento e picos acelerados. É fundamental adotar medidas práticas de restauração mental e buscar suporte de ferramentas direcionadas.";
             }
-            
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     </script>
