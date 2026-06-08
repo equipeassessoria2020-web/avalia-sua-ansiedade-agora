@@ -58,7 +58,7 @@
         <button class="btn-menu" onclick="abrirTeste('cobranca')">🧠 Cobrança</button>
         <button class="btn-menu" onclick="abrirTeste('sensibilidade')">🛡️ Filtro</button>
         <button class="btn-menu" onclick="abrirTeste('procrastinacao')">⏳ Foco</button>
-        <button class="btn-menu" onclick="abrirTeste('digital')">📱 Digital</button>
+        <button class="btn-menu" onclick="abrirTeste('digital')">📱 Mente Conectada</button>
         <button class="btn-menu" onclick="abrirTeste('esgotamento')">🔥 Estafa</button>
         <button class="btn-menu" onclick="abrirTeste('lar')">🏠 Família</button>
     </nav>
@@ -83,7 +83,7 @@
                     <img src="capa3.png"><h3>3. Teste de Procrastinação</h3>
                 </div>
                 <div class="item-teste" onclick="abrirTeste('digital')">
-                    <img src="capa4.png"><h3>4. Dependência Digital</h3>
+                    <img src="capa4.png"><h3>4. Sobrecarga de Estímulos</h3>
                 </div>
                 <div class="item-teste" onclick="abrirTeste('esgotamento')">
                     <img src="capa5.png"><h3>5. Esgotamento Mental</h3>
@@ -130,7 +130,6 @@
     </div>
 
     <script>
-        // BANCO DE DADOS ATUALIZADO RIGOROSAMENTE COM 7 PERGUNTAS POR TEMA
         const bases = {
             cobranca: { 
                 t: "Autocobrança e Crítico Interno", group: 1,
@@ -142,11 +141,11 @@
             },
             procrastinacao: { 
                 t: "Mente Paralisada e Procrastinação", group: 1,
-                p: ["Quando surge uma tarefa importante e complexa, você inventa distrações fáceis para adiar?", "Você vive com a sensação constante de culpa e cansaço por saber que tem coisas acumuladas?", "A maioria das suas decisões ou projetos importantes só saem do papel quando o prazo está estourando?", "Você desiste de começar um plano novo (exercícios, cursos) porque acha que vai dar muito trabalho?", "O hábito de adiar tarefas cruciais já gerou prejuízos reais na sua vida profissional ou financeira?", "Você se perde checando o celular ou redes sociais quando deveria estar focado em uma obrigação?", "Sente uma paralisia mental que te impede de dar o primeiro passo, mesmo querendo muito mudança?"] 
+                p: ["Quando surge uma tarefa importante e complexa, você inventa distrações fáceis para adiar?", "Você vive com a sensação constante de culpa e cansaço por saber que tem coisas acumuladas?", "A maioria das suas decisões ou projetos importantes só saem do papel quando o prazo está estourando?", "Você desiste de começar um plano novo (exercícios, cursos) porque acha que vai dar muito trabalho?", "O hábito de adiar tarefas cruciais já gerou prejuízos reais na sua vida profissional ou financeira?", "Você se perde checando o celular ou notificações quando deveria estar focado em uma obrigação?", "Sente uma paralisia mental que te impede de dar o primeiro passo, mesmo querendo muito mudança?"] 
             },
             digital: { 
-                t: "Dependência Digital e Telas", group: 2,
-                p: ["A primeira coisa que você faz ao abrir os olhos de manhã é pegar o celular para olhar notificações?", "Sente uma ansiedade ou vazio desconfortável quando fica longe do aparelho por mais de uma hora?", "Você perde frequentemente a noção do tempo navegando sem rumo fixo pelas redes sociais?", "Leva o celular consigo para a mesa de refeições ou momentos de lazer direto com familiares?", "Navega nas telas mesmo deitado na cama, sacrificando valiosas horas de sono saudável?", "Sente que sua capacidade de ler um livro ou focar em textos longos diminuiu nos últimos tempos?", "Interrompe conversas presenciais com as pessoas para olhar a tela assim que ela acende?"] 
+                t: "Sobrecarga de Estímulos e Foco", group: 2,
+                p: ["A primeira coisa que você faz ao abrir os olhos de manhã é buscar estímulos informativos no celular?", "Sente uma ansiedade ou vazio desconfortável quando se desconecta do fluxo de informações por mais de uma hora?", "Você perde frequentemente a noção do tempo navegando sem rumo fixo por conteúdos e feeds?", "Leva o aparelho e se perde em notificações durante refeições ou momentos de lazer com familiares?", "Consome informações e estímulos visuais na cama, sacrificando valiosas horas de sono?", "Sente que sua capacidade de ler um livro ou focar em textos longos diminuiu ultimamente?", "Interrompe conversas presenciais com as pessoas para checar o aparelho assim que ele emite um sinal?"] 
             },
             esgotamento: { 
                 t: "Esgotamento Mental e Estafa", group: 2,
@@ -210,18 +209,15 @@
                 feedbackTexto.innerText = "Alerta Crítico / Sobrecarga Elevada: Seus índices operam na zona de esgotamento. Esse travamento consome sua energia diária e sabota suas metas de forma nociva.";
             }
 
-            // DIVISÃO AUTOMÁTICA DOS ENGINES DE DIRECIONAMENTO (3 TESTES PARA CADA LINK)
             if(bases[testeAtual].group === 1) {
-                // TESTES 1, 2 E 3 -> LINK DO E-BOOK MENTE BLINDADA
                 eTitulo.innerText = "📚 Manual Digital: Mente Blindada, Vida Leve";
                 eSub.innerText = "A estratégia exata para quebrar a autocobrança, o filtro esgotado e a paralisia do foco";
                 eDesc.innerText = "Baseado em ferramentas profundas de inteligência emocional e no controle comportamental prático, este manual foi desenhado sob medida para leitura rápida direto no celular. Ele traz o plano de ação terapêutico definitivo para silenciar sua autocrítica e vencer de uma vez por todas a procrastinação crônica.";
                 eLink.href = "https://go.hotmart.com/L106186655F"; 
             } else {
-                // TESTES 4, 5 E 6 -> LINK DO E-BOOK O RESET DA ROTINA
                 eTitulo.innerText = "📚 Manual Digital: O Reset da Rotina Eficiente";
-                eSub.innerText = "Como desconectar das telas, combater a estafa mental e resgatar a harmonia no lar";
-                eDesc.innerText = "Um guia terapêutico cirúrgico focado em detox digital prático, manejo do estresse familiar e restauração de energia biológica contra o cansaço extremo. Aprenda exercícios diários comportamentais para recuperar o comando do seu tempo, melhorar seus relacionamentos e descansar de verdade.";
+                eSub.innerText = "Como desacelerar os estímulos diários, combater a estafa mental e resgatar a harmonia no lar";
+                eDesc.innerText = "Aprenda exercícios diários comportamentais para recuperar o comando do seu tempo, combater o cansaço extremo e melhorar seus relacionamentos de verdade. Clique abaixo e saiba mais detalhes direto no manual completo.";
                 eLink.href = "https://go.hotmart.com/E61115249H"; 
             }
             window.scrollTo({ top: 0, behavior: 'smooth' });
