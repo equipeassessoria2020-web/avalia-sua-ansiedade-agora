@@ -20,7 +20,7 @@
         .grade-testes { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
         .item-teste { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.08); cursor: pointer; transition: transform 0.2s; border: 1px solid #e5e5e5; text-align: center; }
         .item-teste:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.15); }
-        .item-teste img { width: 100%; height: auto; display: block; }
+        .item-teste img { width: 100%; height: auto; display: block; border-bottom: 1px solid #edf2f4; }
         .item-teste h3 { padding: 1rem; color: #1d3557; font-size: 1.05rem; font-weight: bold; }
 
         .card { background: white; padding: 2.5rem; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); margin-bottom: 1.5rem; }
@@ -55,12 +55,12 @@
 
     <nav class="menu-topo">
         <button class="btn-menu btn-home" onclick="irParaPainel()">🏠 Início</button>
-        <button class="btn-menu" onclick="abrirTeste('cobranca')">🧠 Cobrança</button>
-        <button class="btn-menu" onclick="abrirTeste('sensibilidade')">🛡️ Filtro</button>
-        <button class="btn-menu" onclick="abrirTeste('procrastinacao')">⏳ Foco</button>
+        <button class="btn-menu" onclick="abrirTeste('cobranca')">🧠 Crítico Interno</button>
+        <button class="btn-menu" onclick="abrirTeste('sensibilidade')">🛡️ Filtro Emocional</button>
+        <button class="btn-menu" onclick="abrirTeste('procrastinacao')">⏳ Foco e Ação</button>
         <button class="btn-menu" onclick="abrirTeste('digital')">📱 Sobrecarga de Estímulos</button>
-        <button class="btn-menu" onclick="abrirTeste('esgotamento')">🔥 Estafa</button>
-        <button class="btn-menu" onclick="abrirTeste('lar')">🏠 Família</button>
+        <button class="btn-menu" onclick="abrirTeste('esgotamento')">🔥 Estafa Mental</button>
+        <button class="btn-menu" onclick="abrirTeste('lar')">🏠 Equilíbrio no Lar</button>
     </nav>
 
     <header>
@@ -74,7 +74,7 @@
             
             <div class="grade-testes">
                 <div class="item-teste" onclick="abrirTeste('cobranca')">
-                    <img src="capa1.png"><h3>1. Teste de Autocobrança</h3>
+                    <img src="capa1.png"><h3>1. Teste do Crítico Interno (Autocrítica)</h3>
                 </div>
                 <div class="item-teste" onclick="abrirTeste('sensibilidade')">
                     <img src="capa2.png"><h3>2. Sensibilidade Emocional</h3>
@@ -106,7 +106,7 @@
             <p id="feedbackTexto" style="text-align: center; font-size: 1.1rem; color: #4a5568; margin-bottom: 1.5rem; font-weight: 500;"></p>
 
             <div class="nota-profissional">
-                <strong>Nota Importante de Saúde Emocional:</strong> Esta triagem é uma análise estatística preliminar com objetivos puramente informativos e educativos. Ela <u>não substitui</u>, sob nenhuma hipótese, o parecer, consulta ou diagnosis clínico de <strong>psicólogos, psiquiatras, terapeutas</strong> ou outros profissionais de saúde mental especializados.
+                <strong>Nota Importante de Saúde Emocional:</strong> Esta triagem é uma análise estatística preliminar com objetivos puramente informativos e educativos. Ela <u>não substitui</u>, sob nenhuma hipótese, o parecer, consulta ou diagnóstico clínico de <strong>psicólogos, psiquiatras, terapeutas</strong> ou outros profissionais de saúde mental especializados.
             </div>
 
             <div class="box-download">
@@ -132,12 +132,12 @@
     <script>
         const bases = {
             cobranca: { 
-                t: "Autocobrança e Crítico Interno", group: 1,
+                t: "Crítico Interno e Autocrítica", group: 1,
                 p: ["Quando comete um pequeno erro na sua rotina, você passa horas ou dias se culpando e remoendo?", "Você sente que mesmo fazendo muitas coisas certas no dia, foca apenas naquilo que ficou faltando?", "A sua busca por fazer tudo perfeito faz com que você demore muito para entregar tarefas simples?", "Sente dificuldade para aceitar elogios sinceros, achando que as pessoas estão apenas sendo gentis?", "O medo de decepcionar os outros faz com que você assuma mais responsabilidades do que seu corpo aguenta?", "Você se compara constantemente com o sucesso ou a vida de outras pessoas nas redes sociais?", "Sente uma necessidade crônica de aprovação e validação externa para validar o seu próprio valor?"] 
             },
             sensibilidade: { 
                 t: "Sensibilidade Emocional", group: 1,
-                p: ["Quando convive com alguém estressado ou de mau humor, repara que o seu dia azeda na mesma hora?", "Você costuma perder o sono pensando em problemas ou brigas que não são suas, mas de terceiros?", "Ambientes barulhentos, muito cheios ou com excesso de estímulos te deixam esgotado rapidamente?", "Você evita dar a sua opinião sincera em conversas cotidianas com medo de criar conflitos?", "Sente que o seu corpo reage fortemente às notícias ruins do cotidiano, gerando uma angústia real?", "Fica pensando no que os outros vão achar das suas escolhas ou roupas antes de sair de casa?", "Sente que carrega o peso e as dores do mundo nas suas costas, sofrendo pelos outros?"] 
+                p: ["Quando convive com alguém estressado ou de mau humor, repara que o seu dia azeda na mesma hora?", "Você costuma perder o some pensando em problemas ou brigas que não são suas, mas de terceiros?", "Ambientes barulhentos, muito cheios ou com excesso de estímulos te deixam esgotado rapidamente?", "Você evita dar a sua opinião sincera em conversas cotidianas com medo de criar conflitos?", "Sente que o seu corpo reage fortemente às notícias ruins do cotidiano, gerando uma angústia real?", "Fica pensando no que os outros vão achar das suas escolhas ou roupas antes de sair de casa?", "Sente que carrega o peso e as dores do mundo nas suas costas, sofrendo pelos outros?"] 
             },
             procrastinacao: { 
                 t: "Mente Paralisada e Procrastinação", group: 1,
@@ -163,7 +163,7 @@
             testeAtual = tipo;
             const container = document.getElementById('perguntas-container');
             container.innerHTML = "";
-            document.getElementById('instr-titulo').innerText = "Faça o teste totalmente gratuito de " + bases[tipo].t + ". Responda com honestidade:";
+            document.getElementById('instr-titulo').innerText = "Faça o teste totalmente gratuito focado em " + bases[tipo].t + ". Responda com honestidade:";
             
             bases[tipo].p.forEach((pergunta, i) => {
                 container.innerHTML += `<div class="pergunta">
@@ -211,8 +211,8 @@
 
             if(bases[testeAtual].group === 1) {
                 eTitulo.innerText = "📚 Manual Digital: Mente Blindada, Vida Leve";
-                eSub.innerText = "A estratégia exata para quebrar a autocobrança, o filtro esgotado e a paralisia do foco";
-                eDesc.innerText = "Baseado em ferramentas profundas de inteligência emocional e no controle comportamental prático, este manual foi desenhado sob medida para leitura rápida direto no celular. Ele traz o plano de ação terapêutico definitivo para silenciar sua autocrítica e vencer de uma vez por todas a procrastinação crônica.";
+                eSub.innerText = "A estratégia exata para desarmar a autocrítica excessiva, o filtro esgotado e a paralisia do foco";
+                eDesc.innerText = "Baseado em ferramentas profundas de inteligência emocional e no controle comportamental prático, este manual foi desenhado sob medida para leitura rápida direto no celular. Ele traz o plano de ação terapêutico definitivo para silenciar as pressões da mente e vencer de uma vez por todas a procrastinação crônica.";
                 eLink.href = "https://go.hotmart.com/L106186655F"; 
             } else {
                 eTitulo.innerText = "📚 Manual Digital: O Reset da Rotina Eficiente";
