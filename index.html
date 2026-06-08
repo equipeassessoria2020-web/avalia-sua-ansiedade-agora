@@ -3,312 +3,141 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Teste de Autoavaliação: Mente Blindada e Vida Leve</title>
+    <title>Portal de Autoavaliação: Mente Blindada</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        body { background-color: #f4f6f9; color: #2b2d42; line-height: 1.6; padding-top: 70px; padding-bottom: 3rem; }
+        body { background-color: #f4f6f9; color: #2b2d42; line-height: 1.6; padding-top: 80px; padding-bottom: 3rem; }
         
-        .menu-topo { position: fixed; top: 0; left: 0; width: 100%; background-color: #1d3557; color: white; display: flex; justify-content: center; gap: 15px; padding: 12px; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.2); }
-        .btn-menu { background: none; border: 1px solid rgba(255,255,255,0.4); color: white; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-weight: bold; font-size: 0.9rem; transition: all 0.2s; }
+        .menu-topo { position: fixed; top: 0; left: 0; width: 100%; background-color: #1d3557; color: white; display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; padding: 10px; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.2); }
+        .btn-menu { background: none; border: 1px solid rgba(255,255,255,0.3); color: white; padding: 5px 10px; border-radius: 4px; cursor: pointer; font-size: 0.8rem; transition: all 0.2s; }
         .btn-menu:hover { background-color: white; color: #1d3557; }
-        .btn-home { background-color: #e63946; border: none; }
-        .btn-home:hover { background-color: #c1121f; color: white; }
+        .btn-home { background-color: #e63946; border: none; font-weight: bold; }
 
-        header { background: linear-gradient(135deg, #1d3557, #457b9d); color: white; text-align: center; padding: 2.5rem 1rem; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
-        header h1 { font-size: 2.2rem; margin-bottom: 0.5rem; }
-        header p { font-size: 1.1rem; opacity: 0.9; max-width: 700px; margin: 0 auto; }
-        .container { max-width: 900px; margin: 2rem auto; padding: 0 1rem; }
-        .card { background: white; padding: 2.5rem; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); margin-bottom: 1.5rem; }
-        .instrucoes { background-color: #edf2f4; border-left: 5px solid #457b9d; padding: 1rem; border-radius: 4px; margin-bottom: 2rem; font-size: 0.95rem; color: #1d3557; }
+        header { background: linear-gradient(135deg, #1d3557, #457b9d); color: white; text-align: center; padding: 2rem 1rem; }
+        header h1 { font-size: 1.8rem; margin-bottom: 0.5rem; }
+        .container { max-width: 1000px; margin: 1.5rem auto; padding: 0 1rem; }
         
-        .grade-testes { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; margin-top: 1.5rem; }
-        .item-teste { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.05); cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; border: 1px solid #e5e5e5; text-align: center; }
-        .item-teste:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.15); }
-        .item-teste img { width: 100%; height: auto; display: block; border-bottom: 1px solid #edf2f4; }
-        .item-teste h3 { padding: 1rem; color: #1d3557; font-size: 1.15rem; font-weight: bold; }
+        .grade-testes { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+        .item-teste { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.08); cursor: pointer; transition: transform 0.2s; border: 1px solid #e5e5e5; text-align: center; }
+        .item-teste:hover { transform: translateY(-5px); }
+        .item-teste img { width: 100%; height: auto; display: block; }
+        .item-teste h3 { padding: 1rem; color: #1d3557; font-size: 1rem; }
+
+        .card { background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); margin-bottom: 1.5rem; }
+        .instrucoes { background-color: #edf2f4; border-left: 5px solid #457b9d; padding: 1rem; margin-bottom: 2rem; font-size: 0.9rem; }
         
-        .pergunta { margin-bottom: 2rem; border-bottom: 1px solid #edf2f4; padding-bottom: 1.5rem; }
-        .pergunta p { font-size: 1.1rem; font-weight: 600; margin-bottom: 1.2rem; color: #1d3557; }
-        .opcoes { display: flex; flex-direction: column; gap: 0.6rem; }
-        .opcao { display: flex; align-items: center; background: #f8f9fa; padding: 0.9rem 1.2rem; border-radius: 8px; cursor: pointer; border: 1px solid #e5e5e5; }
-        .opcao input { margin-right: 12px; transform: scale(1.2); accent-color: #1d3557; }
-        .btn-enviar { background-color: #e63946; color: white; border: none; width: 100%; padding: 1.2rem; font-size: 1.2rem; font-weight: bold; border-radius: 8px; cursor: pointer; box-shadow: 0 4px 12px rgba(230, 57, 70, 0.3); }
-        .btn-enviar:hover { background-color: #c1121f; }
-        .score-box { padding: 1.5rem; text-align: center; font-size: 1.4rem; font-weight: bold; border-radius: 8px; margin-bottom: 1.5rem; }
-        .nota-profissional { background-color: #fff3cd; border: 1px solid #ffeba2; color: #664d03; padding: 1.2rem; border-radius: 8px; font-size: 0.95rem; text-align: center; margin-top: 1rem; margin-bottom: 2rem; line-height: 1.5; }
-        .box-download { background-color: #fff; border: 2px solid #1d3557; border-radius: 10px; padding: 2rem; margin-top: 1rem; text-align: center; }
-        .imagem-ebook { max-width: 260px; height: auto; border-radius: 8px; margin: 0 auto 1.5rem auto; display: block; box-shadow: 0 4px 8px rgba(0,0,0,0.15); }
-        .card-ebook { background-color: #f8f9fa; border-radius: 8px; padding: 1.2rem; margin-bottom: 1.5rem; border-left: 5px solid #e63946; text-align: left; }
-        .btn-download { background-color: #e63946; color: white; text-decoration: none; padding: 1.1rem 2.5rem; border-radius: 50px; font-weight: bold; font-size: 1.15rem; display: inline-block; box-shadow: 0 4px 12px rgba(230, 57, 70, 0.3); }
-        .btn-voltar { background-color: #6c757d; color: white; border: none; padding: 0.6rem 1.5rem; font-size: 0.9rem; font-weight: bold; border-radius: 4px; cursor: pointer; margin-top: 1.5rem; }
+        .pergunta { margin-bottom: 1.5rem; border-bottom: 1px solid #eee; padding-bottom: 1rem; }
+        .pergunta p { font-weight: 600; margin-bottom: 1rem; color: #1d3557; }
+        .opcao { display: flex; align-items: center; background: #f8f9fa; padding: 0.8rem; border-radius: 8px; cursor: pointer; border: 1px solid #ddd; margin-bottom: 5px; }
+        .opcao input { margin-right: 10px; }
+
+        .btn-enviar { background-color: #e63946; color: white; border: none; width: 100%; padding: 1rem; font-size: 1.1rem; font-weight: bold; border-radius: 8px; cursor: pointer; }
+        .score-box { padding: 1.5rem; text-align: center; font-size: 1.2rem; font-weight: bold; border-radius: 8px; margin-bottom: 1rem; }
+        .btn-download { background-color: #e63946; color: white; text-decoration: none; padding: 1rem 2rem; border-radius: 50px; font-weight: bold; display: inline-block; margin-top: 1rem; }
     </style>
 </head>
 <body>
 
     <nav class="menu-topo">
-        <button class="btn-menu btn-home" onclick="irParaPainel()">🏠 Início / Ver Todos</button>
-        <button class="btn-menu" onclick="abrirTeste('cobranca')">🧠 Autocobrança</button>
-        <button class="btn-menu" onclick="abrirTeste('sensibilidade')">🛡️ Sensibilidade</button>
-        <button class="btn-menu" onclick="abrirTeste('procrastinacao')">⏳ Procrastinação</button>
+        <button class="btn-menu btn-home" onclick="irParaPainel()">🏠 Início</button>
+        <button class="btn-menu" onclick="abrirTeste('cobranca')">🧠 Cobrança</button>
+        <button class="btn-menu" onclick="abrirTeste('sensibilidade')">🛡️ Filtro</button>
+        <button class="btn-menu" onclick="abrirTeste('procrastinacao')">⏳ Foco</button>
+        <button class="btn-menu" onclick="abrirTeste('digital')">📱 Digital</button>
+        <button class="btn-menu" onclick="abrirTeste('esgotamento')">🔥 Estafa</button>
+        <button class="btn-menu" onclick="abrirTeste('lar')">🏠 Família</button>
     </nav>
 
     <header>
-        <h1>Painel de Autoavaliação Emocional</h1>
-        <p>Faça o teste totalmente gratuito clicando diretamente na imagem para iniciar a sua análise preliminar.</p>
+        <h1>Painel de Avaliação Gratuita</h1>
+        <p>Faça o teste totalmente gratuito clicando diretamente na imagem para iniciar a sua análise.</p>
     </header>
 
     <div class="container">
-        
         <div id="tela-painel" style="display: block;">
             <p style="text-align: center; font-weight: bold; color: #1d3557; margin-bottom: 1rem; font-size: 1.2rem;">💝 Avaliações Online — Faça o teste totalmente gratuito abaixo:</p>
             
             <div class="grade-testes">
                 <div class="item-teste" onclick="abrirTeste('cobranca')">
-                    <img src="capa4.png" alt="Teste do Crítico Interno">
-                    <h3>1. Teste do Crítico Interno (Autocobrança)</h3>
+                    <img src="capa1.png"><h3>1. Teste de Autocobrança</h3>
                 </div>
                 <div class="item-teste" onclick="abrirTeste('sensibilidade')">
-                    <img src="capa5.png" alt="Teste de Sensibilidade Emocional">
-                    <h3>2. Teste de Sensibilidade Emocional</h3>
+                    <img src="capa2.png"><h3>2. Sensibilidade Emocional</h3>
                 </div>
                 <div class="item-teste" onclick="abrirTeste('procrastinacao')">
-                    <img src="capa6.png" alt="Teste da Mente Paralisada (Procrastinação)">
-                    <h3>3. Teste da Mente Paralisada</h3>
+                    <img src="capa3.png"><h3>3. Teste de Procrastinação</h3>
+                </div>
+                <div class="item-teste" onclick="abrirTeste('digital')">
+                    <img src="capa4.png"><h3>4. Dependência Digital</h3>
+                </div>
+                <div class="item-teste" onclick="abrirTeste('esgotamento')">
+                    <img src="capa5.png"><h3>5. Esgotamento Mental</h3>
+                </div>
+                <div class="item-teste" onclick="abrirTeste('lar')">
+                    <img src="capa6.png"><h3>6. Estresse Familiar</h3>
                 </div>
             </div>
         </div>
 
-        <form id="form-cobranca" class="card" style="display: none;" onsubmit="calcularCobranca(event)">
-            <div class="instrucoes"><strong>Teste do Crítico Interno:</strong> Faça o teste totalmente gratuito e descubra se você está se cobrando além da conta.</div>
-            <div class="pergunta">
-                <p>1. Quando comete um pequeno erro na sua rotina, você passa horas ou dias se culpando e repassando a cena na mente?</p>
-                <div class="opcoes">
-                    <label class="opcao"><input type="radio" name="cob1" value="0" required> Não, aceito o erro e sigo em frente</label>
-                    <label class="opcao"><input type="radio" name="cob1" value="1"> Fico chateado(a) por um tempo curto</label>
-                    <label class="opcao"><input type="radio" name="cob1" value="2"> Sim, me puno mentalmente e sofro muito</label>
-                </div>
-            </div>
-            <div class="pergunta">
-                <p>2. Você sente que mesmo fazendo muitas coisas certas no dia, foca apenas naquilo que ficou faltando?</p>
-                <div class="opcoes">
-                    <label class="opcao"><input type="radio" name="cob2" value="0" required> Consigo valorizar minhas vitórias</label>
-                    <label class="opcao"><input type="radio" name="cob2" value="1"> Às vezes me cobro pelo que faltou</label>
-                    <label class="opcao"><input type="radio" name="cob2" value="2"> Sim, sinto que nunca faço o suficiente</label>
-                </div>
-            </div>
-            <div class="pergunta">
-                <p>3. A sua busca por fazer tudo perfeito faz com que você demore muito para entregar tarefas simples?</p>
-                <div class="opcoes">
-                    <label class="opcao"><input type="radio" name="cob3" value="0" required> Não, entrego com facilidade</label>
-                    <label class="opcao"><input type="radio" name="cob3" value="1"> Ocasionalmente reviso mais do que o necessário</label>
-                    <label class="opcao"><input type="radio" name="cob3" value="2"> Sim, reviso mil vezes com medo de falhar</label>
-                </div>
-            </div>
-            <div class="pergunta">
-                <p>4. Sente dificuldade para aceitar elogios sinceros, achando que as pessoas estão apenas sendo gentis?</p>
-                <div class="opcoes">
-                    <label class="opcao"><input type="radio" name="cob4" value="0" required> Recebo e agradeço bem</label>
-                    <label class="opcao"><input type="radio" name="cob4" value="1"> Às vezes fico um pouco sem jeito</label>
-                    <label class="opcao"><input type="radio" name="cob4" value="2"> Sim, sempre acho que não mereço tanto</label>
-                </div>
-            </div>
-            <div class="pergunta">
-                <p>5. O medo de decepcionar os outros faz com que você assuma mais responsabilidades do que seu corpo aguenta?</p>
-                <div class="opcoes">
-                    <label class="opcao"><input type="radio" name="cob5" value="0" required> Sei impor limites saudáveis</label>
-                    <label class="opcao"><input type="radio" name="cob5" value="1"> Às vezes me sobrecarrego para agradar</label>
-                    <label class="opcao"><input type="radio" name="cob5" value="2"> Sim, digo 'sim' para tudo com medo de falhar</label>
-                </div>
-            </div>
-            <button type="submit" class="btn-enviar">Concluir Avaliação de Autocobrança</button>
+        <form id="form-generico" class="card" style="display: none;" onsubmit="finalizarTeste(event)">
+            <div class="instrucoes" id="instr-titulo"></div>
+            <div id="perguntas-container"></div>
+            <button type="submit" class="btn-enviar">Ver Meu Resultado Gratuito</button>
         </form>
 
-        <form id="form-sensibilidade" class="card" style="display: none;" onsubmit="calcularSensibilidade(event)">
-            <div class="instrucoes"><strong>Teste de Sensibilidade Emocional:</strong> Faça o teste totalmente gratuito e descubra se você absorve o estresse do ambiente externo.</div>
-            <div class="pergunta">
-                <p>1. Quando convive com alguém estressado ou de mau humor, você repara que o seu dia azeda na mesma hora?</p>
-                <div class="opcoes">
-                    <label class="opcao"><input type="radio" name="sen1" value="0" required> Consigo manter minha energia intacta</label>
-                    <label class="opcao"><input type="radio" name="sen1" value="1"> Me sinto desconfortável, mas logo passa</label>
-                    <label class="opcao"><input type="radio" name="sen1" value="2"> Sim, absorvo e fico mal igual à pessoa</label>
-                </div>
-            </div>
-            <div class="pergunta">
-                <p>2. Você costuma perder o sono pensando em problemas ou brigas que não são suas, mas de amigos ou parentes?</p>
-                <div class="opcoes">
-                    <label class="opcao"><input type="radio" name="sen2" value="0" required> Não, sei separar o que é meu do outro</label>
-                    <label class="opcao"><input type="radio" name="sen2" value="1"> Às vezes me preocupo de forma moderada</label>
-                    <label class="opcao"><input type="radio" name="sen2" value="2"> Sim, trago o sofrimento dos outros para a minha cama</label>
-                </div>
-            </div>
-            <div class="pergunta">
-                <p>3. Ambientes barulhentos, muito cheios ou com muitas cobranças visuais te deixam esgotado rapidamente?</p>
-                <div class="opcoes">
-                    <label class="opcao"><input type="radio" name="sen3" value="0" required> Lido bem com agitações externas</label>
-                    <label class="opcao"><input type="radio" name="sen3" value="1"> Sinto um incômodo leve após muito tempo</label>
-                    <label class="opcao"><input type="radio" name="sen3" value="2"> Sim, sinto uma exaustão física imediata nesses lugares</label>
-                </div>
-            </div>
-            <div class="pergunta">
-                <p>4. Você evita dar a sua opinião sincera em conversas com medo de criar conflitos ou ser julgado?</p>
-                <div class="opcoes">
-                    <label class="opcao"><input type="radio" name="sen4" value="0" required> Falo o que penso com tranquilidade</label>
-                    <label class="opcao"><input type="radio" name="sen4" value="1"> Às vezes guardo para mim para evitar atrito</label>
-                    <label class="opcao"><input type="radio" name="sen4" value="2"> Sim, prefiro me anular para não sofrer rejeição</label>
-                </div>
-            </div>
-            <div class="pergunta">
-                <p>5. Sente que o seu corpo reage fortemente às notícias ruins da TV ou internet, gerando angústia real?</p>
-                <div class="opcoes">
-                    <label class="opcao"><input type="radio" name="sen5" value="0" required> Vejo as notícias de forma neutra</label>
-                    <label class="opcao"><input type="radio" name="sen5" value="1"> Fico triste, mas sigo o dia normalmente</label>
-                    <label class="opcao"><input type="radio" name="sen5" value="2"> Sim, sinto um aperto no peito e mal-estar físico</label>
-                </div>
-            </div>
-            <button type="submit" class="btn-enviar">Concluir Avaliação de Sensibilidade</button>
-        </form>
-
-        <form id="form-procrastinacao" class="card" style="display: none;" onsubmit="calcularProcrastinacao(event)">
-            <div class="instrucoes"><strong>Teste da Mente Paralisada:</strong> Faça o teste totalmente gratuito e avalie o nível de adiamento das suas tarefas fundamentais.</div>
-            <div class="pergunta">
-                <p>1. Quando surge uma tarefa importante e complexa, você costuma inventar outras pequenas distrações para não começar?</p>
-                <div class="opcoes">
-                    <label class="opcao"><input type="radio" name="pro1" value="0" required> Enfrento a tarefa e começo logo</label>
-                    <label class="opcao"><input type="radio" name="pro1" value="1"> Enrolo um pouco, mas acabo pegando no tranco</label>
-                    <label class="opcao"><input type="radio" name="pro1" value="2"> Sim, arrumo a casa, vejo o celular, faço tudo menos ela</label>
-                </div>
-            </div>
-            <div class="pergunta">
-                <p>2. Você vive com a sensação de culpa e cansaço por saber que tem coisas acumuladas para fazer?</p>
-                <div class="opcoes">
-                    <label class="opcao"><input type="radio" name="pro2" value="0" required> Não, mantenho minhas obrigações em dia</label>
-                    <label class="opcao"><input type="radio" name="pro2" value="1"> Sinto esse peso apenas em semanas cheias</label>
-                    <label class="opcao"><input type="radio" name="pro2" value="2"> Sim, a sensação de pendência me esgota diariamente</label>
-                </div>
-            </div>
-            <div class="pergunta">
-                <p>3. A maioria das suas decisões ou projetos importantes só saem do papel quando o prazo está estourando?</p>
-                <div class="opcoes">
-                    <label class="opcao"><input type="radio" name="pro3" value="0" required> Me organizo e entrego com antecedência</label>
-                    <label class="opcao"><input type="radio" name="pro3" value="1"> Às vezes deixo para a última semana</label>
-                    <label class="opcao"><input type="radio" name="pro3" value="2"> Sim, só funciono sob pressão extrema e desespero</label>
-                </div>
-            </div>
-            <div class="pergunta">
-                <p>4. Você desiste de começar um plano novo (exercícios, cursos, projetos) porque acha que vai dar muito trabalho?</p>
-                <div class="opcoes">
-                    <label class="opcao"><input type="radio" name="pro4" value="0" required> Começo e mantenho a constância</label>
-                    <label class="opcao"><input type="radio" name="pro4" value="1"> Demoro a engrenar, mas insisto um pouco</label>
-                    <label class="opcao"><input type="radio" name="pro4" value="2"> Sim, paraliso na hora do planejamento e desisto</label>
-                </div>
-            </div>
-            <div class="pergunta">
-                <p>5. O hábito de adiar tarefas já gerou prejuízos reais na sua carreira profissional ou nas finanças?</p>
-                <div class="opcoes">
-                    <label class="opcao"><input type="radio" name="pro5" value="0" required> Nunca tive prejuízos por atraso</label>
-                    <label class="opcao"><input type="radio" name="pro5" value="1"> Tive pequenos problemas contornáveis</label>
-                    <label class="opcao"><input type="radio" name="pro5" value="2"> Sim, perdi prazos, oportunidades ou dinheiro por adiar</label>
-                </div>
-            </div>
-            <button type="submit" class="btn-enviar">Concluir Avaliação de Procrastinação</button>
-        </form>
-
-        <div id="resultado" class="card" style="display: none;">
-            <h2 class="resultado-titulo">Resultado da Análise Preliminar</h2>
-            <div class="score-box" id="scoreTexto">Pontuação Total: 0</div>
-            <p id="feedbackTexto" style="margin-bottom: 1.5rem; text-align: center; color: #4a5568; font-size: 1.05rem; font-weight: 500;"></p>
-
-            <div class="nota-profissional">
-                <strong>Nota Importante de Saúde Emocional:</strong> Esta triagem é uma análise estatística preliminar com objetivos puramente informativos e educativos. Ela <u>não substitui</u>, sob nenhuma hipótese, o parecer ou diagnóstico clínico de <strong>psicólogos, psiquiatras, terapeutas</strong> ou outros profissionais de saúde mental especializados.
-            </div>
-
-            <div class="box-download">
-                <h3>🎁 Reconquiste a Leveza e a Blindagem Emocional</h3>
-                <p>Aprenda estratégias baseadas em inteligência emocional e no controle comportamental para desarmar o seu crítico interno, parar de absorver o estresse dos outros e destravar de vez a sua produtividade.</p>
-                
-                <div class="card-ebook">
-                    <p style="margin: 0; font-weight: bold; color: #1d3557;">📚 Mente Blindada, Vida Leve</p>
-                    <p style="margin: 5px 0 0 0; font-size: 0.9rem; color: #555;">Uma leitura super rápida, simples e direta, desenvolvida sob medida para você ler direto no seu celular. Descubra ferramentas criadas para remover todo o esgotamento do seu organismo, acalmar as cobranças internas e devolver a leveza ao seu cotidiano.</p>
-                </div>
-
-                <a href="https://go.hotmart.com/L106186655F" target="_blank" class="btn-download">
-                    Clique aqui e baixe o Ebook Mente Blindada
-                </a>
-            </div>
-            <center><button class="btn-voltar" onclick="irParaPainel()">⬅ Voltar ao Menu de Testes</button></center>
+        <div id="resultado" class="card" style="display: none; text-align: center;">
+            <div class="score-box" id="scoreTexto"></div>
+            <p id="feedbackTexto"></p>
+            <hr style="margin: 20px 0;">
+            <h3>🎁 Recomendação Terapêutica:</h3>
+            <p>Baixe agora o guia prático para blindar sua mente contra esses fatores.</p>
+            <a href="https://go.hotmart.com/L106186655F" target="_blank" class="btn-download">Baixar E-book Mente Blindada</a>
+            <br><button onclick="irParaPainel()" style="margin-top: 15px; cursor: pointer; background: #6c757d; color: white; border: none; padding: 5px 15px; border-radius: 4px;">⬅ Voltar aos Testes</button>
         </div>
-
     </div>
 
     <script>
+        const bases = {
+            cobranca: { t: "Autocobrança", p: ["Sente culpa ao errar?", "Acha que nunca faz o suficiente?", "Revisa tarefas mil vezes?", "Tem dificuldade com elogios?", "Diz 'sim' para não decepcionar?"] },
+            sensibilidade: { t: "Sensibilidade", p: ["Absorve o humor dos outros?", "Perde o sono por brigas alheias?", "Ambientes cheios te esgotam?", "Evita conflitos a todo custo?", "Notícias ruins te causam mal-estar físico?"] },
+            procrastinacao: { t: "Procrastinação", p: ["Inventa distrações para não começar?", "Sente culpa por pendências?", "Só funciona sob pressão extrema?", "Desiste de planos no início?", "Teve prejuízos por atrasos?"] },
+            digital: { t: "Dependência Digital", p: ["Usa o celular assim que acorda?", "Sente ansiedade sem notificações?", "Perde a noção do tempo em redes sociais?", "Leva o celular para a mesa de jantar?", "Usa o brilho da tela até antes de dormir?"] },
+            esgotamento: { t: "Esgotamento Mental", p: ["Acorda cansado(a) mesmo dormindo?", "Esquece coisas simples com frequência?", "Qualquer problema parece uma montanha?", "Sente irritação com barulhos?", "Deseja se isolar de todos?"] },
+            lar: { t: "Estresse Familiar", p: ["Descarrega o estresse do trabalho em casa?", "Discute por motivos bobos no lar?", "Sente que ninguém te entende na família?", "Evita chegar em casa para não lidar com brigas?", "Tem pouca paciência com filhos/parceiro?"] }
+        };
+
         function abrirTeste(tipo) {
+            const container = document.getElementById('perguntas-container');
+            container.innerHTML = "";
+            document.getElementById('instr-titulo').innerText = "Faça o teste totalmente gratuito de " + bases[tipo].t;
+            bases[tipo].p.forEach((pergunta, i) => {
+                container.innerHTML += `<div class="pergunta"><p>${i+1}. ${pergunta}</p>
+                    <label class="opcao"><input type="radio" name="q" value="2" required> Sim, frequentemente</label>
+                    <label class="opcao"><input type="radio" name="q" value="1"> Às vezes</label>
+                    <label class="opcao"><input type="radio" name="q" value="0"> Raramente/Não</label></div>`;
+            });
             document.getElementById('tela-painel').style.display = 'none';
-            document.getElementById('form-cobranca').style.display = 'none';
-            document.getElementById('form-sensibilidade').style.display = 'none';
-            document.getElementById('form-procrastinacao').style.display = 'none';
-            document.getElementById('resultado').style.display = 'none';
-            
-            if(tipo === 'cobranca') document.getElementById('form-cobranca').style.display = 'block';
-            if(tipo === 'sensibilidade') document.getElementById('form-sensibilidade').style.display = 'block';
-            if(tipo === 'procrastinacao') document.getElementById('form-procrastinacao').style.display = 'block';
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            document.getElementById('form-generico').style.display = 'block';
+            window.scrollTo(0,0);
+        }
+
+        function finalizarTeste(e) {
+            e.preventDefault();
+            let total = 0;
+            document.querySelectorAll('input[name="q"]:checked').forEach(el => total += parseInt(el.value));
+            document.getElementById('form-generico').style.display = 'none';
+            document.getElementById('resultado').style.display = 'block';
+            const score = document.getElementById('scoreTexto');
+            score.innerText = "Nível de Risco: " + (total > 6 ? "Elevado" : (total > 3 ? "Moderado" : "Baixo"));
+            score.style.backgroundColor = total > 6 ? "#f8d7da" : "#d8f3dc";
+            document.getElementById('feedbackTexto').innerText = total > 6 ? "Sua mente está em alerta máximo. A sobrecarga está afetando sua saúde." : "Sua situação requer atenção, mas ainda é controlável com as ferramentas certas.";
         }
 
         function irParaPainel() {
             document.getElementById('resultado').style.display = 'none';
-            document.getElementById('form-cobranca').style.display = 'none';
-            document.getElementById('form-sensibilidade').style.display = 'none';
-            document.getElementById('form-procrastinacao').style.display = 'none';
-            document.getElementById('form-cobranca').reset();
-            document.getElementById('form-sensibilidade').reset();
-            document.getElementById('form-procrastinacao').reset();
+            document.getElementById('form-generico').style.display = 'none';
             document.getElementById('tela-painel').style.display = 'block';
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        function calcularCobranca(e) {
-            e.preventDefault();
-            let total = 0;
-            for (let i = 1; i <= 5; i++) { total += parseInt(document.querySelector('input[name="cob' + i + '"]:checked').value); }
-            exibirResultado(total, 10, "Autocobrança e Crítico Interno");
-        }
-
-        function calcularSensibilidade(e) {
-            e.preventDefault();
-            let total = 0;
-            for (let i = 1; i <= 5; i++) { total += parseInt(document.querySelector('input[name="sen' + i + '"]:checked').value); }
-            exibirResultado(total, 10, "Sensibilidade Emocional");
-        }
-
-        function calcularProcrastinacao(e) {
-            e.preventDefault();
-            let total = 0;
-            for (let i = 1; i <= 5; i++) { total += parseInt(document.querySelector('input[name="pro' + i + '"]:checked').value); }
-            exibirResultado(total, 10, "Mente Paralisada e Procrastinação");
-        }
-
-        function exibirResultado(total, maximo, tipo) {
-            document.getElementById('form-cobranca').style.display = 'none';
-            document.getElementById('form-sensibilidade').style.display = 'none';
-            document.getElementById('form-procrastinacao').style.display = 'none';
-            document.getElementById('resultado').style.display = 'block';
-            
-            const scoreTexto = document.getElementById('scoreTexto');
-            const feedbackTexto = document.getElementById('feedbackTexto');
-            scoreTexto.innerText = "Pontuação em " + tipo + ": " + total + " de " + maximo;
-            
-            let metade = maximo / 2;
-            if (total <= (metade - 1)) {
-                scoreTexto.style.backgroundColor = "#d8f3dc"; scoreTexto.style.color = "#1b4332"; scoreTexto.style.border = "2px solid #52b788";
-                feedbackTexto.innerText = "Nível Baixo / Estável: Parabéns! Seus indicadores mostram que você consegue filtrar os estresses desse tema e manter uma relação saudável consigo mesmo. Para continuar blindado, a leitura preventiva do nosso e-book é recomendada.";
-            } else if (total <= metade + 2) {
-                scoreTexto.style.backgroundColor = "#fefae0"; scoreTexto.style.color = "#606c38"; scoreTexto.style.border = "2px solid #dda15e";
-                feedbackTexto.innerText = "Nível Moderado / Alerta: Sua mente está começando a dar sinais claros de estafa e sobrecarga emocional. Atitudes do cotidiano estão minando suas energias. Recomenda-se adotar o nosso guia prático de desaceleração emocional para evitar o esgotamento completo.";
-            } else {
-                scoreTexto.style.backgroundColor = "#f8d7da"; scoreTexto.style.color = "#842029"; scoreTexto.style.border = "2px solid #f5c2c7";
-                feedbackTexto.innerText = "Nível Crítico / Sobrecarga Elevada: Alerta vermelho! Os seus índices de desgaste, cobrança e travamento mental estão operando no limite. Isso consome sua felicidade diária. É fundamental buscar ferramentas estruturadas para restaurar sua saúde emocional o quanto antes.";
-            }
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            window.scrollTo(0,0);
         }
     </script>
 </body>
