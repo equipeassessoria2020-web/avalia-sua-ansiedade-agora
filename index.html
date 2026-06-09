@@ -133,9 +133,9 @@
  
     <script>
         const bases = {
-            cobranca: { i: 1, t: "Crítico Interno e Autocrítica", group: 1, p: ["Quando comete um pequeno erro na sua rotina, você passa horas ou dias se culpando?", "Você sente que mesmo fazendo muitas coisas certas, foca apenas naquilo que ficou faltando?", "A sua busca por perfeição faz com que você demore muito para entregar tarefas simples?", "Sente dificuldade para aceitar elogios sinceros, achando que as pessoas só querem ser gentis?", "O medo de decepcionar os outros faz com que você assuma mais responsabilidades do que aguenta?", "Você se compara constantemente com o sucesso ou a vida de outras pessoas nas redes sociais?", "Sente uma necessidade crônica de aprovação externa para validar o seu valor pessoal?"] },
+            cobranca: { i: 1, t: "Crítico Interno e Autocrítica", group: 1, p: ["Quando comete um pequeno erro na sua rotina, você passa horas ou dias se culpando?", "Você sente que mesmo fazendo muitas coisas certas, foca apenas naquilo que ficou faltando?", "A sua busca por perfeição faz com que você demore muito para entregar tarefas simples?", "Sente dificuldade para aceitar elogios sinceros, achando que as pessoas só querem ser gentis?", "O medo de decepionar os outros faz com que você assuma mais responsabilidades do que aguenta?", "Você se compara constantemente com o sucesso ou a vida de outras pessoas nas redes sociais?", "Sente uma necessidade crônica de aprovação externa para validar o seu valor pessoal?"] },
             sensibilidade: { i: 2, t: "Sensibilidade Emocional", group: 1, p: ["Quando convive com alguém estressado, repara que o seu humor azeda na mesma hora?", "Você costuma perder o sono pensando em problemas ou brigas que pertencem a terceiros?", "Ambientes barulhentos, muito cheios ou com excesso de estímulos te esgotam rapidamente?", "Você evita dar a sua opinião sincera em conversas cotidianas com medo de criar conflitos?", "Sente que o seu corpo reage fortemente às notícias ruins do dia a dia, gerando angústia real?", "Fica pensando no que os outros vão achar das suas escolhas ou roupas antes de sair de casa?", "Sente que carrega o peso e as dores do mundo nas suas costas, sofrendo pelos outros?"] },
-            procrastinacao: { i: 3, t: "Mente Paralisada e Procrastinação", group: 1, p: ["Quando surge uma tarefa importante e complexa, você inventa distrações fáceis para adiar?", "Você vive com a sensação constante de culpa por saber que tem obrigações acumuladas?", "A maioria das suas decisões importantes só saem do papel quando o prazo está estourando?", "Você desiste de começar um plano novo porque imagina o trabalho que vai dar?", "O hábito de adiar tarefas cruciais já gerou prejuízos reais na sua carreira ou finanças?", "Você se perde checando o celular quando deveria estar focado em uma obrigação séria?", "Sente uma paralisia mental que te impede de dar o primeiro passo, mesmo querendo mudar?"] },
+            procrastinacao: { i: 3, t: "Mente Paralisada e Procrastinação", group: 1, p: ["Quando surge uma tarefa importante e complexa, você inventa distrações fáceis para adiar?", "Você vive com a sensação constante de culpa por saber que tem obrigações acumuladas?", "A maioria das suas decisões importantes só saem do papel quando o prazo está estourando?", "Você deseste de começar um plano novo porque imagina o trabalho que vai dar?", "O hábito de adiar tarefas cruciais já gerou prejuízos reais na sua carreira ou finanças?", "Você se perde checando o celular quando deveria estar focado em uma obrigação séria?", "Sente uma paralisia mental que te impede de dar o primeiro passo, mesmo querendo mudar?"] },
             digital: { i: 4, t: "Sobrecarga de Estímulos e Foco", group: 2, p: ["A primeira coisa que faz ao abrir os olhos de manhã é buscar estímulos no celular?", "Sente ansiedade ou tédio desconfortável quando se desconecta do fluxo de informações?", "Você perde frequentemente a noção do tempo navegando sem rumo fixo por conteúdos e feeds?", "Leva o aparelho e se perde em notificações durante as refeições ou com familiares?", "Consome informações e estímulos visuais na cama, sacrificando horas de sono?", "Sente que sua capacidade de ler um livro ou focar em textos longos instruídos diminuiu?", "Interrompe conversas presença com pessoas para checar o aparelho a cada sinal?"] },
             esgotamento: { i: 5, t: "Esgotamento Mental e Estafa", group: 2, p: ["Você acorda cansado e sem energia física, mesmo tendo dormido o suficiente?", "Esquece compromissos, objetos ou nomes simples com uma frequência anormal?", "Qualquer pequeno contratempo do cotidiano parece uma montanha intransponível?", "Sente uma forte irritação ou impaciência com barulhos de fundo ou interrupções?", "Tem uma vontade crônica de se isolar de tudo e de todos para conseguir descansar?", "Sente dores físicas constantes provocadas por tensionamento muscular e estresse?", "O trabalho ou obrigações que antes te davam prazer hoje geram apenas exaustão?"] },
             lar: { i: 6, t: "Estresse Familiar e Termômetro do Lar", group: 2, p: ["Você costuma descarregar o estresse acumulado fora em cima de quem convive com você?", "Discute ou perde a paciência por motivos bobos dentro do ambiente doméstico?", "Sente que não é compreendido, ouvido ou valorizado pelas pessoas do seu lar?", "Evita voltar para casa ou inventa tarefas extras para postergar o contato familiar?", "A paciência com seus familiares ou parceiro está operando no limite da tolerância?", "O clima dentro da sua casa costuma parecer tenso ou recheado de cobranças?", "Sente que desentendimentos familiares estão minando sua estabilidade profissional?"] },
@@ -221,23 +221,4 @@
                 eLink.href = "https://go.hotmart.com/M106194670K"; 
             } else if(bases[testeAtual].group === 4) {
                 // NOVO E-BOOK INTEGRADO COM A SUA CAPA TRIPLA E SEU LINK DA HOTMART
-                eCapa.src = "http://googleusercontent.com/image_generation_content/49.png";
-                eCapa.style.display = "block";
-                eTitulo.innerText = "📚 Manual Digital: Mente Leve, Passos Firmes";
-                eSub.innerText = "O Manual de Soluções Práticas para Hiper-Responsabilidade, Bloqueios Emocionais e Resgate da Energia Vital";
-                eDesc.innerText = "Aprenda a eliminar o excesso de controle que sabota a sua rotina, reprogramar as travas comportamentais geradas por cicatrizes passadas e combater o desânimo crônico devolvendo energia vital e dopamina aos seus dias. Toque no botão abaixo para baixar o manual completo.";
-                eLink.href = "https://go.hotmart.com/E106237415W"; 
-            }
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
- 
-        function irParaPainel() {
-            document.getElementById('resultado').style.display = 'none';
-            document.getElementById('form-generico').style.display = 'none';
-            document.getElementById('form-generico').reset();
-            document.getElementById('tela-painel').style.display = 'block';
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-    </script>
-</body>
-</html>
+                eCapa.src = "http://googleusercontent
