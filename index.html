@@ -46,6 +46,8 @@
         .btn-download { background-color: #2a9d8f; color: white; text-decoration: none; padding: 1.3rem 3rem; border-radius: 50px; font-weight: bold; font-size: 1.3rem; display: inline-block; box-shadow: 0 6px 20px rgba(42, 157, 143, 0.4); transition: transform 0.2s, background-color 0.2s; text-transform: uppercase; letter-spacing: 0.5px; }
         .btn-download:hover { background-color: #21867a; transform: scale(1.03); }
         .setas-inducao { font-size: 1.8rem; color: #e63946; margin-bottom: 0.5rem; animation: bounce 1s infinite; }
+        
+        .img-dinamica-ebook { max-width: 100%; height: auto; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); display: none; }
  
         @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
         .btn-voltar-grade { background: #6c757d; color: white; border: none; padding: 8px 20px; border-radius: 4px; cursor: pointer; margin-top: 2rem; font-weight: 600; }
@@ -65,6 +67,9 @@
             <button class="btn-menu" onclick="abrirTeste('impostor')">👤 Autoconfiança</button>
             <button class="btn-menu" onclick="abrirTeste('futuro')">🔮 Mente Calma</button>
             <button class="btn-menu" onclick="abrirTeste('aprovacao')">🤝 Independência</button>
+            <button class="btn-menu" onclick="abrirTeste('responsabilidade')">💼 Peso Invisível</button>
+            <button class="btn-menu" onclick="abrirTeste('cicatrizes')">🩹 Bloqueios</button>
+            <button class="btn-menu" onclick="abrirTeste('desanimo')">⚡ Energia Vital</button>
         </nav>
  
         <header>
@@ -76,33 +81,18 @@
             <p style="text-align: center; font-weight: bold; color: #1d3557; margin-bottom: 1.5rem; font-size: 1.2rem;">💝 Avaliações Online — Escolha um tema abaixo:</p>
              
             <div class="grade-testes">
-                <div class="item-teste" onclick="abrirTeste('cobranca')">
-                    <img src="capa1.png"><h3>1. Teste do Crítico Interno</h3>
-                </div>
-                <div class="item-teste" onclick="abrirTeste('sensibilidade')">
-                    <img src="capa2.png"><h3>2. Sensibilidade Emocional</h3>
-                </div>
-                <div class="item-teste" onclick="abrirTeste('procrastinacao')">
-                    <img src="capa3.png"><h3>3. Teste de Procrastinação</h3>
-                </div>
-                <div class="item-teste" onclick="abrirTeste('digital')">
-                    <img src="capa4.png"><h3>4. Sobrecarga de Estímulos</h3>
-                </div>
-                <div class="item-teste" onclick="abrirTeste('esgotamento')">
-                    <img src="capa5.png"><h3>5. Esgotamento Mental</h3>
-                </div>
-                <div class="item-teste" onclick="abrirTeste('lar')">
-                    <img src="capa6.png"><h3>6. Estresse Familiar</h3>
-                </div>
-                <div class="item-teste" onclick="abrirTeste('impostor')">
-                    <img src="capa7.png"><h3>7. Síndrome do Impostor</h3>
-                </div>
-                <div class="item-teste" onclick="abrirTeste('futuro')">
-                    <img src="capa8.png"><h3>8. Ansiedade do Futuro</h3>
-                </div>
-                <div class="item-teste" onclick="abrirTeste('aprovacao')">
-                    <img src="capa9.png"><h3>9. Dependência de Aprovação</h3>
-                </div>
+                <div class="item-teste" onclick="abrirTeste('cobranca')"><img src="capa1.png"><h3>1. Teste do Crítico Interno</h3></div>
+                <div class="item-teste" onclick="abrirTeste('sensibilidade')"><img src="capa2.png"><h3>2. Sensibilidade Emocional</h3></div>
+                <div class="item-teste" onclick="abrirTeste('procrastinacao')"><img src="capa3.png"><h3>3. Teste de Procrastinação</h3></div>
+                <div class="item-teste" onclick="abrirTeste('digital')"><img src="capa4.png"><h3>4. Sobrecarga de Estímulos</h3></div>
+                <div class="item-teste" onclick="abrirTeste('esgotamento')"><img src="capa5.png"><h3>5. Esgotamento Mental</h3></div>
+                <div class="item-teste" onclick="abrirTeste('lar')"><img src="capa6.png"><h3>6. Estresse Familiar</h3></div>
+                <div class="item-teste" onclick="abrirTeste('impostor')"><img src="capa7.png"><h3>7. Síndrome do Impostor</h3></div>
+                <div class="item-teste" onclick="abrirTeste('futuro')"><img src="capa8.png"><h3>8. Ansiedade do Futuro</h3></div>
+                <div class="item-teste" onclick="abrirTeste('aprovacao')"><img src="capa9.png"><h3>9. Dependência de Aprovação</h3></div>
+                <div class="item-teste" onclick="abrirTeste('responsabilidade')"><img src="capa10.png"><h3>10. Peso Invisível e Hiper-Responsabilidade</h3></div>
+                <div class="item-teste" onclick="abrirTeste('cicatrizes')"><img src="capa11.png"><h3>11. Cicatrizes Emocionais e Bloqueios</h3></div>
+                <div class="item-teste" onclick="abrirTeste('desanimo')"><img src="capa12.png"><h3>12. Desânimo Crônico e Falta de Energia</h3></div>
             </div>
         </div>
  
@@ -125,6 +115,8 @@
                 <div class="badge-urgente">Ação Recomendada Imediata</div>
                 <h3 id="ebook-titulo"></h3>
                 <p class="chamada-sub">O próximo passo essencial para desarmar suas travas e recuperar o controle emocional</p>
+                
+                <center><img id="capa-ebook-dinamica" src="" class="img-dinamica-ebook"></center>
                  
                 <div class="card-ebook">
                     <p style="margin: 0; font-weight: bold; color: #1d3557;" id="ebook-sub-header"></p>
@@ -132,9 +124,7 @@
                 </div>
  
                 <div class="setas-inducao">👇 CLIQUE NO BOTÃO ABAIXO PARA ACESSAR O CONTEÚDO 👇</div>
-                <a href="#" id="linkHotmartDinamic" target="_blank" class="btn-download">
-                    Quero Evoluir Minha Vida Agora
-                </a>
+                <a href="#" id="linkHotmartDinamic" target="_blank" class="btn-download">Quero Evoluir Minha Vida Agora</a>
             </div>
              
             <center><button class="btn-voltar-grade" onclick="irParaPainel()">⬅ Voltar ao Painel Principal</button></center>
@@ -143,42 +133,18 @@
  
     <script>
         const bases = {
-            cobranca: { 
-                t: "Crítico Interno e Autocrítica", group: 1,
-                p: ["Quando comete um pequeno erro na sua rotina, você passa hours ou dias se culpando?", "Você sente que mesmo fazendo muitas coisas certas, foca apenas naquilo que ficou faltando?", "A sua busca por perfeição faz com que você demore muito para entregar tarefas simples?", "Sente dificuldade para aceitar elogios sinceros, achando que as pessoas só querem ser gentis?", "O medo de decepcionar os outros faz com que você assuma mais responsabilidades do que aguenta?", "Você se compara constantemente com o sucesso ou a vida de outras pessoas nas redes sociais?", "Sente uma necessidade crônica de aprovação externa para validar o seu valor pessoal?"] 
-            },
-            sensibilidade: { 
-                t: "Sensibilidade Emocional", group: 1,
-                p: ["Quando convive com alguém estressado, repara que o seu humor azeda na mesma hora?", "Você costuma perder o sono pensando em problemas ou brigas que pertencem a terceiros?", "Ambientes barulhentos, muito cheios ou com excesso de estímulos te esgotam rapidamente?", "Você evita dar a sua opinião sincera em conversas cotidianas com medo de criar conflitos?", "Sente que o seu corpo reage fortemente às notícias ruins do dia a dia, gerando angústia real?", "Fica pensando no que os outros vão achar das suas escolhas ou roupas antes de sair de casa?", "Sente que carrega o peso e as dores do mundo nas suas costas, sofrendo pelos outros?"] 
-            },
-            procrastinacao: { 
-                t: "Mente Paralisada e Procrastinação", group: 1,
-                p: ["Quando surge uma tarefa importante e complexa, você inventa distrações fáceis para adiar?", "Você vive com a sensação constante de culpa por saber que tem obrigações acumuladas?", "A maioria das suas decisões importantes só saem do papel quando o prazo está estourando?", "Você desiste de começar um plano novo porque imagina o trabalho que vai dar?", "O hábito de adiar tarefas cruciais já gerou prejuízos reais na sua carreira ou finanças?", "Você se perde checando o celular quando deveria estar focado em uma obrigação séria?", "Sente uma paralisia mental que te impede de dar o primeiro passo, mesmo querendo mudar?"] 
-            },
-            digital: {
-                t: "Sobrecarga de Estímulos e Foco", group: 2,
-                p: ["A primeira coisa que faz ao abrir os olhos de manhã é buscar estímulos no celular?", "Sente ansiedade ou tédio desconfortável quando se desconecta do fluxo de informações?", "Você perde frequentemente a noção do tempo navegando sem rumo fixo por conteúdos e feeds?", "Leva o aparelho e se perde em notificações durante as refeições ou com familiares?", "Consome informações e estímulos visuais na cama, sacrificando horas de sono?", "Sente que sua capacidade de ler um livro ou focar em textos longos diminuiu?", "Interrompe conversas presenciais com pessoas para checar o aparelho a cada sinal?"] 
-            },
-            esgotamento: { 
-                t: "Esgotamento Mental e Estafa", group: 2,
-                p: ["Você acorda cansado e sem energia física, mesmo tendo dormido o suficiente?", "Esquece compromissos, objetos ou nomes simples com uma frequência anormal?", "Qualquer pequeno contratempo do cotidiano parece uma montanha intransponível?", "Sente uma forte irritação ou impaciência com barulhos de fundo ou interrupções?", "Tem uma vontade crônica de se isolar de tudo e de todos para conseguir descansar?", "Sente dores físicas constantes provocadas por tensionamento muscular e estresse?", "O trabalho ou obrigações que antes te davam prazer hoje geram apenas exaustão?"] 
-            },
-            lar: { 
-                t: "Estresse Familiar e Termômetro do Lar", group: 2,
-                p: ["Você costuma descarregar o estresse acumulado fora em cima de quem convive com você?", "Discute ou perde a paciência por motivos bobos dentro do ambiente doméstico?", "Sente que não é compreendido, ouvido ou valorizado pelas pessoas do seu lar?", "Evita voltar para casa ou inventa tarefas extras para postergar o contato familiar?", "A paciência com seus familiares ou parceiro está operando no limite da tolerância?", "O clima dentro da sua casa costuma parecer tenso ou recheado de cobranças?", "Sente que desentendimentos familiares estão minando sua estabilidade profissional?"] 
-            },
-            impostor: {
-                t: "Síndrome do Impostor", group: 3,
-                p: ["Você sente que suas conquistas foram por pura sorte ou acaso, e não por sua competência?", "Vem o medo constante de que as pessoas descubram que você não é tão bom quanto pensam?", "Ao receber um elogio profissional, você tende a minimizar ou achar que foi exagero?", "Você se cobra de forma extrema para não falhar, pois errar significaria incompetência total?", "Costuma focar excessivamente nas suas fraquezas enquanto ignora suas reais habilidades?", "Evita aceitar novos desafios profissionais com medo de falhar na frente os outros?", "Sente que está fingindo ou representando um papel no seu ambiente profissional?"]
-            },
-            futuro: {
-                t: "Ansiedade do Futuro", group: 3,
-                p: ["A sua mente passa grande parte do dia criando cenários negativos sobre o amanhã?", "Sente uma pressa ou angústia inexplicável, como se estivesse correndo contra o tempo?", "Dificilmente consegue relaxar e desfrutar o momento presente sem pensar nas próximas tarefas?", "Costuma antecipar problemas que têm chances baixas de acontecer na realidade?", "A incerteza sobre o futuro causa reações físicas como aperto no peito ou respiração curta?", "Sofre por antecipação dias ou semanas antes de um evento importante?", "Sente que precisa controlar todas as variáveis da vida para se sentir seguro(a)?"]
-            },
-            aprovacao: {
-                t: "Dependência de Aprovação", group: 3,
-                p: ["Sente uma enorme dificuldade em dizer 'não' quando as pessoas pedem favores?", "Muda suas opiniões ou gostos para se adaptar e ser aceito em determinados grupos?", "Fica remoendo por dias uma crítica ou olhar desaprovador de um conhecido ou colega?", "Coloca as necessidades dos outros sempre em primeiro lugar, esquecendo-se de si mesmo(a)?", "O medo de ser rejeitado(a) ou julgado(a) te impede de tomar decisões autênticas?", "Assume tarefas que detesta apenas para evitar desentendimentos ou conflitos no dia?", "Sente que o seu valor depende diretamente do quanto as pessoas te elogiam ou aprovam?"]
-            }
+            cobranca: { i: 1, t: "Crítico Interno e Autocrítica", group: 1, p: ["Quando comete um pequeno erro na sua rotina, você passa horas ou dias se culpando?", "Você sente que mesmo fazendo muitas coisas certas, foca apenas naquilo que ficou faltando?", "A sua busca por perfeição faz com que você demore muito para entregar tarefas simples?", "Sente dificuldade para aceitar elogios sinceros, achando que as pessoas só querem ser gentis?", "O medo de decepcionar os outros faz com que você assuma mais responsabilidades do que aguenta?", "Você se compara constantemente com o sucesso ou a vida de outras pessoas nas redes sociais?", "Sente uma necessidade crônica de aprovação externa para validar o seu valor pessoal?"] },
+            sensibilidade: { i: 2, t: "Sensibilidade Emocional", group: 1, p: ["Quando convive com alguém estressado, repara que o seu humor azeda na mesma hora?", "Você costuma perder o sono pensando em problemas ou brigas que pertencem a terceiros?", "Ambientes barulhentos, muito cheios ou com excesso de estímulos te esgotam rapidamente?", "Você evita dar a sua opinião sincera em conversas cotidianas com medo de criar conflitos?", "Sente que o seu corpo reage fortemente às notícias ruins do dia a dia, gerando angústia real?", "Fica pensando no que os outros vão achar das suas escolhas ou roupas antes de sair de casa?", "Sente que carrega o peso e as dores do mundo nas suas costas, sofrendo pelos outros?"] },
+            procrastinacao: { i: 3, t: "Mente Paralisada e Procrastinação", group: 1, p: ["Quando surge uma tarefa importante e complexa, você inventa distrações fáceis para adiar?", "Você vive com a sensação constante de culpa por saber que tem obrigações acumuladas?", "A maioria das suas decisões importantes só saem do papel quando o prazo está estourando?", "Você desiste de começar um plano novo porque imagina o trabalho que vai dar?", "O hábito de adiar tarefas cruciais já gerou prejuízos reais na sua carreira ou finanças?", "Você se perde checando o celular quando deveria estar focado em uma obrigação séria?", "Sente uma paralisia mental que te impede de dar o primeiro passo, mesmo querendo mudar?"] },
+            digital: { i: 4, t: "Sobrecarga de Estímulos e Foco", group: 2, p: ["A primeira coisa que faz ao abrir os olhos de manhã é buscar estímulos no celular?", "Sente ansiedade ou tédio desconfortável quando se desconecta do fluxo de informações?", "Você perde frequentemente a noção do tempo navegando sem rumo fixo por conteúdos e feeds?", "Leva o aparelho e se perde em notificações durante as refeições ou com familiares?", "Consome informações e estímulos visuais na cama, sacrificando horas de sono?", "Sente que sua capacidade de ler um livro ou focar em textos longos instruídos diminuiu?", "Interrompe conversas presença com pessoas para checar o aparelho a cada sinal?"] },
+            esgotamento: { i: 5, t: "Esgotamento Mental e Estafa", group: 2, p: ["Você acorda cansado e sem energia física, mesmo tendo dormido o suficiente?", "Esquece compromissos, objetos ou nomes simples com uma frequência anormal?", "Qualquer pequeno contratempo do cotidiano parece uma montanha intransponível?", "Sente uma forte irritação ou impaciência com barulhos de fundo ou interrupções?", "Tem uma vontade crônica de se isolar de tudo e de todos para conseguir descansar?", "Sente dores físicas constantes provocadas por tensionamento muscular e estresse?", "O trabalho ou obrigações que antes te davam prazer hoje geram apenas exaustão?"] },
+            lar: { i: 6, t: "Estresse Familiar e Termômetro do Lar", group: 2, p: ["Você costuma descarregar o estresse acumulado fora em cima de quem convive com você?", "Discute ou perde a paciência por motivos bobos dentro do ambiente doméstico?", "Sente que não é compreendido, ouvido ou valorizado pelas pessoas do seu lar?", "Evita voltar para casa ou inventa tarefas extras para postergar o contato familiar?", "A paciência com seus familiares ou parceiro está operando no limite da tolerância?", "O clima dentro da sua casa costuma parecer tenso ou recheado de cobranças?", "Sente que desentendimentos familiares estão minando sua estabilidade profissional?"] },
+            impostor: { i: 7, t: "Síndrome do Impostor", group: 3, p: ["Você sente que suas conquistas foram por pura sorte ou acaso, e não por sua competência?", "Vem o medo constante de que as pessoas descubram que você não é tão bom quanto pensam?", "Ao receber um elogio profissional, você tende a minimizar ou achar que foi exagero?", "Você se cobra de forma extrema para não falhar, pois errar significaria incompetência total?", "Costuma focar excessivamente nas suas fraquezas enquanto ignora suas reais habilidades?", "Evita aceitar novos desafios profissionais com medo de falhar na frente os outros?", "Sente que está fingindo ou representando um papel no seu ambiente profissional?"] },
+            futuro: { i: 8, t: "Ansiedade do Futuro", group: 3, p: ["A sua mente passa grande parte do dia criando cenários negativos sobre o amanhã?", "Sente uma pressa ou angústia inexplicável, como se estivesse correndo contra o tempo?", "Dificilmente consegue relaxar e desfrutar o momento presente sem pensar nas próximas tarefas?", "Costuma antecipar problemas que têm chances baixas de acontecer na realidade?", "A incerteza sobre o futuro causa reações físicas como aperto no peito ou respiração curta?", "Sofre por antecipação dias ou semanas antes de um evento importante?", "Sente que precisa controlar todas as variáveis da vida para se sentir seguro(a)?"] },
+            aprovacao: { i: 9, t: "Dependência de Aprovação", group: 3, p: ["Sente uma enorme dificuldade em dizer 'não' quando as pessoas pedem favores?", "Muda suas opiniões ou gostos para se adaptar e ser aceito em determinados grupos?", "Fica remoendo por dias uma crítica ou olhar desaprovador de um conhecido ou colega?", "Coloca as necessidades dos outros sempre em primeiro lugar, esquecendo-se de si mesmo(a)?", "O medo de ser rejeitado(a) ou julgado(a) te impede de tomar decisões autênticas?", "Assume tarefas que detesta apenas para evitar desentendimentos ou conflitos no dia?", "Sente que o seu valor depende diretamente do quanto as pessoas te elogiam ou aprovam?"] },
+            responsabilidade: { i: 10, t: "Peso Invisível e Hiper-Responsabilidade", group: 4, p: ["Você sente que se não monitorar cada detalhe da sua rotina ou trabalho, tudo vai desmoronar?", "Passa o dia com uma sensação de aperto ou cobrança por achar que é o único responsável pelos resultados?", "Sente extrema dificuldade em delegar funções, preferindo o esgotamento a ver algo feito fora do seu padrão?", "Tende a absorver os problemas e responsabilidades dos outros para si, sobrecarregando sua mente?", "Fica remoendo erros de processos e imprevistos cotidianos como se fossem uma falha exclusivamente sua?", "Tem dificuldade em relaxar nos momentos de folga por continuar mentalmente preso às obrigações?", "Sente que o peso das obrigações diárias consome quase toda a sua energia e leveza pessoal?"] },
+            cicatrizes: { i: 11, t: "Cicatrizes Emocionais e Bloqueios", group: 4, p: ["Percebe que reage com desconfiança exagerada ou na defensiva diante de novas situações ou pessoas?", "Sente que eventos difíceis ou frustrações do passado continuam ditando seus medos atuais?", "Diante de críticas ou desentendimentos simples, sua mente revive a angústia de traumas antigos?", "Evita se expor ou se entregar completamente em projetos e relações com receio de sofrer novamente?", "Sente travas invisíveis que bloqueiam sua iniciativa profissional ou pessoal, gerando paralisia?", "Costuma reviver mentalmente lembranças desconfortáveis do passado em momentos de silêncio?", "Percebe que repete padrões comportamentais antigos mesmo sabendo que eles são prejudiciais?"] },
+            desanimo: { i: 12, t: "Desânimo Crônico e Falta de Energia", group: 4, p: ["Acorda de manhã com uma sensação de apatia ou falta de vontade de iniciar os compromissos?", "Percebeu uma diminuição drástica no entusiasmo ou prazer em realizar atividades que antes gostava?", "Sente o corpo pesado, sem energia vital ou disposição física mesmo após horas de descanso?", "Tende a se isolar ou evitar interações cotidianas simples por falta de energia para conversar?", "Pensar nas tarefas e metas do dia gera uma sensação de vazio ou desânimo profundo?", "Tem dificuldade em manter o foco e a constância devido a pensamentos de que 'nada vale a pena'?", "Sente que está apenas operando no modo automático, sem vivenciar alegria real na rotina?"] }
         };
  
         let testeAtual = "";
@@ -219,6 +185,7 @@
             const eSub = document.getElementById('ebook-sub-header');
             const eDesc = document.getElementById('ebook-descricao');
             const eLink = document.getElementById('linkHotmartDinamic');
+            const eCapa = document.getElementById('capa-ebook-dinamica');
  
             scoreTexto.innerText = "Sua Pontuação: " + total + " de 14 pontos possíveis";
              
@@ -233,23 +200,33 @@
                 feedbackTexto.innerText = "Alerta Crítico / Sobrecarga Elevada: Seus índices operam na zona de esgotamento. Esse travamento consome sua energia diária e sabota suas metas de forma nociva.";
             }
  
-            // SISTEMA DINÂMICO DE FILTRO POR GRUPOS DE E-BOOKS
+            // CONFIGURAÇÃO DOS PRODUTOS DA ESTEIRA E LINKS DO GIT / HOTMART
             if(bases[testeAtual].group === 1) {
+                eCapa.style.display = "none";
                 eTitulo.innerText = "📚 Manual Digital: Mente Blindada, Vida Leve";
                 eSub.innerText = "A estratégia exata para desarmar a autocrítica excessiva, o filtro esgotado e a paralisia do foco";
                 eDesc.innerText = "Baseado em ferramentas profundas de inteligência emocional e no controle comportamental prático, este manual foi desenhado sob medida para leitura rápida direto no celular. Ele traz o plano de ação definitivo para silenciar as pressões da mente.";
                 eLink.href = "https://go.hotmart.com/L106186655F"; 
             } else if(bases[testeAtual].group === 2) {
+                eCapa.style.display = "none";
                 eTitulo.innerText = "📚 Manual Digital: O Reset da Rotina Eficiente";
                 eSub.innerText = "Como desacelerar os estímulos diários, combater a estafa mental e resgatar a harmonia no lar";
                 eDesc.innerText = "Aprenda exercícios diários comportamentais para recuperar o comando do seu tempo, combater o cansaço extremo e melhorar seus relacionamentos de verdade. Clique abaixo e saiba mais detalhes direto no manual completo.";
                 eLink.href = "https://go.hotmart.com/E61115249H"; 
-            } else {
-                // NOVO GRUPO CONFIGURADO COM SEU LINK DE VENDAS OFICIAL
+            } else if(bases[testeAtual].group === 3) {
+                eCapa.style.display = "none";
                 eTitulo.innerText = "📚 Manual Digital: Mente Livre, Escolhas Fortes";
                 eSub.innerText = "Rompendo a ansiedade do amanhã, a dúvida interna e o peso de tentar agradar a todos";
                 eDesc.innerText = "Descubra como silenciar pensamentos ansiosos sobre o futuro, vencer de vez a síndrome do impostor e construir uma autoconfiança inabalável. Conquiste a liberdade emocional para tomar decisões seguras hoje.";
                 eLink.href = "https://go.hotmart.com/M106194670K"; 
+            } else if(bases[testeAtual].group === 4) {
+                // NOVO E-BOOK INTEGRADO COM A SUA CAPA TRIPLA E SEU LINK DA HOTMART
+                eCapa.src = "http://googleusercontent.com/image_generation_content/49.png";
+                eCapa.style.display = "block";
+                eTitulo.innerText = "📚 Manual Digital: Mente Leve, Passos Firmes";
+                eSub.innerText = "O Manual de Soluções Práticas para Hiper-Responsabilidade, Bloqueios Emocionais e Resgate da Energia Vital";
+                eDesc.innerText = "Aprenda a eliminar o excesso de controle que sabota a sua rotina, reprogramar as travas comportamentais geradas por cicatrizes passadas e combater o desânimo crônico devolvendo energia vital e dopamina aos seus dias. Toque no botão abaixo para baixar o manual completo.";
+                eLink.href = "https://go.hotmart.com/E106237415W"; 
             }
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
