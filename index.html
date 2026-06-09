@@ -3,150 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Painel de Controle Emocional - Equipe Assessoria</title>
+    <title>Sobrevivendo ao Burnout e ao Estresse</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         /* CONFIGURAÇÃO BASE */
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { background-color: #020617; color: #f8fafc; font-family: 'Inter', sans-serif; line-height: 1.6; }
         
         /* MENU SUPERIOR */
-        nav { background-color: #0f172a; border-bottom: 1px solid #1e293b; padding: 15px 30px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; }
+        nav { background-color: #0f172a; border-bottom: 1px solid #1e293b; padding: 15px 30px; display: flex; justify-content: space-between; align-items: center; }
         .logo { font-family: 'Urbanist', sans-serif; font-weight: 700; font-size: 22px; color: #10b981; text-transform: uppercase; letter-spacing: 1px; }
-        .nav-links { display: flex; gap: 20px; list-style: none; }
-        .nav-links a { color: #94a3b8; text-decoration: none; font-weight: 500; transition: 0.3s; }
-        .nav-links a:hover { color: #10b981; }
 
         /* HERO SECTION */
-        .hero { padding: 60px 20px; text-align: center; background: radial-gradient(circle at center, rgba(16, 185, 129, 0.08) 0%, transparent 70%); }
+        .hero { padding: 80px 20px; text-align: center; background: radial-gradient(circle at center, rgba(16, 185, 129, 0.08) 0%, transparent 70%); max-width: 800px; margin: 0 auto; }
         .hero-tag { font-size: 14px; text-transform: uppercase; letter-spacing: 3px; color: #10b981; font-weight: 700; margin-bottom: 15px; }
-        h1 { font-family: 'Urbanist', sans-serif; font-size: 44px; font-weight: 700; line-height: 1.2; margin-bottom: 15px; }
+        h1 { font-family: 'Urbanist', sans-serif; font-size: 44px; font-weight: 700; line-height: 1.2; margin-bottom: 20px; }
         h1 span { color: #10b981; }
-        .hero-desc { font-size: 18px; color: #94a3b8; max-width: 800px; margin: 0 auto 30px; }
+        .hero-desc { font-size: 18px; color: #94a3b8; margin-bottom: 35px; }
 
-        /* SEÇÃO DA GRADE DE PRODUTOS */
-        .section-grid { max-width: 1200px; margin: 60px auto; padding: 0 20px; }
-        .section-title { text-align: center; font-family: 'Urbanist', sans-serif; font-size: 32px; margin-bottom: 15px; }
-        .section-subtitle { text-align: center; color: #94a3b8; font-size: 16px; margin-bottom: 40px; }
-        
-        .grid-ebooks { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
-        .card-ebook { background-color: #0f172a; border: 1px solid #1e293b; border-radius: 16px; overflow: hidden; display: flex; flex-direction: column; transition: 0.3s; }
-        .card-ebook:hover { border-color: rgba(16, 185, 129, 0.4); transform: translateY(-5px); }
-        
-        .card-img { width: 100%; height: auto; border-bottom: 1px solid #1e293b; display: block; }
-        .card-content { padding: 25px; flex-grow: 1; display: flex; flex-direction: column; }
-        .card-tag { font-size: 11px; font-weight: 700; text-transform: uppercase; color: #10b981; margin-bottom: 8px; }
-        .card-content h3 { font-family: 'Urbanist', sans-serif; font-size: 20px; margin-bottom: 12px; color: #f8fafc; }
-        .card-content p { color: #94a3b8; font-size: 14px; margin-bottom: 20px; flex-grow: 1; }
-        
-        .btn-secondary { background-color: #1e293b; color: #f8fafc; text-align: center; padding: 12px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 14px; border: 1px solid #334155; transition: 0.3s; }
-        .btn-secondary:hover { background-color: #10b981; color: #020617; border-color: #10b981; }
+        /* BOTÃO PRINCIPAL */
+        .btn-main { background-color: #10b981; color: #020617; text-align: center; padding: 16px 32px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 16px; transition: 0.3s; display: inline-block; text-transform: uppercase; letter-spacing: 1px; box-shadow: 0 4px 14px rgba(16, 185, 129, 0.3); }
+        .btn-main:hover { background-color: #059669; transform: translateY(-2px); }
 
         /* RODAPÉ */
-        footer { background-color: #090d16; padding: 40px 20px; text-align: center; border-top: 1px solid #1e293b; color: #64748b; font-size: 14px; }
-        footer p { margin-bottom: 8px; }
+        footer { background-color: #090d16; padding: 40px 20px; text-align: center; border-top: 1px solid #1e293b; color: #64748b; font-size: 14px; margin-top: 100px; }
     </style>
 </head>
 <body>
 
     <nav>
         <div class="logo">Equipe Assessoria</div>
-        <ul class="nav-links">
-            <li><a href="#inicio">Início</a></li>
-            <li><a href="#vitrine">Nossa Coleção</a></li>
-        </ul>
     </nav>
 
-    <section class="hero" id="inicio">
-        <p class="hero-tag">Equipe Assessoria de Cursos EAD</p>
-        <h1>Biblioteca de <span>Saúde Emocional</span></h1>
+    <section class="hero">
+        <p class="hero-tag">Equipe Assessoria e Colaboradores</p>
+        <h1>Sobrevivendo ao <span>Burnout</span> e ao Estresse</h1>
         <p class="hero-desc">
-            Desenvolva sua inteligência comportamental e conquiste o controle absoluto sobre as suas amarras e rotinas diárias com os nossos manuais práticos e testes.
+            Descubra estratégias práticas e validadas para recuperar sua energia, gerenciar a ansiedade e retomar o controle da sua vida mental e profissional. Chega de apenas sobreviver ao caos.
         </p>
+        
+        <a href="https://pay.kiwify.com.br/sTFnHXS" target="_blank" class="btn-main">Quero Garantir o Ebook Agora</a>
     </section>
 
-    <section class="section-grid" id="vitrine">
-        <h2 class="section-title">Nossa Biblioteca de Manuais e Testes</h2>
-        <p class="section-subtitle">Abaixo você encontra a nossa esteira completa de produtos desenvolvidos passo a passo.</p>
-        
-        <div class="grid-ebooks">
-            
-            <div class="card-ebook">
-                <img src="capa1.png" alt="Capa 1" class="card-img">
-                <div class="card-content">
-                    <span class="card-tag">Tema 01</span>
-                    <h3>Cobrança & Crítico Interno</h3>
-                    <p>Identifique os padrões severos de autocobrança e neutralize a voz interna que paralisa suas iniciativas mais importantes.</p>
-                    <a href="https://go.hotmart.com/E95450631I" target="_blank" class="btn-secondary">Acessar Conteúdo</a>
-                </div>
-            </div>
+    <footer>
+        <p>&copy; 2026 Equipe Assessoria de Cursos EAD. Todos os direitos reservados.</p>
+    </footer>
 
-            <div class="card-ebook">
-                <img src="capa2.png" alt="Capa 2" class="card-img">
-                <div class="card-content">
-                    <span class="card-tag">Tema 02</span>
-                    <h3>Sensibilidade Emocional</h3>
-                    <p>Aprenda a mapear seus gatilhos comportamentais diários e construa uma resposta psicológica mais estável e resiliente.</p>
-                    <a href="https://go.hotmart.com/E95451003V" target="_blank" class="btn-secondary">Acessar Conteúdo</a>
-                </div>
-            </div>
-
-            <div class="card-ebook">
-                <img src="capa3.png" alt="Capa 3" class="card-img">
-                <div class="card-content">
-                    <span class="card-tag">Tema 03</span>
-                    <h3>Procrastinação e Foco</h3>
-                    <p>Ferramentas neurocomportamentais essenciais para gerenciar a rotina, eliminar distrações crônicas e fazer o seu dia render.</p>
-                    <a href="https://go.hotmart.com/V95451551G" target="_blank" class="btn-secondary">Acessar Conteúdo</a>
-                </div>
-            </div>
-
-            <div class="card-ebook">
-                <img src="capa4.png" alt="Capa 4" class="card-img">
-                <div class="card-content">
-                    <span class="card-tag">Tema 04</span>
-                    <h3>Esgotamento no Trabalho</h3>
-                    <p>Estratégias para identificar o cansaço extremo antes do colapso e restaurar seu equilíbrio físico e mental.</p>
-                    <a href="https://go.hotmart.com/J95451964U" target="_blank" class="btn-secondary">Acessar Conteúdo</a>
-                </div>
-            </div>
-
-            <div class="card-ebook">
-                <img src="capa5.png" alt="Capa 5" class="card-img">
-                <div class="card-content">
-                    <span class="card-tag">Tema 05</span>
-                    <h3>Mente Acelerada e Sono</h3>
-                    <p>Técnicas de desaceleração noturna e higiene mental para combater a insônia gerada por excesso de preocupações.</p>
-                    <a href="https://go.hotmart.com/P95452243I" target="_blank" class="btn-secondary">Acessar Conteúdo</a>
-                </div>
-            </div>
-
-            <div class="card-ebook">
-                <img src="capa6.png" alt="Capa 6" class="card-img">
-                <div class="card-content">
-                    <span class="card-tag">Tema 06</span>
-                    <h3>Ansiedade Geral</h3>
-                    <p>Compreenda os mechanisms físicos e psicológicos da ansiedade e retome a sensação de paz interna na sua rotina.</p>
-                    <a href="https://go.hotmart.com/L95452445E" target="_blank" class="btn-secondary">Acessar Conteúdo</a>
-                </div>
-            </div>
-
-            <div class="card-ebook">
-                <img src="capa7.png" alt="Capa 7 - Síndrome do Impostor" class="card-img">
-                <div class="card-content">
-                    <span class="card-tag">Tema 07 • Mente Livre, Escolhas Fortes</span>
-                    <h3>Síndrome do Impostor</h3>
-                    <p>Como vencer de vez a dúvida crônica sobre sua própria capacidade, eliminando o medo constante de falhar e aceitando o seu mérito real.</p>
-                    <a href="https://go.hotmart.com/M106194670K" target="_blank" class="btn-secondary" style="background-color: rgba(16, 185, 129, 0.1); border-color: #10b981; color: #10b981;">Comprar na Hotmart</a>
-                </div>
-            </div>
-
-            <div class="card-ebook">
-                <img src="capa8.png" alt="Capa 8 - Ansiedade do Futuro" class="card-img">
-                <div class="card-content">
-                    <span class="card-tag">Tema 08 • Mente Livre, Escolhas Fortes</span>
-                    <h3>Ansiedade do Futuro</h3>
-                    <p>Desative o fluxo mental acelerado. Pare de queimar energia estrut
+</body>
+</html>
