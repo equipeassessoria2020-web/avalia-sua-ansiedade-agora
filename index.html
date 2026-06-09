@@ -12,7 +12,7 @@
         .btn-menu { background: none; border: 1px solid rgba(255,255,255,0.3); color: white; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-size: 0.85rem; transition: all 0.2s; }
         .btn-menu:hover { background-color: white; color: #1d3557; }
         .btn-home { background-color: #e63946; border: none; font-weight: bold; }
-
+ 
         header { background: linear-gradient(135deg, #1d3557, #457b9d); color: white; text-align: center; padding: 2.5rem 1rem; border-radius: 12px; margin-bottom: 2rem; }
         header h1 { font-size: 2.2rem; margin-bottom: 0.5rem; }
         .container { max-width: 1000px; margin: 0 auto; padding: 0 1rem; }
@@ -22,7 +22,7 @@
         .item-teste:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.15); }
         .item-teste img { width: 100%; height: auto; display: block; border-bottom: 1px solid #edf2f4; }
         .item-teste h3 { padding: 1rem; color: #1d3557; font-size: 1.05rem; font-weight: bold; }
-
+ 
         .card { background: white; padding: 2.5rem; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); margin-bottom: 1.5rem; }
         .instrucoes { background-color: #edf2f4; border-left: 5px solid #457b9d; padding: 1rem; margin-bottom: 2rem; font-size: 0.95rem; font-weight: 500; }
         
@@ -31,7 +31,7 @@
         .opcao { display: flex; align-items: center; background: #f8f9fa; padding: 0.9rem; border-radius: 8px; cursor: pointer; border: 1px solid #ddd; margin-bottom: 6px; font-size: 0.95rem; }
         .opcao input { margin-right: 12px; transform: scale(1.2); }
         .opcao:hover { background-color: #edf2f4; }
-
+ 
         .btn-enviar { background-color: #e63946; color: white; border: none; width: 100%; padding: 1.2rem; font-size: 1.2rem; font-weight: bold; border-radius: 8px; cursor: pointer; box-shadow: 0 4px 12px rgba(230,57,70,0.3); }
         .btn-enviar:hover { background-color: #c1121f; }
         
@@ -46,13 +46,13 @@
         .btn-download { background-color: #2a9d8f; color: white; text-decoration: none; padding: 1.3rem 3rem; border-radius: 50px; font-weight: bold; font-size: 1.3rem; display: inline-block; box-shadow: 0 6px 20px rgba(42, 157, 143, 0.4); transition: transform 0.2s, background-color 0.2s; text-transform: uppercase; letter-spacing: 0.5px; }
         .btn-download:hover { background-color: #21867a; transform: scale(1.03); }
         .setas-inducao { font-size: 1.8rem; color: #e63946; margin-bottom: 0.5rem; animation: bounce 1s infinite; }
-
+ 
         @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
         .btn-voltar-grade { background: #6c757d; color: white; border: none; padding: 8px 20px; border-radius: 4px; cursor: pointer; margin-top: 2rem; font-weight: 600; }
     </style>
 </head>
 <body>
-
+ 
     <div class="container">
         <nav class="menu-topo">
             <button class="btn-menu btn-home" onclick="irParaPainel()">🏠 Início</button>
@@ -66,15 +66,15 @@
             <button class="btn-menu" onclick="abrirTeste('futuro')">🔮 Mente Calma</button>
             <button class="btn-menu" onclick="abrirTeste('aprovacao')">🤝 Independência</button>
         </nav>
-
+ 
         <header>
             <h1>Painel de Autoavaliação Emocional</h1>
             <p>Faça a análise totalmente gratuita clicando diretamente sobre a imagem desejada.</p>
         </header>
-
+ 
         <div id="tela-painel" style="display: block;">
             <p style="text-align: center; font-weight: bold; color: #1d3557; margin-bottom: 1.5rem; font-size: 1.2rem;">💝 Avaliações Online — Escolha um tema abaixo:</p>
-            
+             
             <div class="grade-testes">
                 <div class="item-teste" onclick="abrirTeste('cobranca')">
                     <img src="capa1.png"><h3>1. Teste do Crítico Interno</h3>
@@ -105,47 +105,47 @@
                 </div>
             </div>
         </div>
-
+ 
         <form id="form-generico" class="card" style="display: none;" onsubmit="finalizarTeste(event)">
             <div class="instrucoes" id="instr-titulo"></div>
             <div id="perguntas-container"></div>
             <button type="submit" class="btn-enviar">⚠️ PROCESSAR MEU RESULTADO AGORA ⚠️</button>
         </form>
-
+ 
         <div id="resultado" class="card" style="display: none;">
             <h2 style="text-align: center; color: #1d3557; margin-bottom: 1rem;">Análise Estatística Concluída com Sucesso</h2>
             <div class="score-box" id="scoreTexto"></div>
             <p id="feedbackTexto" style="text-align: center; font-size: 1.1rem; color: #4a5568; margin-bottom: 1.5rem; font-weight: 500;"></p>
-
+ 
             <div class="nota-profissional">
                 <strong>Nota Importante de Saúde Emocional:</strong> Esta triagem é uma análise estatística preliminar com objetivos puramente informativos e educativos. Ela <u>não substitui</u>, sob nenhuma hipótese, o parecer, consulta ou diagnóstico clínico de <strong>psicólogos, psiquiatras, terapeutas</strong> ou outros profissionais de saúde mental especializados.
             </div>
-
+ 
             <div class="box-download">
                 <div class="badge-urgente">Ação Recomendada Imediata</div>
                 <h3 id="ebook-titulo"></h3>
                 <p class="chamada-sub">O próximo passo essencial para desarmar suas travas e recuperar o controle emocional</p>
-                
+                 
                 <div class="card-ebook">
                     <p style="margin: 0; font-weight: bold; color: #1d3557;" id="ebook-sub-header"></p>
                     <p style="margin: 8px 0 0 0; font-size: 0.95rem; color: #4a5568; line-height: 1.5;" id="ebook-descricao"></p>
                 </div>
-
+ 
                 <div class="setas-inducao">👇 CLIQUE NO BOTÃO ABAIXO PARA ACESSAR O CONTEÚDO 👇</div>
                 <a href="#" id="linkHotmartDinamic" target="_blank" class="btn-download">
                     Quero Evoluir Minha Vida Agora
                 </a>
             </div>
-            
+             
             <center><button class="btn-voltar-grade" onclick="irParaPainel()">⬅ Voltar ao Painel Principal</button></center>
         </div>
     </div>
-
+ 
     <script>
         const bases = {
             cobranca: { 
                 t: "Crítico Interno e Autocrítica", group: 1,
-                p: ["Quando comete um pequeno erro na sua rotina, você passa horas ou dias se culpando?", "Você sente que mesmo fazendo muitas coisas certas, foca apenas naquilo que ficou faltando?", "A sua busca por perfeição faz com que você demore muito para entregar tarefas simples?", "Sente dificuldade para aceitar elogios sinceros, achando que as pessoas só querem ser gentis?", "O medo de decepcionar os outros faz com que você assuma mais responsabilidades do que aguenta?", "Você se compara constantemente com o sucesso ou a vida de outras pessoas nas redes sociais?", "Sente uma necessidade crônica de aprovação externa para validar o seu valor pessoal?"] 
+                p: ["Quando comete um pequeno erro na sua rotina, você passa hours ou dias se culpando?", "Você sente que mesmo fazendo muitas coisas certas, foca apenas naquilo que ficou faltando?", "A sua busca por perfeição faz com que você demore muito para entregar tarefas simples?", "Sente dificuldade para aceitar elogios sinceros, achando que as pessoas só querem ser gentis?", "O medo de decepcionar os outros faz com que você assuma mais responsabilidades do que aguenta?", "Você se compara constantemente com o sucesso ou a vida de outras pessoas nas redes sociais?", "Sente uma necessidade crônica de aprovação externa para validar o seu valor pessoal?"] 
             },
             sensibilidade: { 
                 t: "Sensibilidade Emocional", group: 1,
@@ -155,7 +155,7 @@
                 t: "Mente Paralisada e Procrastinação", group: 1,
                 p: ["Quando surge uma tarefa importante e complexa, você inventa distrações fáceis para adiar?", "Você vive com a sensação constante de culpa por saber que tem obrigações acumuladas?", "A maioria das suas decisões importantes só saem do papel quando o prazo está estourando?", "Você desiste de começar um plano novo porque imagina o trabalho que vai dar?", "O hábito de adiar tarefas cruciais já gerou prejuízos reais na sua carreira ou finanças?", "Você se perde checando o celular quando deveria estar focado em uma obrigação séria?", "Sente uma paralisia mental que te impede de dar o primeiro passo, mesmo querendo mudar?"] 
             },
-            digital: { 
+            digital: {
                 t: "Sobrecarga de Estímulos e Foco", group: 2,
                 p: ["A primeira coisa que faz ao abrir os olhos de manhã é buscar estímulos no celular?", "Sente ansiedade ou tédio desconfortável quando se desconecta do fluxo de informações?", "Você perde frequentemente a noção do tempo navegando sem rumo fixo por conteúdos e feeds?", "Leva o aparelho e se perde em notificações durante as refeições ou com familiares?", "Consome informações e estímulos visuais na cama, sacrificando horas de sono?", "Sente que sua capacidade de ler um livro ou focar em textos longos diminuiu?", "Interrompe conversas presenciais com pessoas para checar o aparelho a cada sinal?"] 
             },
@@ -169,7 +169,7 @@
             },
             impostor: {
                 t: "Síndrome do Impostor", group: 3,
-                p: ["Você sente que suas conquistas foram por pura sorte ou acaso, e não por sua competência?", "Vem o medo constante de que as pessoas descubram que você não é tão bom quanto pensam?", "Ao receber um elogio profissional, você tende a minimizar ou achar que foi exagero?", "Você se cobra de forma extrema para não falhar, pois errar significaria incompetência total?", "Costuma focar excessivamente nas suas fraquezas enquanto ignora suas reais habilidades?", "Evita aceitar novos desafios profissionais com medo de falhar na frente dos outros?", "Sente que está fingindo ou representando um papel no seu ambiente profissional?"]
+                p: ["Você sente que suas conquistas foram por pura sorte ou acaso, e não por sua competência?", "Vem o medo constante de que as pessoas descubram que você não é tão bom quanto pensam?", "Ao receber um elogio profissional, você tende a minimizar ou achar que foi exagero?", "Você se cobra de forma extrema para não falhar, pois errar significaria incompetência total?", "Costuma focar excessivamente nas suas fraquezas enquanto ignora suas reais habilidades?", "Evita aceitar novos desafios profissionais com medo de falhar na frente os outros?", "Sente que está fingindo ou representando um papel no seu ambiente profissional?"]
             },
             futuro: {
                 t: "Ansiedade do Futuro", group: 3,
@@ -180,15 +180,15 @@
                 p: ["Sente uma enorme dificuldade em dizer 'não' quando as pessoas pedem favores?", "Muda suas opiniões ou gostos para se adaptar e ser aceito em determinados grupos?", "Fica remoendo por dias uma crítica ou olhar desaprovador de um conhecido ou colega?", "Coloca as necessidades dos outros sempre em primeiro lugar, esquecendo-se de si mesmo(a)?", "O medo de ser rejeitado(a) ou julgado(a) te impede de tomar decisões autênticas?", "Assume tarefas que detesta apenas para evitar desentendimentos ou conflitos no dia?", "Sente que o seu valor depende diretamente do quanto as pessoas te elogiam ou aprovam?"]
             }
         };
-
+ 
         let testeAtual = "";
-
+ 
         function abrirTeste(tipo) {
             testeAtual = tipo;
             const container = document.getElementById('perguntas-container');
             container.innerHTML = "";
             document.getElementById('instr-titulo').innerText = "Faça o teste totalmente gratuito focado em " + bases[tipo].t + ". Responda com honestidade:";
-            
+             
             bases[tipo].p.forEach((pergunta, i) => {
                 container.innerHTML += `<div class="pergunta">
                     <p>${i+1}. ${pergunta}</p>
@@ -201,7 +201,7 @@
             document.getElementById('form-generico').style.display = 'block';
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
-
+ 
         function finalizarTeste(e) {
             e.preventDefault();
             let total = 0;
@@ -209,19 +209,19 @@
                 let selecionado = document.querySelector(`input[name="q${i}"]:checked`);
                 if(selecionado) total += parseInt(selecionado.value);
             }
-            
+             
             document.getElementById('form-generico').style.display = 'none';
             document.getElementById('resultado').style.display = 'block';
-            
+             
             const scoreTexto = document.getElementById('scoreTexto');
             const feedbackTexto = document.getElementById('feedbackTexto');
             const eTitulo = document.getElementById('ebook-titulo');
             const eSub = document.getElementById('ebook-sub-header');
             const eDesc = document.getElementById('ebook-descricao');
             const eLink = document.getElementById('linkHotmartDinamic');
-
+ 
             scoreTexto.innerText = "Sua Pontuação: " + total + " de 14 pontos possíveis";
-            
+             
             if (total <= 4) {
                 scoreTexto.style.backgroundColor = "#d8f3dc"; scoreTexto.style.color = "#1b4332"; scoreTexto.style.border = "2px solid #52b788";
                 feedbackTexto.innerText = "Nível Controlado: Seus indicadores mostram uma boa blindagem inicial para este tema. Contudo, manter hábitos preventivos é a chave para manter o equilíbrio.";
@@ -232,30 +232,28 @@
                 scoreTexto.style.backgroundColor = "#f8d7da"; scoreTexto.style.color = "#842029"; scoreTexto.style.border = "2px solid #f5c2c7";
                 feedbackTexto.innerText = "Alerta Crítico / Sobrecarga Elevada: Seus índices operam na zona de esgotamento. Esse travamento consome sua energia diária e sabota suas metas de forma nociva.";
             }
-
-            // SISTEMA DINÂMICO DE FILTRO POR GRUPOS DE E-BOOKS (3 PARA CADA)
+ 
+            // SISTEMA DINÂMICO DE FILTRO POR GRUPOS DE E-BOOKS
             if(bases[testeAtual].group === 1) {
-                // TESTES 1, 2 E 3
                 eTitulo.innerText = "📚 Manual Digital: Mente Blindada, Vida Leve";
                 eSub.innerText = "A estratégia exata para desarmar a autocrítica excessiva, o filtro esgotado e a paralisia do foco";
                 eDesc.innerText = "Baseado em ferramentas profundas de inteligência emocional e no controle comportamental prático, este manual foi desenhado sob medida para leitura rápida direto no celular. Ele traz o plano de ação definitivo para silenciar as pressões da mente.";
                 eLink.href = "https://go.hotmart.com/L106186655F"; 
             } else if(bases[testeAtual].group === 2) {
-                // TESTES 4, 5 E 6
                 eTitulo.innerText = "📚 Manual Digital: O Reset da Rotina Eficiente";
                 eSub.innerText = "Como desacelerar os estímulos diários, combater a estafa mental e resgatar a harmonia no lar";
                 eDesc.innerText = "Aprenda exercícios diários comportamentais para recuperar o comando do seu tempo, combater o cansaço extremo e melhorar seus relacionamentos de verdade. Clique abaixo e saiba mais detalhes direto no manual completo.";
                 eLink.href = "https://go.hotmart.com/E61115249H"; 
             } else {
-                // TESTES 7, 8 E 9 (NOVO GRUPO)
+                // NOVO GRUPO CONFIGURADO COM SEU LINK DE VENDAS OFICIAL
                 eTitulo.innerText = "📚 Manual Digital: Mente Livre, Escolhas Fortes";
                 eSub.innerText = "Rompendo a ansiedade do amanhã, a dúvida interna e o peso de tentar agradar a todos";
                 eDesc.innerText = "Descubra como silenciar pensamentos ansiosos sobre o futuro, vencer de vez a síndrome do impostor e construir uma autoconfiança inabalável. Conquiste a liberdade emocional para tomar decisões seguras hoje.";
-                eLink.href = "https://go.hotmart.com/L106186655F"; // Cole o link do seu 3º Ebook aqui quando o tiver
+                eLink.href = "https://go.hotmart.com/M106194670K"; 
             }
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
-
+ 
         function irParaPainel() {
             document.getElementById('resultado').style.display = 'none';
             document.getElementById('form-generico').style.display = 'none';
