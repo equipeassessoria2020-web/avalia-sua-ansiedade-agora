@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -8,83 +7,109 @@
 <title>Portal de Autoavaliação Emocional</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI';}
-body{background:#f4f6f9;color:#2b2d42;padding:20px;}
+* { margin:0; padding:0; box-sizing:border-box; font-family:'Segoe UI'; }
+body { background:#f4f6f9; color:#2b2d42; padding:20px; }
 
+/* MENU */
 .menu-topo{
-background:#1d3557;color:white;display:flex;flex-wrap:wrap;
-justify-content:center;gap:8px;padding:12px;border-radius:8px;margin-bottom:20px;
+  background:#1d3557; color:white; display:flex; flex-wrap:wrap;
+  justify-content:center; gap:8px; padding:12px;
+  border-radius:8px; margin-bottom:20px;
 }
 .btn-menu{
-background:none;border:1px solid rgba(255,255,255,0.3);color:white;
-padding:6px 10px;border-radius:4px;cursor:pointer;font-size:0.85rem;
+  background:none; border:1px solid rgba(255,255,255,0.3);
+  color:white; padding:6px 12px; border-radius:4px;
+  cursor:pointer; font-size:0.85rem;
 }
-.btn-home{background:#e63946;border:none;font-weight:bold;}
+.btn-home{background:#e63946;border:none;}
 
+/* HEADER */
 header{
-background:linear-gradient(135deg,#1d3557,#457b9d);
-color:white;text-align:center;padding:2rem;border-radius:12px;margin-bottom:2rem;
+  background:linear-gradient(135deg,#1d3557,#457b9d);
+  color:white; text-align:center; padding:2rem;
+  border-radius:12px; margin-bottom:2rem;
 }
 
+/* GRID */
 .grade-testes{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:15px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:15px;
 }
-
 .item-teste{
-background:white;border-radius:12px;overflow:hidden;
-box-shadow:0 4px 12px rgba(0,0,0,0.08);cursor:pointer;
-transition:0.2s;text-align:center;
+  background:white; border-radius:12px;
+  box-shadow:0 4px 12px rgba(0,0,0,0.08);
+  cursor:pointer; transition:0.2s;
 }
 .item-teste:hover{transform:translateY(-5px);}
 .item-teste img{width:100%;}
 
+/* CARD */
 .card{
-background:white;padding:20px;border-radius:12px;
-box-shadow:0 4px 15px rgba(0,0,0,0.1);
+  background:white; padding:2rem;
+  border-radius:12px;
+  box-shadow:0 4px 15px rgba(0,0,0,0.1);
 }
 
+/* QUIZ */
+.pergunta{ margin-bottom:15px; }
 .opcao{
-display:flex;align-items:center;background:#eee;
-padding:10px;border-radius:6px;margin:5px 0;
+  display:flex; align-items:center;
+  background:#eee; padding:10px;
+  border-radius:6px; margin:5px 0;
 }
 
-button{
-width:100%;padding:15px;
-background:#e63946;color:white;
-border:none;border-radius:8px;margin-top:10px;
-font-weight:bold;
+/* BOTÃO */
+.btn-enviar{
+  background:#e63946; color:white;
+  border:none; width:100%; padding:15px;
+  border-radius:8px; font-weight:bold;
+}
+
+/* RESULTADO */
+.nota{
+  background:#fff3cd; padding:12px;
+  border-radius:6px; margin-top:10px;
+}
+
+.link{
+  display:block; margin-top:10px;
+  background:#2a9d8f; color:white;
+  padding:15px; text-align:center;
+  border-radius:50px; text-decoration:none;
 }
 
 /* ANIMAÇÃO */
-.fade{animation:fade 0.4s ease;}
+.fade{ animation:fade 0.4s ease; }
 @keyframes fade{
-from{opacity:0;transform:translateY(10px);}
-to{opacity:1;transform:translateY(0);}
+  from{opacity:0;transform:translateY(10px);}
+  to{opacity:1;transform:translateY(0);}
 }
 
 /* CONTADOR */
 .contador{
-color:#e63946;font-weight:bold;margin-top:10px;
+  color:#e63946;
+  font-weight:bold;
+  margin-top:10px;
 }
 </style>
 </head>
 
 <body>
 
-<div class="menu-topo">
+<nav class="menu-topo">
 <button class="btn-menu btn-home" onclick="irParaPainel()">🏠 Início</button>
 <button class="btn-menu" onclick="abrirTeste('cobranca')">Crítico Interno</button>
-<button class="btn-menu" onclick="abrirTeste('sensibilidade')">Emocional</button>
+<button class="btn-menu" onclick="abrirTeste('sensibilidade')">Sensibilidade</button>
 <button class="btn-menu" onclick="abrirTeste('procrastinacao')">Procrastinação</button>
-</div>
+</nav>
 
 <header>
 <h1>Painel de Autoavaliação Emocional</h1>
 <p>Escolha um teste gratuito</p>
 </header>
 
+<!-- PAINEL -->
 <div id="tela-painel" class="grade-testes">
 
 <div class="item-teste" onclick="abrirTeste('cobranca')">
@@ -104,36 +129,71 @@ color:#e63946;font-weight:bold;margin-top:10px;
 
 </div>
 
-<form id="form" class="card" style="display:none;" onsubmit="finalizar(event)">
+<!-- QUIZ -->
+<form id="form-generico" class="card" style="display:none;" onsubmit="finalizarTeste(event)">
+
+<div id="instr-titulo"></div>
 <div id="perguntas"></div>
-<button>PROCESSAR RESULTADO</button>
+
+<button class="btn-enviar">⚠️ PROCESSAR MEU RESULTADO AGORA ⚠️</button>
+
 </form>
 
+<!-- RESULTADO -->
 <div id="resultado" class="card" style="display:none;">
 
 <h2>Resultado</h2>
-<p id="texto"></p>
 
-<div style="background:#fff3cd;padding:10px;border-radius:6px;margin-top:10px;">
+<p id="feedbackTexto"></p>
+
+<div class="nota">
 ⚠️ Este teste não substitui psicólogos ou especialistas.
 </div>
 
-<p class="contador" id="contador">⏳ 10:00</p>
+<p id="contadorUrgencia" class="contador">
+⏳ Oferta disponível por tempo limitado: 10:00
+</p>
 
-<a id="link" style="display:block;margin-top:10px;background:#2a9d8f;color:white;padding:15px;border-radius:50px;text-align:center;text-decoration:none;" target="_blank">
+<a href="#" id="linkHotmart" class="link" target="_blank">
 Ver solução completa
 </a>
 
-<button onclick="irParaPainel()">Voltar</button>
+<button class="btn-enviar" onclick="irParaPainel()">Voltar</button>
 
 </div>
 
 <script>
 
-const bases={
-cobranca:["Você se cobra demais?","Perfeccionismo?","Medo de errar?","Comparação?","Sobrecarga?","Aceita elogio?","Foco no erro?"],
-sensibilidade:["Absorve emoções?","Perde o sono pensando?","Ambientes te esgotam?","Evita conflitos?","Se afeta com notícias?","Pensa no julgamento?","Carrega peso dos outros?"],
-procrastinacao:["Adia tarefas?","Distração?","Última hora?","Evita começar?","Falta foco?","Culpa?","Paralisa?"]
+const bases = {
+cobranca:[
+"Você se cobra demais?",
+"Foca no erro?",
+"Perfeccionismo?",
+"Medo de errar?",
+"Comparação?",
+"Dificuldade com elogios?",
+"Sobrecarga?"
+],
+
+sensibilidade:[
+"Absorve emoções dos outros?",
+"Perde o sono pensando?",
+"Ambientes te esgotam?",
+"Evita conflitos?",
+"Se afeta com notícias?",
+"Pensa no julgamento?",
+"Carrega dores dos outros?"
+],
+
+procrastinacao:[
+"Adia tarefas?",
+"Se distrai?",
+"Deixa para última hora?",
+"Evita começar?",
+"Falta foco?",
+"Sente culpa?",
+"Se sente travado?"
+]
 };
 
 let atual="";
@@ -142,41 +202,74 @@ function abrirTeste(tipo){
 atual=tipo;
 
 document.getElementById("tela-painel").style.display="none";
-document.getElementById("form").style.display="block";
-document.getElementById("form").classList.add("fade");
+document.getElementById("form-generico").style.display="block";
+document.getElementById("form-generico").classList.add("fade");
 
 let html="";
+
 bases[tipo].forEach((p,i)=>{
 html+=`
+<div class="pergunta">
 <p>${i+1}. ${p}</p>
-<label class="opcao"><input type="radio" name="q${i}" value="2">Sim</label>
-<label class="opcao"><input type="radio" name="q${i}" value="1">Às vezes</label>
-<label class="opcao"><input type="radio" name="q${i}" value="0">Não</label>`;
+
+<label class="opcao">
+<input type="radio" name="q${i}" value="2" required> Sim
+</label>
+
+<label class="opcao">
+<input type="radio" name="q${i}" value="1"> Às vezes
+</label>
+
+<label class="opcao">
+<input type="radio" name="q${i}" value="0"> Não
+</label>
+
+</div>`;
 });
+
 document.getElementById("perguntas").innerHTML=html;
 }
 
-function finalizar(e){
+function finalizarTeste(e){
 e.preventDefault();
 
-document.getElementById("form").style.display="none";
+document.getElementById("form-generico").style.display="none";
 document.getElementById("resultado").style.display="block";
 document.getElementById("resultado").classList.add("fade");
 
-/* CONTADOR */
+// RESULTADO SIMPLES
+document.getElementById("feedbackTexto").innerText="Seu padrão emocional foi identificado.";
+
+// LINK
+document.getElementById("linkHotmart").href="https://go.hotmart.com/L106186655F";
+
+// CONTADOR
 let tempo=600;
-const t=setInterval(()=>{
-let m=Math.floor(tempo/60);
-let s=tempo%60;
-document.getElementById("contador").innerText=`⏳ ${m}:${s<10?"0"+s:s}`;
+
+const timer=setInterval(()=>{
+let min=Math.floor(tempo/60);
+let seg=tempo%60;
+
+document.getElementById("contadorUrgencia").innerText=
+`⏳ Oferta disponível por tempo limitado: ${min}:${seg<10?"0"+seg:seg}`;
+
 tempo--;
-if(tempo<0){clearInterval(t);}
+
+if(tempo<0){
+clearInterval(timer);
+document.getElementById("contadorUrgencia").innerText="⚠️ Oferta encerrando...";
+}
 },1000);
 
-document.getElementById("texto").innerText="Seu padrão emocional foi identificado.";
-document.getElementById("link").href="https://go.hotmart.com/L106186655F";
 }
 
 function irParaPainel(){
 document.getElementById("resultado").style.display="none";
-document.getElementById("form").style.display="
+document.getElementById("form-generico").style.display="none";
+document.getElementById("tela-painel").style.display="grid";
+}
+
+</script>
+
+</body>
+</html>
