@@ -3,10 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Portal de Autoavaliação Emocional</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial;}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif;}
 
 body{
   background:#f4f6f9;
@@ -23,18 +24,20 @@ body{
   gap:6px;
   padding:10px;
   border-radius:8px;
-  margin-bottom:20px;
   justify-content:center;
+  margin-bottom:20px;
 }
 
-.menu-topo button{
-  border:none;
+.btn-menu{
+  background:none;
+  border:1px solid rgba(255,255,255,0.3);
+  color:white;
   padding:6px 10px;
-  cursor:pointer;
   border-radius:4px;
+  cursor:pointer;
 }
 
-.btn-home{background:#e63946;color:white;}
+.btn-home{background:#e63946;border:none;}
 
 header{
   background:linear-gradient(135deg,#1d3557,#457b9d);
@@ -50,7 +53,7 @@ header{
   margin:auto;
 }
 
-/* GRADE */
+/* GRID */
 .grade-testes{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
@@ -60,51 +63,41 @@ header{
 .item-teste{
   background:white;
   border-radius:12px;
-  text-align:center;
-  cursor:pointer;
-  box-shadow:0 4px 12px rgba(0,0,0,0.08);
   overflow:hidden;
+  box-shadow:0 4px 12px rgba(0,0,0,0.08);
+  cursor:pointer;
   transition:0.2s;
 }
 
-.item-teste:hover{transform:translateY(-4px);}
+.item-teste:hover{
+  transform:translateY(-5px);
+}
 
-.item-teste img{width:100%;}
+.item-teste img{
+  width:100%;
+}
 
-/* QUIZ */
+/* CARD */
 .card{
   background:white;
   padding:20px;
-  border-radius:10px;
-  margin-top:20px;
+  border-radius:12px;
+  box-shadow:0 6px 15px rgba(0,0,0,0.08);
 }
 
+/* QUIZ */
 .pergunta{margin-bottom:15px;}
 
 .opcao{
-  display:block;
+  display:flex;
+  align-items:center;
   background:#eee;
   padding:10px;
   margin:5px 0;
   border-radius:6px;
 }
 
-/* PROGRESSO */
-.progresso{
-  height:10px;
-  background:#ddd;
-  border-radius:8px;
-  overflow:hidden;
-  margin-bottom:10px;
-}
-
-.barra{
-  height:10px;
-  width:0%;
-  background:#2a9d8f;
-}
-
-/* BOTÕES */
+/* BOTÃO */
 button{
   width:100%;
   padding:15px;
@@ -113,6 +106,7 @@ button{
   border:none;
   border-radius:8px;
   margin-top:10px;
+  font-weight:bold;
 }
 
 /* RESULTADO */
@@ -127,54 +121,72 @@ button{
   text-decoration:none;
 }
 
+/* NOTA */
 .nota{
   background:#fff3cd;
-  padding:10px;
+  padding:12px;
   border-radius:6px;
-  margin-top:10px;
+  margin-top:15px;
+}
+
+/* URGÊNCIA */
+.contador{
+  margin:10px 0;
+  color:#e63946;
+  font-weight:bold;
+}
+
+/* ANIMAÇÃO APP */
+.fade{
+  animation:fade 0.4s ease;
+}
+
+@keyframes fade{
+  from{opacity:0;transform:translateY(10px);}
+  to{opacity:1;transform:translateY(0);}
 }
 </style>
-
 </head>
 
 <body>
 
 <div class="container">
 
-<!-- MENU -->
-<div class="menu-topo">
-<button class="btn-home" onclick="irParaPainel()">🏠 Início</button>
-<button onclick="abrir('cobranca')">Crítico</button>
-<button onclick="abrir('sensibilidade')">Sensível</button>
-<button onclick="abrir('procrastinacao')">Procrastinação</button>
-<button onclick="abrir('digital')">Digital</button>
-<button onclick="abrir('esgotamento')">Esgotamento</button>
-<button onclick="abrir('lar')">Lar</button>
-<button onclick="abrir('impostor')">Impostor</button>
-<button onclick="abrir('futuro')">Futuro</button>
-<button onclick="abrir('aprovacao')">Aprovação</button>
-<button onclick="abrir('responsabilidade')">Responsabilidade</button>
-<button onclick="abrir('cicatrizes')">Cicatrizes</button>
-<button onclick="abrir('desanimo')">Desânimo</button>
-</div>
+<nav class="menu-topo">
+<button class="btn-menu btn-home" onclick="irParaPainel()">🏠 Início</button>
+<button class="btn-menu" onclick="abrirTeste('cobranca')">Crítico</button>
+<button class="btn-menu" onclick="abrirTeste('sensibilidade')">Sensível</button>
+<button class="btn-menu" onclick="abrirTeste('procrastinacao')">Procrastinação</button>
+<button class="btn-menu" onclick="abrirTeste('digital')">Digital</button>
+<button class="btn-menu" onclick="abrirTeste('esgotamento')">Esgotamento</button>
+<button class="btn-menu" onclick="abrirTeste('lar')">Lar</button>
+<button class="btn-menu" onclick="abrirTeste('impostor')">Impostor</button>
+<button class="btn-menu" onclick="abrirTeste('futuro')">Futuro</button>
+<button class="btn-menu" onclick="abrirTeste('aprovacao')">Aprovação</button>
+<button class="btn-menu" onclick="abrirTeste('responsabilidade')">Responsabilidade</button>
+<button class="btn-menu" onclick="abrirTeste('cicatrizes')">Cicatrizes</button>
+<button class="btn-menu" onclick="abrirTeste('desanimo')">Desânimo</button>
+</nav>
 
 <header>
 <h1>Painel de Autoavaliação Emocional</h1>
 <p>Escolha um teste gratuito</p>
 </header>
 
-<!-- GRID -->
-<div id="painel" class="grade-testes"></div>
+<!-- PAINEL -->
+<div id="tela-painel" class="grade-testes">
 
-<!-- QUIZ -->
-<form id="quiz" class="card" style="display:none;" onsubmit="finalizar(event)">
+<div class="item-teste" onclick="abrirTeste('cobranca')"><img src="capa1.png" onerror="this.style.display='none'"><h3>Crítico Interno</h3></div>
+<div class="item-teste" onclick="abrirTeste('sensibilidade')"><img src="capa2.png" onerror="this.style.display='none'"><h3>Sensibilidade</h3></div>
+<div class="item-teste" onclick="abrirTeste('procrastinacao')"><img src="capa3.png" onerror="this.style.display='none'"><h3>Procrastinação</h3></div>
+<div class="item-teste" onclick="abrirTeste('digital')"><img src="capa4.png" onerror="this.style.display='none'"><h3>Digital</h3></div>
 
-<div class="progresso">
-<div class="barra" id="barra"></div>
 </div>
 
-<div id="perguntas"></div>
-
+<!-- QUIZ -->
+<form id="form-generico" class="card" style="display:none;" onsubmit="finalizarTeste(event)">
+<div id="instr-titulo"></div>
+<div id="perguntas-container"></div>
 <button>PROCESSAR RESULTADO</button>
 </form>
 
@@ -183,13 +195,17 @@ button{
 
 <h2>Resultado</h2>
 
-<p id="texto"></p>
+<p id="feedbackTexto"></p>
 
 <div class="nota">
-⚠️ Este teste é apenas informativo e não substitui psicólogos ou especialistas.
+<strong>Nota:</strong> Este teste é apenas informativo e não substitui profissionais de saúde mental.
 </div>
 
-<a id="linkHotmart" class="link" target="_blank">
+<p class="contador" id="contadorUrgencia">
+⏳ Oferta disponível por tempo limitado: 10:00
+</p>
+
+<a id="linkHotmartDinamic" class="link" target="_blank">
 Ver solução completa
 </a>
 
@@ -201,82 +217,69 @@ Ver solução completa
 
 <script>
 
-const base={
-cobranca:["Se cobra?","Foca erro?","Perfeccionismo?","Comparação?","Medo falhar?","Aceita elogio?","Sobrecarga?"],
-sensibilidade:["Absorve emoções?","Impulsivo?","Ambiente pesa?","Evita conflito?","Se afeta notícias?","Julgmento?","Peso dos outros?"],
-procrastinacao:["Adia tarefas?","Se distrai?","Última hora?","Evita começar?","Foco?","Culpa?","Paralisa?"],
-digital:["Usa celular demais?","Ansiedade sem estímulo?","Perde tempo?","Usa em refeição?","Prejudica sono?","Foco baixo?","Interrompe conversa?"],
-esgotamento:["Cansaço?","Falta energia?","Esquecimento?","Irritação?","Isolamento?","Dor?","Estafa?"],
-lar:["Discute?","Impaciência?","Falta apoio?","Evita casa?","Estresse familiar?","Clima pesado?","Impacto trabalho?"],
-impostor:["Sente fraude?","Minimiza elogio?","Evita desafio?","Foco falha?","Medo exposição?","Se julga?","Insegurança?"],
-futuro:["Ansioso?","Pensa demais?","Medo futuro?","Cenários negativos?","Sintomas físicos?","Controle?","Pressa?"],
-aprovacao:["Busca aprovação?","Diz não?","Muda opinião?","Medo rejeição?","Evita conflito?","Depende outros?","Se esquece?"],
-responsabilidade:["Controle tudo?","Peso mental?","Delegar difícil?","Assume tudo?","Remói erros?","Sem descanso?","Sem leveza?"],
-cicatrizes:["Medos antigos?","Traumas?","Evita exposição?","Desconfiança?","Revive passado?","Bloqueios?","Repete padrão?"],
-desanimo:["Sem energia?","Desânimo?","Sem prazer?","Isolamento?","Sem vontade?","Sem foco?","Automático?"]
+const bases={
+cobranca:["Se cobra?","Perfeccionismo?","Medo errar?","Comparação?","Elogio difícil?","Sobrecarga?","Foco no erro?"],
+sensibilidade:["Absorve emoções?","Perde o sono?","Ambiente pesado?","Evita conflito?","Fica afetado?","Julga-se?","Peso externo?"],
+procrastinacao:["Adia tarefas?","Distração?","Última hora?","Evita começar?","Falta foco?","Culpa?","Paralisa?"],
+digital:["Celular demais?","Ansiedade?","Perde tempo?","Sono ruim?","Sem foco?","Interrompe?","Dependência?"]
 };
 
-let atual="";
+let testeAtual="";
 
-function montarPainel(){
-  let html="";
-  Object.keys(base).forEach((k,i)=>{
-    html+=`
-    <div class="item-teste" onclick="abrir('${k}')">
-    <apa${i+1}.png
-    <h3>Teste ${i+1}</h3>
-    </div>`;
-  });
-  document.getElementById("painel").innerHTML=html;
+function abrirTeste(tipo){
+testeAtual=tipo;
+
+document.getElementById('tela-painel').style.display='none';
+document.getElementById('form-generico').style.display='block';
+document.getElementById('form-generico').classList.add('fade');
+
+let html="";
+
+bases[tipo].forEach((p,i)=>{
+html+=`
+<div class="pergunta">
+<p>${i+1}. ${p}</p>
+<label class="opcao"><input type="radio" name="q${i}" value="2">Sim</label>
+<label class="opcao"><input type="radio" name="q${i}" value="1">Às vezes</label>
+<label class="opcao"><input type="radio" name="q${i}" value="0">Não</label>
+</div>`;
+});
+
+document.getElementById('perguntas-container').innerHTML=html;
 }
 
-montarPainel();
+function finalizarTeste(e){
+e.preventDefault();
 
-function abrir(tipo){
-  atual=tipo;
-  document.getElementById("painel").style.display="none";
-  document.getElementById("quiz").style.display="block";
+document.getElementById('form-generico').style.display='none';
+document.getElementById('resultado').style.display='block';
+document.getElementById('resultado').classList.add('fade');
 
-  let html="";
-  base[tipo].forEach((p,i)=>{
-    html+=`
-    <div class="pergunta">
-    <p>${i+1}. ${p}</p>
-    <label class="opcao"><input type="radio" name="q${i}" value="2" onchange="barra(${i})">Sim</label>
-    <label class="opcao"><input type="radio" name="q${i}" value="1" onchange="barra(${i})">Às vezes</label>
-    <label class="opcao"><input type="radio" name="q${i}" value="0" onchange="barra(${i})">Não</label>
-    </div>`;
-  });
+/* CONTADOR */
+let tempo=600;
 
-  document.getElementById("perguntas").innerHTML=html;
+const timer=setInterval(()=>{
+let m=Math.floor(tempo/60);
+let s=tempo%60;
+
+document.getElementById("contadorUrgencia").innerText=
+`⏳ Oferta disponível por tempo limitado: ${m}:${s<10?"0"+s:s}`;
+
+tempo--;
+
+if(tempo<0){
+clearInterval(timer);
+document.getElementById("contadorUrgencia").innerText="⚠️ Oferta encerrando!";
 }
+},1000);
 
-function barra(i){
-  let total=document.querySelectorAll("input:checked").length;
-  document.getElementById("barra").style.width=(total/7*100)+"%";
-}
-
-function finalizar(e){
-  e.preventDefault();
-
-  let total=0;
-  for(let i=0;i<7;i++){
-    let v=document.querySelector(`input[name=q${i}]:checked`);
-    if(!v){alert("Responda tudo");return;}
-    total+=parseInt(v.value);
-  }
-
-  document.getElementById("quiz").style.display="none";
-  document.getElementById("resultado").style.display="block";
-
-  document.getElementById("texto").innerText=
-    total<=5?"Nível leve":
-    total<=10?"Nível moderado":"Nível alto";
-
-  document.getElementById("linkHotmart").href="https://go.hotmart.com/L106186655F";
+/* LINK HOTMART */
+document.getElementById("linkHotmartDinamic").href="https://go.hotmart.com/L106186655F";
 }
 
 function irParaPainel(){
-  document.getElementById("resultado").style.display="none";
-  document.getElementById("quiz").style.display="none";
-  document.getElementById("pain
+document.getElementById('resultado').style.display='none';
+document.getElementById('form-generico').style.display='none';
+document.getElementById('tela-painel').style.display='grid';
+}
+
