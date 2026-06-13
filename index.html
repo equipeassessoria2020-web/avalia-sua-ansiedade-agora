@@ -11,6 +11,7 @@
 
 body{
   background:#f4f6f9;
+  color:#2b2d42;
   padding:20px;
 }
 
@@ -37,10 +38,10 @@ header{
 .item-teste{
   background:white;
   border-radius:12px;
-  text-align:center;
-  cursor:pointer;
+  overflow:hidden;
   box-shadow:0 4px 12px rgba(0,0,0,0.08);
-  padding:15px;
+  cursor:pointer;
+  transition:0.2s;
 }
 
 .item-teste:hover{
@@ -49,14 +50,18 @@ header{
 
 .item-teste img{
   width:100%;
-  border-radius:10px;
 }
 
+.item-teste h3{
+  padding:10px;
+  text-align:center;
+}
+
+/* QUIZ */
 .card{
   background:white;
   padding:20px;
-  border-radius:10px;
-  margin-top:20px;
+  border-radius:12px;
   box-shadow:0 6px 15px rgba(0,0,0,0.08);
 }
 
@@ -72,6 +77,29 @@ header{
   border-radius:6px;
 }
 
+/* BARRA PROGRESSO */
+.progresso{
+  background:#ddd;
+  height:10px;
+  border-radius:10px;
+  overflow:hidden;
+  margin-bottom:10px;
+}
+
+.barra{
+  height:10px;
+  width:0%;
+  background:#2a9d8f;
+  transition:0.3s;
+}
+
+.txt-progresso{
+  text-align:center;
+  font-size:14px;
+  margin-bottom:10px;
+  color:#555;
+}
+
 button{
   width:100%;
   padding:15px;
@@ -80,8 +108,10 @@ button{
   border:none;
   border-radius:8px;
   margin-top:10px;
+  font-weight:bold;
 }
 
+/* RESULTADO */
 .link{
   display:block;
   margin-top:20px;
@@ -91,8 +121,18 @@ button{
   text-align:center;
   border-radius:50px;
   text-decoration:none;
+  font-weight:bold;
+}
+
+.nota{
+  margin-top:15px;
+  background:#fff3cd;
+  padding:12px;
+  border-radius:8px;
+  font-size:14px;
 }
 </style>
+
 </head>
 
 <body>
@@ -101,7 +141,7 @@ button{
 
 <header>
 <h1>Painel de Autoavaliação Emocional</h1>
-<p>Clique em um teste gratuito abaixo</p>
+<p>Escolha um teste gratuito</p>
 </header>
 
 <!-- PAINEL -->
@@ -112,9 +152,9 @@ button{
 <h3>Crítico Interno</h3>
 </div>
 
-<div class="item-teste" onclick="abrir('sensibilidade')">
+<div class="item-teste" onclick="abrir('ansiedade')">
 <img src="capa2.png" onerror="this.style.display='none'">
-<h3>Sensibilidade</h3>
+<h3>Ansiedade</h3>
 </div>
 
 <div class="item-teste" onclick="abrir('procrastinacao')">
@@ -122,57 +162,25 @@ button{
 <h3>Procrastinação</h3>
 </div>
 
-<div class="item-teste" onclick="abrir('digital')">
+<div class="item-teste" onclick="abrir('energia')">
 <img src="capa4.png" onerror="this.style.display='none'">
-<h3>Sobrecarga Digital</h3>
-</div>
-
-<div class="item-teste" onclick="abrir('esgotamento')">
-<img src="capa5.png" onerror="this.style.display='none'">
-<h3>Esgotamento</h3>
-</div>
-
-<div class="item-teste" onclick="abrir('lar')">
-<img src="capa6.png" onerror="this.style.display='none'">
-<h3>Estresse Familiar</h3>
-</div>
-
-<div class="item-teste" onclick="abrir('impostor')">
-<img src="capa7.png" onerror="this.style.display='none'">
-<h3>Síndrome do Impostor</h3>
-</div>
-
-<div class="item-teste" onclick="abrir('futuro')">
-<img src="capa8.png" onerror="this.style.display='none'">
-<h3>Ansiedade do Futuro</h3>
-</div>
-
-<div class="item-teste" onclick="abrir('aprovacao')">
-<img src="capa9.png" onerror="this.style.display='none'">
-<h3>Aprovação</h3>
-</div>
-
-<div class="item-teste" onclick="abrir('responsabilidade')">
-<img src="capa10.png" onerror="this.style.display='none'">
-<h3>Responsabilidade</h3>
-</div>
-
-<div class="item-teste" onclick="abrir('cicatrizes')">
-<img src="capa11.png" onerror="this.style.display='none'">
-<h3>Cicatrizes</h3>
-</div>
-
-<div class="item-teste" onclick="abrir('desanimo')">
-<img src="capa12.png" onerror="this.style.display='none'">
-<h3>Desânimo</h3>
+<h3>Energia</h3>
 </div>
 
 </div>
 
 <!-- QUIZ -->
 <form id="quiz" class="card" style="display:none;" onsubmit="finalizar(event)">
+
+<div class="txt-progresso" id="txtProg">0 de 7 respondidas</div>
+<div class="progresso">
+<div class="barra" id="barra"></div>
+</div>
+
 <div id="perguntas"></div>
-<button>Ver resultado</button>
+
+<button>PROCESSAR MEU RESULTADO</button>
+
 </form>
 
 <!-- RESULTADO -->
@@ -182,12 +190,16 @@ button{
 
 <p id="texto"></p>
 
-<p><strong>⚠️ Observação:</strong> Esse padrão é mais comum do que parece.</p>
+<div class="nota">
+<strong>Nota importante:</strong> Este teste é apenas uma triagem informativa e não substitui avaliação de psicólogos, psiquiatras ou profissionais de saúde.
+</div>
 
-<p>Existe um método simples que pode te ajudar.</p>
+<p style="margin-top:10px;">
+Existe um caminho prático para melhorar esse padrão emocional.
+</p>
 
 <a id="linkHotmart" class="link" target="_blank">
-👉 Ver solução completa
+Ver explicação completa
 </a>
 
 <button onclick="voltar()">Voltar</button>
@@ -198,38 +210,19 @@ button{
 
 <script>
 
-const base = {
-
-cobranca:["Você se cobra demais?","Foca no erro?","Perfeccionismo?","Medo de falhar?","Comparação?","Dificuldade aceitar elogio?","Sobrecarga?"],
-
-sensibilidade:["Absorve emoções dos outros?","Perde o sono com problemas?","Fica sobrecarregado com ambientes?","Evita conflito?","Se afeta com notícias?","Pensa no julgamento?","Carrega dores dos outros?"],
-
-procrastinacao:["Adia tarefas?","Se distrai fácil?","Deixa pra depois?","Evita começar?","Falta foco?","Culpa?","Paralisa?"],
-
-digital:["Viciado no celular?","Ansiedade sem estímulo?","Perde tempo em redes?","Usa em refeições?","Dormir tarde por tela?","Falta foco leitura?","Interrompe conversa?"],
-
-esgotamento:["Cansaço extremo?","Esquecimento?","Pequenos problemas parecem grandes?","Irritabilidade?","Isolamento?","Dores físicas?","Cansaço no trabalho?"],
-
-lar:["Discussões frequentes?","Impaciência?","Falta de apoio?","Evita casa?","Falta paciência?","Ambiente pesado?","Problemas afetam trabalho?"],
-
-impostor:["Sorte nas conquistas?","Medo de ser descoberto?","Minimiza elogio?","Cobrança extrema?","Foco no defeito?","Evita desafios?","Se sente falso?"],
-
-futuro:["Pensa negativo?","Ansiedade constante?","Não vive o presente?","Prevê problemas?","Sintomas físicos?","Preocupação antecipada?","Precisa controlar tudo?"],
-
-aprovacao:["Dificuldade dizer não?","Muda opinião?","Remói críticas?","Coloca outros primeiro?","Medo de rejeição?","Assume tarefas?","Depende de aprovação?"],
-
-responsabilidade:["Controle excessivo?","Sensação de peso?","Dificuldade delegar?","Assume problemas dos outros?","Remói erros?","Sem descanso mental?","Cansaço forte?"],
-
-cicatrizes:["Desconfiança?","Passado influencia?","Revive traumas?","Evita se expor?","Travas mentais?","Revive lembranças?","Repete padrões?"],
-
-desanimo:["Sem energia?","Sem prazer?","Corpo pesado?","Isolamento?","Falta vontade?","Nada faz sentido?","Modo automático?"]
-
+const base={
+cobranca:["Você se cobra demais?","Foca no erro?","Perfeccionismo?","Medo de falhar?","Comparação?","Dificuldade elogio?","Sobrecarga?"],
+ansiedade:["Pensa no futuro?","Preocupação?","Dificuldade relaxar?","Cenários negativos?","Ansiedade física?","Medo?","Controle?"],
+procrastinacao:["Adia tarefas?","Distração?","Última hora?","Evita começar?","Falta foco?","Culpa?","Paralisa?"],
+energia:["Cansaço?","Desânimo?","Sem motivação?","Isolamento?","Sem energia?","Sem prazer?","Vazio?"]
 };
 
 let atual="";
+let respondidas=0;
 
 function abrir(tipo){
   atual=tipo;
+  respondidas=0;
 
   document.getElementById("painel").style.display="none";
   document.getElementById("quiz").style.display="block";
@@ -240,13 +233,31 @@ function abrir(tipo){
     html+=`
     <div class="pergunta">
     <p>${i+1}. ${p}</p>
-    <label class="opcao"><input type="radio" name="q${i}" value="2" required> Sim</label>
-    <label class="opcao"><input type="radio" name="q${i}" value="1"> Às vezes</label>
-    <label class="opcao"><input type="radio" name="q${i}" value="0"> Não</label>
+
+    <label class="opcao">
+    <input type="radio" name="q${i}" value="2" onchange="contar()"> Sim
+    </label>
+
+    <label class="opcao">
+    <input type="radio" name="q${i}" value="1" onchange="contar()"> Às vezes
+    </label>
+
+    <label class="opcao">
+    <input type="radio" name="q${i}" value="0" onchange="contar()"> Não
+    </label>
+
     </div>`;
   });
 
   document.getElementById("perguntas").innerHTML=html;
+}
+
+function contar(){
+  respondidas++;
+  let porcento=(respondidas/7)*100;
+
+  document.getElementById("barra").style.width=porcento+"%";
+  document.getElementById("txtProg").innerText=respondidas+" de 7 respondidas";
 }
 
 function finalizar(e){
@@ -256,32 +267,25 @@ function finalizar(e){
 
   for(let i=0;i<7;i++){
     let v=document.querySelector(`input[name="q${i}"]:checked`);
-    if(!v){ alert("Responda tudo"); return; }
+    if(!v){ alert("Responda todas"); return; }
     total+=parseInt(v.value);
   }
 
   document.getElementById("quiz").style.display="none";
   document.getElementById("resultado").style.display="block";
 
-  let msg = total<=5 ? "Nível leve."
-           : total<=10 ? "Nível moderado."
-           : "Nível alto.";
+  let msg=
+    total<=5 ? "Você está relativamente equilibrado." :
+    total<=10 ? "Alguns padrões já começam a impactar sua mente." :
+    "Seu nível está alto e merece atenção.";
 
   document.getElementById("texto").innerText=msg;
 
   let links={
     cobranca:"https://go.hotmart.com/L106186655F",
-    sensibilidade:"https://go.hotmart.com/L106186655F",
+    ansiedade:"https://go.hotmart.com/M106194670K",
     procrastinacao:"https://go.hotmart.com/E61115249H",
-    digital:"https://go.hotmart.com/E61115249H",
-    esgotamento:"https://go.hotmart.com/E61115249H",
-    lar:"https://go.hotmart.com/E61115249H",
-    impostor:"https://go.hotmart.com/M106194670K",
-    futuro:"https://go.hotmart.com/M106194670K",
-    aprovacao:"https://go.hotmart.com/M106194670K",
-    responsabilidade:"https://go.hotmart.com/E106237415W",
-    cicatrizes:"https://go.hotmart.com/E106237415W",
-    desanimo:"https://go.hotmart.com/E106237415W"
+    energia:"https://go.hotmart.com/E106237415W"
   };
 
   document.getElementById("linkHotmart").href=links[atual];
