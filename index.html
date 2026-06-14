@@ -54,14 +54,12 @@
         
         .img-dinamica-ebook { max-width: 100%; height: auto; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); display: none; }
  
-        /* ÁREA DE MEMBROS VIP / NEWSLETTER */
+        /* ÁREA DE MEMBROS VIP / BOTÃO DO FORMULÁRIO */
         .area-membros { background: linear-gradient(135deg, #1d3557, #111e30); color: white; padding: 2.5rem; border-radius: 12px; text-align: center; margin-top: 2rem; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
         .area-membros h2 { font-size: 1.6rem; margin-bottom: 0.5rem; color: #fff; }
-        .area-membros p { color: #cbd5e1; font-size: 0.95rem; margin-bottom: 1.5rem; }
-        .form-membros { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; max-width: 600px; margin: 0 auto; }
-        .form-membros input[type="text"], .form-membros input[type="email"] { padding: 10px 15px; border: none; border-radius: 5px; flex: 1; min-width: 200px; font-size: 0.95rem; }
-        .form-membros button { background-color: #e63946; color: white; border: none; padding: 10px 25px; font-weight: bold; border-radius: 5px; cursor: pointer; transition: background 0.2s; font-size: 0.95rem; }
-        .form-membros button:hover { background-color: #c1121f; }
+        .area-membros p { color: #cbd5e1; font-size: 1rem; margin-bottom: 1.5rem; max-width: 700px; margin-left: auto; margin-right: auto; }
+        .btn-link-forms { background-color: #e63946; color: white; border: none; padding: 14px 35px; font-weight: bold; border-radius: 5px; cursor: pointer; transition: background 0.2s; font-size: 1.1rem; text-decoration: none; display: inline-block; box-shadow: 0 4px 10px rgba(230,57,70,0.3); text-transform: uppercase; }
+        .btn-link-forms:hover { background-color: #c1121f; }
 
         @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
         .btn-voltar-grade { background: #6c757d; color: white; border: none; padding: 8px 20px; border-radius: 4px; cursor: pointer; margin-top: 2rem; font-weight: 600; }
@@ -80,7 +78,7 @@
             <button class="btn-menu" onclick="abrirTeste('lar')">🏠 Estresse Familiar (Grátis)</button>
             <button class="btn-menu" onclick="abrirTeste('impostor')">👤 Síndrome do Impostor (Grátis)</button>
             <button class="btn-menu" onclick="abrirTeste('futuro')">🔮 Mente Calma (Grátis)</button>
-            <button class="btn-menu" onclick="abrirTeste('aprovacao')">🤝 Independência (Grátis)</button>
+            <button class="btn-menu" onclick="abrovacao" onclick="abrirTeste('aprovacao')">🤝 Independência (Grátis)</button>
             <button class="btn-menu" onclick="abrirTeste('responsabilidade')">💼 Peso Invisível (Grátis)</button>
             <button class="btn-menu" onclick="abrirTeste('cicatrizes')">🩹 Bloqueios (Grátis)</button>
             <button class="btn-menu" onclick="abrirTeste('desanimo')">⚡ Energia Vital (Grátis)</button>
@@ -117,12 +115,8 @@
 
             <div class="area-membros">
                 <h2>🚪 Área de Membros VIP — Portal de Avisos</h2>
-                <p>Cadastre-se gratuitamente abaixo para receber notificações de novos testes de comportamento, atualizações e materiais exclusivos no seu e-mail!</p>
-                <form class="form-membros" onsubmit="alert('Cadastro realizado com sucesso na Área de Membros! Você receberá os próximos avisos por e-mail.'); this.reset(); return false;">
-                    <input type="text" placeholder="Seu Nome Completo" required>
-                    <input type="email" placeholder="Seu Melhor E-mail" required>
-                    <button type="submit">ENTRAR NA ÁREA DE MEMBROS</button>
-                </form>
+                <p>Cadastre-se gratuitamente clicando no botão abaixo para receber notificações de novos testes de comportamento, atualizações e materiais exclusivos no seu e-mail!</p>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSf3pcO-jFCfoUEda9KdSGOYR8sc3-fSWDL7gAmM3fszVmghtw/viewform" target="_blank" class="btn-link-forms">QUERO ME CADASTRAR GRATUITAMENTE</a>
             </div>
         </div>
  
@@ -173,7 +167,7 @@
             procrastinacao: { i: 3, t: "Mente Paralisada e Procrastinação", group: 1, p: ["Quando surge uma tarefa importante e complexa, você inventa distrações fáceis para adiar?", "Você vive com a sensação constante de culpa por saber que tem obrigações acumuladas?", "A maioria das suas decisões importantes só saem do papel quando o prazo está estourando?", "Você deseste de começar um plano novo porque imagina o trabalho que vai dar?", "O hábito de adiar tarefas cruciais já gerou prejuízos reais na sua carreira ou finanças?", "Você se perde checando o celular quando deveria estar focado em uma obrigação séria?", "Sente uma paralisia mental que te impede de dar o primeiro passo, mesmo querendo mudar?"] },
             digital: { i: 4, t: "Sobrecarga de Estímulos e Foco", group: 2, p: ["A primeira coisa que faz ao abrir os olhos de manhã é buscar estímulos no celular?", "Sente ansiedade ou tédio desconfortável quando se desconecta do fluxo de informações?", "Você perde frequentemente a noção do tempo navegando sem rumo fixo por conteúdos e feeds?", "Leva o aparelho e se perde in notificações durante as refeições ou com familiares?", "Consome informações e estímulos visuais na cama, sacrificando horas de sono?", "Sente que sua capacidade de ler um livro ou focar em textos longos instruídos diminuiu?", "Interrompe conversas presença com pessoas para checar o aparelho a cada sinal?"] },
             esgotamento: { i: 5, t: "Esgotamento Mental e Estafa", group: 2, p: ["Você acorda cansado e sem energia física, mesmo tendo dormido o suficiente?", "Esquece compromissos, objetos ou nomes simples com uma frequência anormal?", "Qualquer pequeno contratempo do cotidiano parece uma montanha intransponível?", "Sente uma forte irritação ou impaciência com barulhos de fundo ou interrupções?", "Tem uma vontade crônica de se isolar de tudo e de todos para conseguir descansar?", "Sente dores físicas constantes provocadas por tensionamento muscular e estresse?", "O trabalho ou obrigações que antes te davam prazer hoje geram apenas exaustão?"] },
-            lar: { i: 6, t: "Estresse Familiar e Termômetro do Lar", group: 2, p: ["Você costuma descarregar o estresse acumulado fora em cima de quem convive com você?", "Discute ou perde a paciência por motivos bobos dentro do ambiente doméstico?", "Sente que não é compreendido, ouvido ou valorizado pelas pessoas do seu lar?", "Evita voltar para casa ou inventa tarefas extras para postergar o contato familiar?", "A paciência com seus familiares ou parceiro está operando no limite da tolerância?", "O clima dentro da sua casa costuma parecer tenso ou recheado de cobranças?", "Sente que desentendimentos familiares estão minando sua стабильность profissional?"] },
+            lar: { i: 6, t: "Estresse Familiar e Termômetro do Lar", group: 2, p: ["Você costuma descarregar o estresse acumulado fora em cima de quem convive com você?", "Discute ou perde a paciência por motivos bobos dentro do ambiente doméstico?", "Sente que não é compreendido, ouvido ou valorizado pelas pessoas do seu lar?", "Evita voltar para casa ou inventa tarefas extras para postergar o contato familiar?", "A paciência com seus familiares ou parceiro está operando no limite da tolerância?", "O clima dentro da sua casa costuma parecer tenso ou recheado de cobranças?", "Sente que desentendimentos familiares estão minando sua estabilidade profissional?"] },
             impostor: { i: 7, t: "Síndrome do Impostor", group: 3, p: ["Você sente que suas conquistas foram por pura sorte ou acaso, e não por sua competência?", "Vem o medo constante de que as pessoas descubram que você não é tão bom quanto pensam?", "Ao receber um elogio profissional, você tende a minimizar ou achar que foi exagero?", "Você se cobra de forma extrema para não falhar, pois errar significaria incompetência total?", "Costuma focar excessivamente nas suas fraquezas enquanto ignora suas reais habilidades?", "Evita aceitar novos desafios profissionais com medo de falhar na frente os outros?", "Sente que está fingindo ou representando um papel no seu ambiente profissional?"] },
             futuro: { i: 8, t: "Ansiedade do Futuro", group: 3, p: ["A sua mente passa grande parte do dia criando cenários negativos sobre o amanhã?", "Sente uma pressa ou angústia inexplicável, como se estivesse correndo contra o tempo?", "Dificilmente consegue relaxar e desfrutar o momento presente sem pensar das próximas tarefas?", "Costuma antecipar problemas que têm chances baixas de acontecer na realidade?", "A incerteza sobre o futuro causa reações físicas como aperto no peito ou respiração curta?", "Sofre por antecipação dias ou semanas antes de um evento importante?", "Sente que precisa controlar todas as variáveis da vida para se sentir seguro(a)?"] },
             aprovacao: { i: 9, t: "Dependência de Aprovação", group: 3, p: ["Sente uma enorme dificuldade em dizer 'não' quando as pessoas pedem favores?", "Muda suas opiniões ou gostos para se adaptar e ser aceito em determinados grupos?", "Fica remoendo por dias uma crítica ou olhar desaprovador de um conhecido ou colega?", "Coloca as necessidades dos outros sempre em primeiro lugar, forgetting de si mesmo(a)?", "O medo de ser rejeitado(a) ou julgado(a) te impede de tomar decisões autênticas?", "Assume tarefas que detesta apenas para evitar desentendimentos ou conflitos no dia?", "Sente que o seu valor depende diretamente do quanto as pessoas te elogiam ou aprovam?"] },
@@ -191,7 +185,7 @@
             testeAtual = tipo;
             const container = document.getElementById('perguntas-container');
             container.innerHTML = "";
-            document.getElementById('instr-titulo').innerText = "Faça o teste e veja seu resultado gratuito na hora sobre " + bases[tipo].t + ". Responda com sinceridade:";
+            document.getElementById('instr-titulo').innerText = "Faça o test e veja seu resultado gratuito na hora sobre " + bases[tipo].t + ". Responda com sinceridade:";
              
             bases[tipo].p.forEach((pergunta, i) => {
                 container.innerHTML += `<div class="pergunta">
@@ -214,7 +208,6 @@
                 if(document.querySelector(`input[name="q${i}"]:checked`)) respondidas++;
             }
             
-            // Desenha os blocos com base no progresso real
             let totalBlocos = 10;
             let preenchidos = Math.round((respondidas / 7) * totalBlocos);
             let vazios = totalBlocos - preenchidos;
