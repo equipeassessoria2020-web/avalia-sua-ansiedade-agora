@@ -103,7 +103,7 @@
                 <div class="item-teste" onclick="abrirTeste('lar')"><img src="capa6.png"><h3>6. Estresse Familiar e Termômetro do Lar <span class="tag-gratis">(Teste Gratuito)</span></h3></div>
                 <div class="item-teste" onclick="abrirTeste('impostor')"><img src="capa7.png"><h3>7. Síndrome do Impostor <span class="tag-gratis">(Teste Gratuito)</span></h3></div>
                 <div class="item-teste" onclick="abrirTeste('futuro')"><img src="capa8.png"><h3>8. Ansiedade do Futuro <span class="tag-gratis">(Teste Gratuito)</span></h3></div>
-                <div class="item-teste" onclick="abrovacao" onclick="abrirTeste('aprovacao')"><img src="capa9.png"><h3>9. Dependência de Aprovação <span class="tag-gratis">(Teste Gratuito)</span></h3></div>
+                <div class="item-teste" onclick="abrirTeste('aprovacao')"><img src="capa9.png"><h3>9. Dependência de Aprovação <span class="tag-gratis">(Teste Gratuito)</span></h3></div>
                 <div class="item-teste" onclick="abrirTeste('responsabilidade')"><img src="capa10.png"><h3>10. Peso Invisível e Hiper-Responsabilidade <span class="tag-gratis">(Teste Gratuito)</span></h3></div>
                 <div class="item-teste" onclick="abrirTeste('cicatrizes')"><img src="capa11.png"><h3>11. Cicatrizes Emocionais e Bloqueios <span class="tag-gratis">(Teste Gratuito)</span></h3></div>
                 <div class="item-teste" onclick="abrirTeste('desanimo')"><img src="capa12.png"><h3>12. Desânimo Crônico e Falta de Energia <span class="tag-gratis">(Teste Gratuito)</span></h3></div>
@@ -150,7 +150,7 @@
                     <p style="margin: 8px 0 0 0; font-size: 0.95rem; color: #4a5568; line-height: 1.5;" id="ebook-descricao"></p>
                 </div>
  
-                <div class="setas-inducao">👇 CLIQUE NO BOTÃO ABAIXO PARA DETALHAR O SEU MANUAL 👇</div>
+                <div class="setas-inducao">👇 CLIQUE NO BOTÃO ABAIXO PARA BAIXAR O MANUAL 👇</div>
                 <a href="#" id="linkHotmartDinamic" target="_blank" class="btn-download">Quero Alcançar Alta Performance</a>
             </div>
              
@@ -162,13 +162,13 @@
         const bases = {
             cobranca: { i: 1, t: "Crítico Interno", group: 1, p: ["Quando erra algo, você passa horas se culpando?", "Você foca apenas no que ficou faltando?", "A busca por perfeição atrasa suas tarefas?", "Dificuldade para aceitar elogios sinceros?", "Assume mais do que aguenta por medo de decepionar?", "Compara-se constantemente nas redes sociais?", "Precisa de aprovação para validar seu valor?"] },
             sensibilidade: { i: 2, t: "Sensibilidade Emocional", group: 1, p: ["O estresse alheio azeda seu humor na hora?", "Perde o sono por problemas de terceiros?", "Ambientes cheios ou barulhentos te esgotam?", "Evita opiniões sinceras por medo de conflito?", "Corpo reage com angústia a notícias ruins?", "Pensa no julgamento alheio antes de agir?", "Sente as dores do mundo nas suas costas?"] },
-            procrastinacao: { i: 3, t: "Mente Paralisada", group: 1, p: ["Inventa distrações para adiar o important?", "Vive com culpa por obrigações acumuladas?", "Decisões só saem quando o prazo estoura?", "Deseste antes de começar pelo cansaço?", "Hábito de adiar gerou prejuízos reais?", "Perde-se no celular em horas sérias?", "Paralisia mental impede seu primeiro passo?"] },
+            procrastinacao: { i: 3, t: "Mente Paralisada", group: 1, p: ["Inventa distrações para adiar o importante?", "Vive com culpa por obrigações acumuladas?", "Decisões só saem quando o prazo estoura?", "Desiste antes de começar pelo cansaço?", "Hábito de adiar gerou prejuízos reais?", "Perde-se no celular em horas sérias?", "Paralisia mental impede seu primeiro passo?"] },
             digital: { i: 4, t: "Sobrecarga Digital", group: 2, p: ["Abre o celular logo ao acordar?", "Sente tédio sem fluxo de informação?", "Perde a noção do tempo em redes sociais?", "Usa o celular em momentos com a família?", "Consome informações na cama, perdendo sono?", "Dificuldade em focar em textos longos?", "Checa o aparelho durante conversas reais?"] },
             esgotamento: { i: 5, t: "Esgotamento Mental", group: 2, p: ["Acorda cansado, mesmo dormindo bem?", "Esquece nomes ou objetos com frequência?", "Pequenos problemas parecem montanhas?", "Irritação com barulhos ou interrupções?", "Vontade crônica de se isolar de tudo?", "Dores físicas por tensão e estresse?", "Trabalho que amava hoje gera exaustão?"] },
             lar: { i: 6, t: "Estresse no Lar", group: 2, p: ["Descarrega o estresse do dia na família?", "Discute por motivos bobos em casa?", "Sente-se desvalorizado pelos familiares?", "Evita voltar para casa para fugir do contato?", "Paciência no limite da tolerância doméstica?", "O clima doméstico parece sempre tenso?", "Problemas de casa minam sua carreira?"] },
             impostor: { i: 7, t: "Síndrome do Impostor", group: 3, p: ["Sente que suas conquistas foram sorte?", "Medo de descobrirem que você 'não é bom'?", "Minimiza ou ignora elogios profissionais?", "Cobra-se extremo para não falhar nunca?", "Foca na fraqueza e ignora habilidades?", "Evita novos desafios com medo de falhar?", "Sente que está representando um papel?"] },
             futuro: { i: 8, t: "Ansiedade do Futuro", group: 3, p: ["Mente cria cenários negativos o dia todo?", "Pressa inexplicável contra o tempo?", "Dificuldade em desfrutar o presente?", "Antecipa problemas com pouca chance real?", "Incerteza causa aperto no peito?", "Sofre por antecipação antes de eventos?", "Precisa controlar tudo para se sentir seguro?"] },
-            aprovacao: { i: 9, t: "Dependência de Aprovação", group: 3, p: ["Dificuldade gigante em dizer não?", "Muda opiniões para ser aceito no grupo?", "Remói críticas por dias seguidos?", "Necessidade alheia sempre vem primeiro?", "Medo de rejeição impede sua decisão?", "Assume o que detesta para evitar brigas?", "Seu valor depende do elogio alheio?"] },
+            aprovacao: { i: 9, t: "Dependência de Aprovação", group: 3, p: ["Dificuldade gigante em dizer não?", "Muda opiniões para ser aceito no grupo?", "Remói críticas por dias seguidos?", "Necessidade alheia sempre vem primeiro?", "Medo de rejection impede sua decisão?", "Assume o que detesta para evitar brigas?", "Seu valor depende do elogio alheio?"] },
             responsabilidade: { i: 10, t: "Peso Invisível", group: 4, p: ["Acha que tudo desmorona sem seu controle?", "Sensação de aperto por ser 'único' responsável?", "Dificuldade total em delegar funções?", "Absorve problemas dos outros para si?", "Remói erros como falhas exclusivas suas?", "Dificuldade em relaxar mesmo na folga?", "Obrigações consomem toda sua leveza?"] },
             cicatrizes: { i: 11, t: "Cicatrizes e Bloqueios", group: 4, p: ["Reage com desconfiança a situações novas?", "Frustrações do passado ditam seus medos?", "Críticas revivem angústias de traumas?", "Receio de sofrer impede novas entregas?", "Travas invisíveis geram paralisia real?", "Revive lembranças ruins no silêncio?", "Repete padrões mesmo sabendo que fazem mal?"] },
             desanimo: { i: 12, t: "Desânimo Crônico", group: 4, p: ["Acorda sem vontade de iniciar o dia?", "Diminuição do prazer em coisas que amava?", "Corpo pesado e sem energia vital?", "Tende a se isolar para não conversar?", "Pensar em metas gera sensação de vazio?", "Inconstância por achar que 'nada vale a pena'?", "Opera no automático, sem alegria real?"] },
@@ -231,55 +231,3 @@
             const eCapa = document.getElementById('capa-ebook-dinamica');
  
             scoreTexto.innerText = "Pontuação obtida: " + total + "/14";
-             
-            if (total <= 4) { feedbackTexto.innerText = "Nível Controlado: Indicadores estáveis, mas a prevenção contínua é o segredo do sucesso."; }
-            else if (total <= 9) { feedbackTexto.innerText = "Alerta Moderado: Sua mente já sente os reflexos da sobrecarga diária. Hábitos ocultos estão limitando seus resultados."; }
-            else { feedbackTexto.innerText = "Alerta Crítico: Índices elevados de travamento e esgotamento. Essa barreira consome sua energia e bloqueia seus alvos de performance."; }
- 
-            // CURIOSIDADE ESPECÍFICA POR GRUPO DE TESTES (NADA DE TEXTO UNIVERSAL)
-            if(bases[testeAtual].group === 1) {
-                eCapa.style.display = "none";
-                eTitulo.innerText = "Manual Secreto: Mente Blindada, Vida Leve";
-                eSub.innerText = "O fim da autocrítica oculta e da paralisia mental";
-                eDesc.innerText = "Seus resultados revelaram travas ligadas ao filtro esgotado. Existe um método exato para desarmar esses pensamentos antes que eles paralisem suas decisões. Descubra os passos práticos tocando abaixo.";
-                eLink.href = "https://go.hotmart.com/L106186655F"; 
-            } else if(bases[testeAtual].group === 2) {
-                eCapa.style.display = "none";
-                eTitulo.innerText = "Manual Secreto: Reset da Rotina Eficiente";
-                eSub.innerText = "Como reverter a estafa profunda e resgatar o controle";
-                eDesc.innerText = "Seu nível de sobrecarga indica que estímulos externos estão esgotando seu foco. Existe um plano prático para neutralizar o cansaço crônico e recuperar a harmonia nas suas próximas 24 horas. Acesse agora.";
-                eLink.href = "https://go.hotmart.com/E61115249H"; 
-            } else if(bases[testeAtual].group === 3) {
-                eCapa.style.display = "none";
-                eTitulo.innerText = "Manual Secreto: Mente Livre, Escolhas Fortes";
-                eSub.innerText = "O código para quebrar a dependência e a dúvida interna";
-                eDesc.innerText = "Os números indicam que a ansiedade do amanhã está bloqueando sua segurança. Descubra o exercício exato de inteligência comportamental para tomar decisões sem depender da aprovação de ninguém.";
-                eLink.href = "https://go.hotmart.com/M106194670K"; 
-            } else if(bases[testeAtual].group === 4) {
-                eCapa.src = "capa10.png"; eCapa.style.display = "block";
-                eTitulo.innerText = "Manual Secreto: Mente Leve, Passos Firmes";
-                eSub.innerText = "Destranque suas travas e recupere sua energia vital";
-                eDesc.innerText = "Seus dados apontam que o peso da hiper-responsabilidade ativou bloqueios ocultos. Conheça os passos necessários para reprogramar essas reações automáticas e devolver a disposição máxima aos seus dias.";
-                eLink.href = "https://go.hotmart.com/E106237415W"; 
-            } else if(bases[testeAtual].group === 5) {
-                if (testeAtual === "energia") eCapa.src = "capa13.png";
-                else if (testeAtual === "savador") eCapa.src = "capa14.png";
-                else if (testeAtual === "constancia") eCapa.src = "capa15.png";
-                eCapa.style.display = "block";
-                eTitulo.innerText = "O Reset da Produtividade Alta";
-                eSub.innerText = "Desbloqueie o Código da Constância e Resultados Reais";
-                eDesc.innerText = "Seu teste diagnosticou um dreno crítico na sua execução biológica. Existe um método para blinder seu tempo contra as cargas alheias e estruturar rotinas automáticas de sucesso. Conheça as estratégias científicas tocando abaixo.";
-                eLink.href = "https://go.hotmart.com/R106316236I"; 
-            }
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
- 
-        function irParaPainel() {
-            document.getElementById('resultado').style.display = 'none';
-            document.getElementById('form-generico').style.display = 'none';
-            document.getElementById('tela-painel').style.display = 'block';
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-    </script>
-</body>
-</html>
