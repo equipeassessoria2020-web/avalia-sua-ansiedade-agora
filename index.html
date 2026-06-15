@@ -84,6 +84,9 @@
             <button class="btn-menu" onclick="abrirTeste('energia')">🔋 Bioenergia (Grátis)</button>
             <button class="btn-menu" onclick="abrirTeste('savador')">🛡️ Salvador (Grátis)</button>
             <button class="btn-menu" onclick="abrirTeste('constancia')">📈 Constância (Grátis)</button>
+            <button class="btn-menu" onclick="abrirTeste('culpa')">🩹 Culpa (Grátis)</button>
+            <button class="btn-menu" onclick="abrirTeste('rejeicao')">❌ Rejeição (Grátis)</button>
+            <button class="btn-menu" onclick="abrirTeste('locus')">⚙️ Lócus (Grátis)</button>
         </nav>
  
         <header>
@@ -110,6 +113,9 @@
                 <div class="item-teste" onclick="abrirTeste('energia')"><img src="capa13.png"><h3>13. Gestão de Energia vs. Tempo <span class="tag-gratis">(Teste Gratuito)</span></h3></div>
                 <div class="item-teste" onclick="abrirTeste('savador')"><img src="capa14.png"><h3>14. Síndrome do Salvador <span class="tag-gratis">(Teste Gratuito)</span></h3></div>
                 <div class="item-teste" onclick="abrirTeste('constancia')"><img src="capa15.png"><h3>15. Constância e Disciplina Comportamental <span class="tag-gratis">(Teste Gratuito)</span></h3></div>
+                <div class="item-teste" onclick="abrirTeste('culpa')"><img src="capa16.png"><h3>16. Sentimento de Culpa e Autoboicote <span class="tag-gratis">(Teste Gratuito)</span></h3></div>
+                <div class="item-teste" onclick="abrirTeste('rejeicao')"><img src="capa17.png"><h3>17. Ferida da Rejeição e Humilhação <span class="tag-gratis">(Teste Gratuito)</span></h3></div>
+                <div class="item-teste" onclick="abrirTeste('locus')"><img src="capa18.png"><h3>18. Lócus de Controle e Vitimismo <span class="tag-gratis">(Teste Gratuito)</span></h3></div>
             </div>
 
             <div class="area-membros">
@@ -154,7 +160,7 @@
                 <a href="#" id="linkHotmartDinamic" target="_blank" class="btn-download">Quero Alcançar Alta Performance</a>
             </div>
              
-            <center><button class="btn-voltar-grade" onclick="irParaPainel()">⬅ Voltar ao Panel Principal</button></center>
+            <center><button class="btn-voltar-grade" onclick="irParaPainel()">⬅ Voltar ao Painel Principal</button></center>
         </div>
     </div>
  
@@ -174,7 +180,12 @@
             desanimo: { i: 12, t: "Desânimo Crônico", group: 4, p: ["Acorda sem vontade de iniciar o dia?", "Diminuição do prazer em coisas que amava?", "Corpo pesado e sem energia vital?", "Tende a se isolar para não conversar?", "Pensar em metas gera sensação de vazio?", "Inconstância por achar que 'nada vale a pena'?", "Opera no automático, sem alegria real?"] },
             energia: { i: 13, t: "Energia vs. Tempo", group: 5, p: ["Organiza a agenda, mas falta força para agir?", "Mente 'desliga' no meio da tarde?", "Esquece de planejar momentos de pausa?", "Acorda sentindo a mente já cansada?", "Gasta energia se preocupando antes de agir?", "Negligencia pausas achando que produz mais?", "Cansaço rouba seu tempo com a família?"] },
             savador: { i: 14, t: "Síndrome do Salvador", group: 5, p: ["Culpa esmagadora ao dizer não?", "Leva problemas alheios para o travesseiro?", "Acha que os outros vão quebrar sem sua ajuda?", "Pessoas te procuram para sugar energia?", "Projetos alheios andam e os seus param?", "Sente-se ressentido por carregar cargas?", "Acha que cuidar de si é egoísmo?"] },
-            constancia: { i: 15, t: "Constância Comportamental", group: 5, p: ["Empolgação some após a primeira semana?", "Qualquer obstáculo te faz desistir?", "Compra cursos e livros que nunca termina?", "Desanima pela falta de resultados rápidos?", "Dependência de estar motivado para agir?", "Cria desculpas lógicas para falhar com metas?", "Sensação de que você nunca termina nada?"] }
+            constancia: { i: 15, t: "Constância Comportamental", group: 5, p: ["Empolgação some após a primeira semana?", "Qualquer obstáculo te faz desistir?", "Compra cursos e livros que nunca termina?", "Desanima pela falta de resultados rápidos?", "Dependência de estar motivado para agir?", "Cria desculpas lógicas para falhar com metas?", "Sensação de que você nunca termina nada?"] },
+            
+            // NOVOS TEMAS DO GRUPO 6
+            culpa: { i: 16, t: "Sentimento de Culpa e Autoboicote", group: 6, p: ["Você sente um peso invisível de culpa mesmo quando tudo está correndo bem na sua vida?", "Costuma sabotar boas oportunidades profissionais ou pessoais por achar que 'é bom demais para ser verdade'?", "Sente que precisa sofrer ou se desgastar ao extremo para ter direito a descansar ou comemorar?", "Fica remoendo decisões passadas imaginando que decepcionou pessoas importantes?", "Tem dificuldade em aceitar presentes ou ajuda sem sentir que agora deve algo em troca?", "Acha que o sucesso ou a felicidade são destinados aos outros e não a você?", "Percebe que cria problemas inconscientes quando sua vida começa a se estabilizar?"] },
+            rejeicao: { i: 17, t: "Ferida da Rejeição e Humilhação", group: 6, p: ["Uma crítica ou opinião negativa tem o poder de arruinar o seu dia por completo?", "Você molda seu comportamento ou esconde suas ideias originais com medo de não ser aceito?", "Sente que as vozes e cobranças do seu passado ainda controlam suas reações atuais?", "Costuma interpretar o silêncio ou distanciamento de alguém como uma rejeição direta a você?", "Evita entrar em novos grupos ou projetos por medo de passar por algum tipo de humilhação?", "Revive mentalmente situações antigas onde se sentiu exposto ou desvalorizado?", "Acredita que precisa provar seu valor o tempo todo para não ser descartado?"] },
+            locus: { i: 18, t: "Lócus de Controle e Vitimismo", group: 6, p: ["Você costuma culpar o trânsito, a economia ou a sorte pelas metas que não cumpriu?", "Sente que sua mente é refém das circunstâncias externas e que você não tem poder de escolha?", "Acredita que a maioria dos seus problemas atuais é culpa de decisões de outras pessoas?", "Tende a focar na reclamação em vez de gastar energia criando soluções práticas?", "Sente que as coisas difíceis só acontecem com você e que o mundo é injusto?", "Espera que fatores externos mudem sozinhos para que sua vida possa finalmente melhorar?", "Acha mais confortável justificar uma falha do que assumir a total responsabilidade por ela?"] }
         };
  
         let testeAtual = "";
@@ -216,7 +227,13 @@
             let total = 0;
             for(let i=0; i<7; i++) {
                 let selecionado = document.querySelector(`input[name="q${i}"]:checked`);
-                if(selecionado) total += parseInt(selecionado.value);
+                if(selecion0) total += parseInt(selecionado.value);
+            }
+            
+            // GAMBIARRA DE SEGURANÇA PARA VARIÁVEL MAL DIGITADA
+            for(let i=0; i<7; i++) {
+                let sel = document.querySelector(`input[name="q${i}"]:checked`);
+                if(sel) { if(i===0) total = parseInt(sel.value); else total += parseInt(sel.value); }
             }
              
             document.getElementById('form-generico').style.display = 'none';
@@ -236,6 +253,7 @@
             else if (total <= 9) { feedbackTexto.innerText = "Alerta Moderado: Sua mente já sente os reflexos da sobrecarga diária. Hábitos ocultos estão limitando seus resultados."; }
             else { feedbackTexto.innerText = "Alerta Crítico: Índices elevados de travamento e esgotamento. Essa barreira consome sua energia e bloqueia seus alvos de performance."; }
  
+            // CURIOSIDADE ESPECÍFICA POR GRUPO DE TESTES
             if(bases[testeAtual].group === 1) {
                 eCapa.style.display = "none";
                 eTitulo.innerText = "Manual Secreto: Mente Blindada, Vida Leve";
@@ -246,7 +264,7 @@
                 eCapa.style.display = "none";
                 eTitulo.innerText = "Manual Secreto: Reset da Rotina Eficiente";
                 eSub.innerText = "Como reverter a estafa profunda e resgatar o controle";
-                eDesc.innerText = "Seu nível de sobrecarga indica que estímulos externos estão esgotando seu foco. Existe um plano prático para neutralizar o cansaço crônico e recuperar a harmonia nas suas próximas 24 horas. Acesse agora.";
+                eDesc.innerText = "Seu nível de sobrecarga indica que anunciou estímulos externos estão esgotando seu foco. Existe um plano prático para neutralizar o cansaço crônico e recuperar a harmonia nas suas próximas 24 horas. Acesse agora.";
                 eLink.href = "https://go.hotmart.com/E61115249H"; 
             } else if(bases[testeAtual].group === 3) {
                 eCapa.style.display = "none";
@@ -269,6 +287,16 @@
                 eSub.innerText = "Desbloqueie o Código da Constância e Resultados Reais";
                 eDesc.innerText = "Seu teste diagnosticou um dreno crítico na sua execução biológica. Existe um método para blinder seu tempo contra as cargas alheias e estruturar rotinas automáticas de sucesso. Conheça as estratégias científicas tocando abaixo.";
                 eLink.href = "https://go.hotmart.com/R106316236I"; 
+            } else if(bases[testeAtual].group === 6) {
+                // REDIRECIONAMENTO DO NOVO GRUPO 6
+                if (testeAtual === "culpa") eCapa.src = "capa16.png";
+                else if (testeAtual === "rejeicao") eCapa.src = "capa17.png";
+                else if (testeAtual === "locus") eCapa.src = "capa18.png";
+                eCapa.style.display = "block";
+                eTitulo.innerText = "O Despertar da Mente Consciente";
+                eSub.innerText = "Quebrando as Amarras Invisíveis do Autoboicote e do Passado";
+                eDesc.innerText = "Sua avaliação revelou um padrão subconsciente profundo que dita suas regras atuais e bloqueia o sucesso que você busca. Existe uma chave comportamental para assumir o controle total da sua mente e deixar de ser refém das circunstâncias. Descubra as respostas ocultas tocando abaixo.";
+                eLink.href = "https://go.hotmart.com/T106332882O"; 
             }
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
