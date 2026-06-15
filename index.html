@@ -3,239 +3,282 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chega de Autoboicote - Download do Manual Prático</title>
+    <title>Portal de Autoavaliação Emocional e Produtividade</title>
     <style>
-        :root {
-            --bg-color: #F9F6F0; /* Tom Areia */
-            --primary-color: #C15C3D; /* Tom Terracota */
-            --secondary-color: #606C38; /* Tom Verde-Oliva */
-            --text-color: #2B2D2F; /* Cinza-Grafite */
-            --white: #FFFFFF;
-            --light-gray: #EFECE6;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background-color: #f4f6f9; color: #2b2d42; line-height: 1.6; padding-top: 20px; padding-bottom: 3rem; }
+        
+        .menu-topo { background-color: #1d3557; color: white; display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; padding: 12px; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .btn-menu { background: none; border: 1px solid rgba(255,255,255,0.3); color: white; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-size: 0.85rem; transition: all 0.2s; }
+        .btn-menu:hover { background-color: white; color: #1d3557; }
+        .btn-home { background-color: #e63946; border: none; font-weight: bold; }
+ 
+        header { background: linear-gradient(135deg, #1d3557, #457b9d); color: white; text-align: center; padding: 2.5rem 1rem; border-radius: 12px; margin-bottom: 2rem; }
+        header h1 { font-size: 2rem; margin-bottom: 0.5rem; line-height: 1.3; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 0 1rem; }
+        
+        .grade-testes { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 3rem; }
+        .item-teste { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.08); cursor: pointer; transition: transform 0.2s; border: 1px solid #e5e5e5; text-align: center; }
+        .item-teste:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.15); }
+        .item-teste img { width: 100%; height: auto; display: block; border-bottom: 1px solid #edf2f4; }
+        .item-teste h3 { padding: 1rem; color: #1d3557; font-size: 1.05rem; font-weight: bold; }
+        .tag-gratis { display: block; color: #2a9d8f; font-size: 0.85rem; font-weight: bold; margin-top: 4px; text-transform: uppercase; }
+ 
+        .card { background: white; padding: 2.5rem; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); margin-bottom: 1.5rem; position: relative; }
+        .instrucoes { background-color: #edf2f4; border-left: 5px solid #457b9d; padding: 1rem; margin-bottom: 1rem; font-size: 0.95rem; font-weight: 500; }
+        
+        /* BARRA DE PROGRESSO STICKY */
+        .progresso-container { position: sticky; top: 0; background: #fff; padding: 15px; border-radius: 8px; margin-bottom: 2rem; font-family: monospace; font-size: 1.1rem; color: #1d3557; border: 2px solid #ced4da; font-weight: bold; z-index: 10; box-shadow: 0 5px 15px rgba(0,0,0,0.05); text-align: center; }
+        .barra-texto { color: #e63946; }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+        .pergunta { margin-bottom: 1.8rem; border-bottom: 1px solid #edf2f4; padding-bottom: 1.2rem; }
+        .pergunta p { font-weight: 600; font-size: 1.1rem; margin-bottom: 1rem; color: #1d3557; }
+        .opcao { display: flex; align-items: center; background: #f8f9fa; padding: 0.9rem; border-radius: 8px; cursor: pointer; border: 1px solid #ddd; margin-bottom: 6px; font-size: 0.95rem; }
+        .opcao input { margin-right: 12px; transform: scale(1.2); }
+        .opcao:hover { background-color: #edf2f4; }
+ 
+        .btn-enviar { background-color: #e63946; color: white; border: none; width: 100%; padding: 1.2rem; font-size: 1.2rem; font-weight: bold; border-radius: 8px; cursor: pointer; box-shadow: 0 4px 12px rgba(230,57,70,0.3); }
+        .btn-enviar:hover { background-color: #c1121f; }
+        
+        .score-box { padding: 1.5rem; text-align: center; font-size: 1.5rem; font-weight: bold; border-radius: 8px; margin-bottom: 1.5rem; }
+        .nota-profissional { background-color: #fff3cd; border: 1px solid #ffeba2; color: #664d03; padding: 1.2rem; border-radius: 8px; font-size: 0.95rem; text-align: center; margin-top: 1.5rem; margin-bottom: 2rem; line-height: 1.5; }
+        
+        .box-download { background: linear-gradient(145deg, #ffffff, #f1f5f9); border: 3px dashed #e63946; border-radius: 16px; padding: 2.5rem; margin-top: 2rem; text-align: center; box-shadow: 0 10px 25px rgba(0,0,0,0.05); position: relative; }
+        .badge-urgente { background-color: #e63946; color: white; padding: 4px 12px; font-weight: bold; font-size: 0.8rem; border-radius: 50px; text-transform: uppercase; display: inline-block; margin-bottom: 1rem; }
+        .box-download h3 { font-size: 1.6rem; color: #1d3557; margin-bottom: 0.5rem; font-weight: 800; }
+        .chamada-sub { font-size: 1.1rem; color: #457b9d; font-weight: bold; margin-bottom: 1.5rem; }
+        .card-ebook { background-color: white; border-radius: 8px; padding: 1.2rem; margin-bottom: 2rem; border-left: 6px solid #e63946; text-align: left; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+        .btn-download { background-color: #2a9d8f; color: white; text-decoration: none; padding: 1.3rem 3rem; border-radius: 50px; font-weight: bold; font-size: 1.3rem; display: inline-block; box-shadow: 0 6px 20px rgba(42, 157, 143, 0.4); transition: transform 0.2s, background-color 0.2s; text-transform: uppercase; letter-spacing: 0.5px; }
+        .btn-download:hover { background-color: #21867a; transform: scale(1.03); }
+        .setas-inducao { font-size: 1.8rem; color: #e63946; margin-bottom: 0.5rem; animation: bounce 1s infinite; }
+        
+        .img-dinamica-ebook { max-width: 100%; height: auto; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); display: none; }
+ 
+        .area-membros { background: linear-gradient(135deg, #1d3557, #111e30); color: white; padding: 2.5rem; border-radius: 12px; text-align: center; margin-top: 2rem; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        .area-membros h2 { font-size: 1.6rem; margin-bottom: 0.5rem; color: #fff; }
+        .area-membros p { color: #cbd5e1; font-size: 1rem; margin-bottom: 1.5rem; max-width: 700px; margin-left: auto; margin-right: auto; }
+        .btn-link-forms { background-color: #e63946; color: white; border: none; padding: 14px 35px; font-weight: bold; border-radius: 5px; cursor: pointer; transition: background 0.2s; font-size: 1.1rem; text-decoration: none; display: inline-block; box-shadow: 0 4px 10px rgba(230,57,70,0.3); text-transform: uppercase; }
+        .btn-link-forms:hover { background-color: #c1121f; }
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.6;
-            padding: 40px 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .container {
-            max-width: 850px;
-            width: 100%;
-            background: var(--white);
-            padding: 40px;
-            border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.04);
-            text-align: center;
-        }
-
-        header {
-            margin-bottom: 40px;
-        }
-
-        h1 {
-            color: var(--primary-color);
-            font-size: 2.5rem;
-            letter-spacing: -0.5px;
-            margin-bottom: 8px;
-            font-weight: 700;
-        }
-
-        p.subtitle {
-            font-size: 1.2rem;
-            color: var(--secondary-color);
-            font-style: italic;
-            font-weight: 500;
-        }
-
-        .main-download {
-            background-color: var(--bg-color);
-            padding: 35px;
-            border-radius: 12px;
-            margin-bottom: 45px;
-            border: 1px solid rgba(0,0,0,0.02);
-        }
-
-        .main-download p {
-            font-size: 1.15rem;
-            margin-bottom: 22px;
-            font-weight: 500;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background-color: var(--primary-color);
-            color: var(--white);
-            text-decoration: none;
-            padding: 16px 50px;
-            font-weight: bold;
-            font-size: 1.3rem;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-            box-shadow: 0 6px 20px rgba(193, 92, 61, 0.25);
-        }
-
-        .cta-button:hover {
-            background-color: #A0462B;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(193, 92, 61, 0.35);
-        }
-
-        .section-title {
-            font-size: 1.6rem;
-            color: var(--text-color);
-            border-bottom: 2px solid var(--light-gray);
-            padding-bottom: 12px;
-            margin-bottom: 30px;
-            text-align: left;
-            letter-spacing: -0.3px;
-            font-weight: 600;
-        }
-
-        .grid-capas {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 25px;
-            margin-bottom: 50px;
-        }
-
-        .card-capa {
-            background: var(--white);
-            border-radius: 12px;
-            padding: 25px 20px;
-            text-align: center;
-            border: 1px solid var(--light-gray);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .card-capa:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.06);
-        }
-
-        .card-capa img {
-            width: 100%;
-            max-width: 190px;
-            height: auto;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-            margin-bottom: 18px;
-        }
-
-        .card-capa h3 {
-            font-size: 1.25rem;
-            color: var(--primary-color);
-            margin-bottom: 8px;
-            font-weight: 600;
-        }
-
-        .card-capa p {
-            font-size: 0.95rem;
-            color: #555;
-            line-height: 1.4;
-        }
-
-        .disclaimer-box {
-            background-color: #FFFDF9;
-            border-left: 4px solid var(--primary-color);
-            padding: 20px;
-            border-radius: 0 8px 8px 0;
-            text-align: left;
-            margin-top: 20px;
-        }
-
-        .disclaimer-box h4 {
-            color: var(--primary-color);
-            margin-bottom: 8px;
-            font-size: 1.1rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            font-weight: 600;
-        }
-
-        .disclaimer-box p {
-            font-size: 0.9rem;
-            color: #666;
-            line-height: 1.5;
-        }
-
-        footer {
-            margin-top: 40px;
-            font-size: 0.85rem;
-            color: #888;
-            border-top: 1px solid var(--light-gray);
-            padding-top: 20px;
-            width: 100%;
-        }
+        @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+        .btn-voltar-grade { background: #6c757d; color: white; border: none; padding: 8px 20px; border-radius: 4px; cursor: pointer; margin-top: 2rem; font-weight: 600; }
     </style>
 </head>
 <body>
-
+ 
     <div class="container">
-        <!-- Cabeçalho Principal -->
+        <nav class="menu-topo">
+            <button class="btn-menu btn-home" onclick="irParaPainel()">🏠 Início</button>
+            <button class="btn-menu" onclick="abrirTeste('cobranca')">🧠 Crítico (Grátis)</button>
+            <button class="btn-menu" onclick="abrirTeste('sensibilidade')">🛡️ Filtro (Grátis)</button>
+            <button class="btn-menu" onclick="abrirTeste('procrastinacao')">⏳ Foco (Grátis)</button>
+            <button class="btn-menu" onclick="abrirTeste('digital')">📱 Digital (Grátis)</button>
+            <button class="btn-menu" onclick="abrirTeste('esgotamento')">🔥 Estafa (Grátis)</button>
+            <button class="btn-menu" onclick="abrirTeste('lar')">🏠 Lar (Grátis)</button>
+            <button class="btn-menu" onclick="abrirTeste('impostor')">👤 Impostor (Grátis)</button>
+            <button class="btn-menu" onclick="abrirTeste('futuro')">🔮 Futuro (Grátis)</button>
+            <button class="btn-menu" onclick="abrirTeste('aprovacao')">🤝 Aprovação (Grátis)</button>
+            <button class="btn-menu" onclick="abrirTeste('responsabilidade')">💼 Peso (Grátis)</button>
+            <button class="btn-menu" onclick="abrirTeste('cicatrizes')">🩹 Bloqueios (Grátis)</button>
+            <button class="btn-menu" onclick="abrirTeste('desanimo')">⚡ Energia (Grátis)</button>
+            <button class="btn-menu" onclick="abrirTeste('energia')">🔋 Bioenergia (Grátis)</button>
+            <button class="btn-menu" onclick="abrirTeste('savador')">🛡️ Salvador (Grátis)</button>
+            <button class="btn-menu" onclick="abrirTeste('constancia')">📈 Constância (Grátis)</button>
+        </nav>
+ 
         <header>
-            <h1>CHEGA DE AUTOBOICOTE</h1>
-            <p class="subtitle">O Manual Prático de Instruções, Atividades e Ferramentas para Vencer a Culpa e Dominar a Rotina</p>
+            <h1>Painel grátis de Autoavaliação emocional e veja o seu resultado na hora!</h1>
+            <p>Selecione um tema para iniciar seu teste e resultado gratuito.</p>
         </header>
-
-        <!-- Bloco de Download Principal -->
-        <div class="main-download">
-            <p>Clique no botão abaixo para baixar o seu guia prático completo em formato PDF.</p>
-            <a href="SEU_LINK_DO_EBOOK_COMPLETO_AQUI" class="cta-button" target="_blank">
-                BAIXAR MANUAL COMPLETO (PDF)
-            </a>
-        </div>
-
-        <!-- Título da Galeria de Capas das Seções -->
-        <h2 class="section-title">Capas e Conteúdos do Livro</h2>
-        
-        <!-- Grid de Capas Integradas (Seções Reais do Nosso Material) -->
-        <div class="grid-capas">
-            <!-- Capa Seção 16 - Mapeamento da Culpa -->
-            <div class="card-capa">
-                <img src="URL_DA_IMAGEM_CAPA_16_AQUI" alt="Capa Seção 16 - O Plano de Ação Contra a Culpa">
-                <h3>Seção 16</h3>
-                <p>O Plano de Ação Contra a Culpa e o Autoboicote</p>
+ 
+        <div id="tela-painel" style="display: block;">
+            <p style="text-align: center; font-weight: bold; color: #1d3557; margin-bottom: 1.5rem; font-size: 1.2rem;">💝 Teste e Resultado Gratuito — Escolha um tema abaixo:</p>
+             
+            <div class="grade-testes">
+                <div class="item-teste" onclick="abrirTeste('cobranca')"><img src="capa1.png"><h3>1. Crítico Interno e Autocrítica <span class="tag-gratis">(Teste Gratuito)</span></h3></div>
+                <div class="item-teste" onclick="abrirTeste('sensibilidade')"><img src="capa2.png"><h3>2. Sensibilidade Emocional <span class="tag-gratis">(Teste Gratuito)</span></h3></div>
+                <div class="item-teste" onclick="abrirTeste('procrastinacao')"><img src="capa3.png"><h3>3. Mente Paralisada e Procrastinação <span class="tag-gratis">(Teste Gratuito)</span></h3></div>
+                <div class="item-teste" onclick="abrirTeste('digital')"><img src="capa4.png"><h3>4. Sobrecarga de Estímulos e Foco <span class="tag-gratis">(Teste Gratuito)</span></h3></div>
+                <div class="item-teste" onclick="abrirTeste('esgotamento')"><img src="capa5.png"><h3>5. Esgotamento Mental e Estafa <span class="tag-gratis">(Teste Gratuito)</span></h3></div>
+                <div class="item-teste" onclick="abrirTeste('lar')"><img src="capa6.png"><h3>6. Estresse Familiar e Termômetro do Lar <span class="tag-gratis">(Teste Gratuito)</span></h3></div>
+                <div class="item-teste" onclick="abrirTeste('impostor')"><img src="capa7.png"><h3>7. Síndrome do Impostor <span class="tag-gratis">(Teste Gratuito)</span></h3></div>
+                <div class="item-teste" onclick="abrirTeste('futuro')"><img src="capa8.png"><h3>8. Ansiedade do Futuro <span class="tag-gratis">(Teste Gratuito)</span></h3></div>
+                <div class="item-teste" onclick="abrirTeste('aprovacao')"><img src="capa9.png"><h3>9. Dependência de Aprovação <span class="tag-gratis">(Teste Gratuito)</span></h3></div>
+                <div class="item-teste" onclick="abrirTeste('responsabilidade')"><img src="capa10.png"><h3>10. Peso Invisível e Hiper-Responsabilidade <span class="tag-gratis">(Teste Gratuito)</span></h3></div>
+                <div class="item-teste" onclick="abrirTeste('cicatrizes')"><img src="capa11.png"><h3>11. Cicatrizes Emocionais e Bloqueios <span class="tag-gratis">(Teste Gratuito)</span></h3></div>
+                <div class="item-teste" onclick="abrirTeste('desanimo')"><img src="capa12.png"><h3>12. Desânimo Crônico e Falta de Energia <span class="tag-gratis">(Teste Gratuito)</span></h3></div>
+                <div class="item-teste" onclick="abrirTeste('energia')"><img src="capa13.png"><h3>13. Gestão de Energia vs. Tempo <span class="tag-gratis">(Teste Gratuito)</span></h3></div>
+                <div class="item-teste" onclick="abrirTeste('savador')"><img src="capa14.png"><h3>14. Síndrome do Salvador <span class="tag-gratis">(Teste Gratuito)</span></h3></div>
+                <div class="item-teste" onclick="abrirTeste('constancia')"><img src="capa15.png"><h3>15. Constância e Disciplina Comportamental <span class="tag-gratis">(Teste Gratuito)</span></h3></div>
             </div>
 
-            <!-- Capa Seção 17 - Feridas do Passado -->
-            <div class="card-capa">
-                <img src="URL_DA_IMAGEM_CAPA_17_AQUI" alt="Capa Seção 17 - O Guia de Enfrentamento das Feridas do Passado">
-                <h3>Seção 17</h3>
-                <p>O Guia de Enfrentamento das Feridas do Passado</p>
-            </div>
-
-            <!-- Capa Seção 18 - Instabilidade Emocional -->
-            <div class="card-capa">
-                <img src="URL_DA_IMAGEM_CAPA_18_AQUI" alt="Capa Seção 18 - O Termômetro da Instabilidade Emocional">
-                <h3>Seção 18</h3>
-                <p>O Termômetro da Instabilidade Emocional</p>
+            <div class="area-membros">
+                <h2>🚪 Área de Membros VIP — Portal de Avisos</h2>
+                <p>Cadastre-se gratuitamente clicando no botão abaixo para receber notificações de novos testes de comportamento, atualizações e materiais exclusivos no seu e-mail!</p>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSf3pcO-jFCfoUEda9KdSGOYR8sc3-fSWDL7gAmM3fszVmghtw/viewform" target="_blank" class="btn-link-forms">QUERO ME CADASTRAR GRATUITAMENTE</a>
             </div>
         </div>
+ 
+        <form id="form-generico" class="card" style="display: none;" onsubmit="finalizarTeste(event)">
+            <div class="progresso-container" id="barra-progresso">
+                TESTE EM ANDAMENTO: <span id="progresso-num">0/7</span> <span id="progresso-blocos" class="barra-texto">░░░░░░░░░░</span>
+            </div>
 
-        <!-- Aviso Legal Obrigatório -->
-        <div class="disclaimer-box">
-            <h4>Aviso Importante e Disclaimer Legal</h4>
-            <p>Este material possui caráter estritamente educativo e informativo com foco em organização e desenvolvimento pessoal. Ele NÃO substitui, em hipótese alguma, o diagnóstico, orientação ou tratamento de profissionais de saúde mental qualificados, como psicólogos, neuropsicopedagogos ou psiquiatras. Caso sinta necessidade, busque atendimento especializado de forma individualizada.</p>
+            <div class="instrucoes" id="instr-titulo"></div>
+            <div id="perguntas-container"></div>
+            <button type="submit" class="btn-enviar">⚠️ PROCESSAR MEU RESULTADO AGORA ⚠️</button>
+        </form>
+ 
+        <div id="resultado" class="card" style="display: none;">
+            <h2 style="text-align: center; color: #1d3557; margin-bottom: 1rem;">Análise Estatística Concluída com Sucesso</h2>
+            <div class="score-box" id="scoreTexto"></div>
+            <p id="feedbackTexto" style="text-align: center; font-size: 1.1rem; color: #4a5568; margin-bottom: 1.5rem; font-weight: 500;"></p>
+ 
+            <div class="nota-profissional">
+                <strong>Nota Importante:</strong> Esta triagem possui caráter puramente educativo e não substitui tratamento ou parecer de médicos especialistas.
+            </div>
+ 
+            <div class="box-download">
+                <div class="badge-urgente">Ação Recomendada: Performance Máxima</div>
+                <h3 id="ebook-titulo"></h3>
+                <p class="chamada-sub">O plano prático focado em fazer você se sobressair</p>
+                
+                <center><img id="capa-ebook-dinamica" src="" class="img-dinamica-ebook"></center>
+                 
+                <div class="card-ebook">
+                    <p style="margin: 0; font-weight: bold; color: #1d3557;" id="ebook-sub-header"></p>
+                    <p style="margin: 8px 0 0 0; font-size: 0.95rem; color: #4a5568; line-height: 1.5;" id="ebook-descricao"></p>
+                </div>
+ 
+                <div class="setas-inducao">👇 CLIQUE NO BOTÃO ABAIXO PARA BAIXAR O MANUAL 👇</div>
+                <a href="#" id="linkHotmartDinamic" target="_blank" class="btn-download">Quero Alcançar Alta Performance</a>
+            </div>
+             
+            <center><button class="btn-voltar-grade" onclick="irParaPainel()">⬅ Voltar ao Panel Principal</button></center>
         </div>
-
-        <!-- Rodapé Corporativo/Infoprodutos -->
-        <footer>
-            <p>&copy; Todos os direitos reservados. Este produto não garante resultados sem a aplicação prática dos exercícios sugeridos.</p>
-        </footer>
     </div>
+ 
+    <script>
+        const bases = {
+            cobranca: { i: 1, t: "Crítico Interno", group: 1, p: ["Quando erra algo, você passa horas se culpando?", "Você foca apenas no que ficou faltando?", "A busca por perfeição atrasa suas tarefas?", "Dificuldade para aceitar elogios sinceros?", "Assume mais do que aguenta por medo de decepionar?", "Compara-se constantemente nas redes sociais?", "Precisa de aprovação para validar seu valor?"] },
+            sensibilidade: { i: 2, t: "Sensibilidade Emocional", group: 1, p: ["O estresse alheio azeda seu humor na hora?", "Perde o sono por problemas de terceiros?", "Ambientes cheios ou barulhentos te esgotam?", "Evita opiniões sinceras por medo de conflito?", "Corpo reage com angústia a notícias ruins?", "Pensa no julgamento alheio antes de agir?", "Sente as dores do mundo nas suas costas?"] },
+            procrastinacao: { i: 3, t: "Mente Paralisada", group: 1, p: ["Inventa distrações para adiar o importante?", "Vive com culpa por obrigações acumuladas?", "Decisões só saem quando o prazo estoura?", "Desiste antes de começar pelo cansaço?", "Hábito de adiar gerou prejuízos reais?", "Perde-se no celular em horas sérias?", "Paralisia mental impede seu primeiro passo?"] },
+            digital: { i: 4, t: "Sobrecarga Digital", group: 2, p: ["Abre o celular logo ao acordar?", "Sente tédio sem fluxo de informação?", "Perde a noção do tempo em redes sociais?", "Usa o celular em momentos com a família?", "Consome informações na cama, perdendo sono?", "Dificuldade em focar em textos longos?", "Checa o aparelho durante conversas reais?"] },
+            esgotamento: { i: 5, t: "Esgotamento Mental", group: 2, p: ["Acorda cansado, mesmo dormindo bem?", "Esquece nomes ou objetos com frequência?", "Pequenos problemas parecem montanhas?", "Irritação com barulhos ou interrupções?", "Vontade crônica de se isolar de tudo?", "Dores físicas por tensão e estresse?", "Trabalho que amava hoje gera exaustão?"] },
+            lar: { i: 6, t: "Estresse no Lar", group: 2, p: ["Descarrega o estresse do dia na família?", "Discute por motivos bobos em casa?", "Sente-se desvalorizado pelos familiares?", "Evita voltar para casa para fugir do contato?", "Paciência no limite da tolerância doméstica?", "O clima doméstico parece sempre tenso?", "Problemas de casa minam sua carreira?"] },
+            impostor: { i: 7, t: "Síndrome do Impostor", group: 3, p: ["Sente que suas conquistas foram sorte?", "Medo de descobrirem que você 'não é bom'?", "Minimiza ou ignora elogios profissionais?", "Cobra-se extremo para não falhar nunca?", "Foca na fraqueza e ignora habilidades?", "Evita novos desafios com medo de falhar?", "Sente que está representando um papel?"] },
+            futuro: { i: 8, t: "Ansiedade do Futuro", group: 3, p: ["Mente cria cenários negativos o dia todo?", "Pressa inexplicável contra o tempo?", "Dificuldade em desfrutar o presente?", "Antecipa problemas com pouca chance real?", "Incerteza causa aperto no peito?", "Sofre por antecipação antes de eventos?", "Precisa controlar tudo para se sentir seguro?"] },
+            aprovacao: { i: 9, t: "Dependência de Aprovação", group: 3, p: ["Dificuldade gigante em dizer não?", "Muda opiniões para ser aceito no grupo?", "Remói críticas por dias seguidos?", "Necessidade alheia sempre vem primeiro?", "Medo de rejeição impede sua decisão?", "Assume o que detesta para evitar brigas?", "Seu valor depende do elogio alheio?"] },
+            responsabilidade: { i: 10, t: "Peso Invisível", group: 4, p: ["Acha que tudo desmorona sem seu controle?", "Sensação de aperto por ser 'único' responsável?", "Dificuldade total em delegar funções?", "Absorve problemas dos outros para si?", "Remói erros como falhas exclusivas suas?", "Dificuldade em relaxar mesmo na folga?", "Obrigações consomem toda sua leveza?"] },
+            cicatrizes: { i: 11, t: "Cicatrizes e Bloqueios", group: 4, p: ["Reage com desconfiança a situações novas?", "Frustrações do passado ditam seus medos?", "Críticas revivem angústias de traumas?", "Receio de sofrer impede novas entregas?", "Travas invisíveis geram paralisia real?", "Revive lembranças ruins no silêncio?", "Repete padrões mesmo sabendo que fazem mal?"] },
+            desanimo: { i: 12, t: "Desânimo Crônico", group: 4, p: ["Acorda sem vontade de iniciar o dia?", "Diminuição do prazer em coisas que amava?", "Corpo pesado e sem energia vital?", "Tende a se isolar para não conversar?", "Pensar em metas gera sensação de vazio?", "Inconstância por achar que 'nada vale a pena'?", "Opera no automático, sem alegria real?"] },
+            energia: { i: 13, t: "Energia vs. Tempo", group: 5, p: ["Organiza a agenda, mas falta força para agir?", "Mente 'desliga' no meio da tarde?", "Esquece de planejar momentos de pausa?", "Acorda sentindo a mente já cansada?", "Gasta energia se preocupando antes de agir?", "Negligencia pausas achando que produz mais?", "Cansaço rouba seu tempo com a família?"] },
+            savador: { i: 14, t: "Síndrome do Salvador", group: 5, p: ["Culpa esmagadora ao dizer não?", "Leva problemas alheios para o travesseiro?", "Acha que os outros vão quebrar sem sua ajuda?", "Pessoas te procuram para sugar energia?", "Projetos alheios andam e os seus param?", "Sente-se ressentido por carregar cargas?", "Acha que cuidar de si é egoísmo?"] },
+            constancia: { i: 15, t: "Constância Comportamental", group: 5, p: ["Empolgação some após a primeira semana?", "Qualquer obstáculo te faz desistir?", "Compra cursos e livros que nunca termina?", "Desanima pela falta de resultados rápidos?", "Dependência de estar motivado para agir?", "Cria desculpas lógicas para falhar com metas?", "Sensação de que você nunca termina nada?"] }
+        };
+ 
+        let testeAtual = "";
+ 
+        function abrirTeste(tipo) {
+            testeAtual = tipo;
+            const container = document.getElementById('perguntas-container');
+            container.innerHTML = "";
+            document.getElementById('instr-titulo').innerText = "Análise Gratuita: " + bases[tipo].t;
+             
+            bases[tipo].p.forEach((pergunta, i) => {
+                container.innerHTML += `<div class="pergunta">
+                    <p>${i+1}. ${pergunta}</p>
+                    <label class="opcao"><input type="radio" name="q${i}" value="2" onchange="atualizarProgresso()" required> Sim, frequente</label>
+                    <label class="opcao"><input type="radio" name="q${i}" value="1" onchange="atualizarProgresso()"> Às vezes</label>
+                    <label class="opcao"><input type="radio" name="q${i}" value="0" onchange="atualizarProgresso()"> Raramente / Não</label>
+                </div>`;
+            });
+            
+            document.getElementById('tela-painel').style.display = 'none';
+            document.getElementById('form-generico').style.display = 'block';
+            atualizarProgresso();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
 
+        function atualizarProgresso() {
+            let respondidas = 0;
+            for(let i=0; i<7; i++) {
+                if(document.querySelector(`input[name="q${i}"]:checked`)) respondidas++;
+            }
+            let preenchidos = Math.round((respondidas / 7) * 10);
+            let blocosTexto = "█".repeat(preenchidos) + "░".repeat(10 - preenchidos);
+            document.getElementById('progresso-num').innerText = respondidas + "/7";
+            document.getElementById('progresso-blocos').innerText = blocosTexto;
+        }
+ 
+        function finalizarTeste(e) {
+            e.preventDefault();
+            let total = 0;
+            for(let i=0; i<7; i++) {
+                let selecionado = document.querySelector(`input[name="q${i}"]:checked`);
+                if(selecionado) total += parseInt(selecionado.value);
+            }
+             
+            document.getElementById('form-generico').style.display = 'none';
+            document.getElementById('resultado').style.display = 'block';
+             
+            const scoreTexto = document.getElementById('scoreTexto');
+            const feedbackTexto = document.getElementById('feedbackTexto');
+            const eTitulo = document.getElementById('ebook-titulo');
+            const eSub = document.getElementById('ebook-sub-header');
+            const eDesc = document.getElementById('ebook-descricao');
+            const eLink = document.getElementById('linkHotmartDinamic');
+            const eCapa = document.getElementById('capa-ebook-dinamica');
+ 
+            scoreTexto.innerText = "Pontuação obtida: " + total + "/14";
+             
+            if (total <= 4) { feedbackTexto.innerText = "Nível Controlado: Indicadores estáveis, mas a prevenção contínua é o segredo do sucesso."; }
+            else if (total <= 9) { feedbackTexto.innerText = "Alerta Moderado: Sua mente já sente os reflexos da sobrecarga diária. Hábitos ocultos estão limitando seus resultados."; }
+            else { feedbackTexto.innerText = "Alerta Crítico: Índices elevados de travamento e esgotamento. Essa barreira consome sua energia e bloqueia seus alvos de performance."; }
+ 
+            if(bases[testeAtual].group === 1) {
+                eCapa.style.display = "none";
+                eTitulo.innerText = "Manual Secreto: Mente Blindada, Vida Leve";
+                eSub.innerText = "O fim da autocrítica oculta e da paralisia mental";
+                eDesc.innerText = "Seus resultados revelaram travas ligadas ao filtro esgotado. Existe um método exato para desarmar esses pensamentos antes que eles paralisem suas decisões. Descubra os passos práticos tocando abaixo.";
+                eLink.href = "https://go.hotmart.com/L106186655F"; 
+            } else if(bases[testeAtual].group === 2) {
+                eCapa.style.display = "none";
+                eTitulo.innerText = "Manual Secreto: Reset da Rotina Eficiente";
+                eSub.innerText = "Como reverter a estafa profunda e resgatar o controle";
+                eDesc.innerText = "Seu nível de sobrecarga indica que estímulos externos estão esgotando seu foco. Existe um plano prático para neutralizar o cansaço crônico e recuperar a harmonia nas suas próximas 24 horas. Acesse agora.";
+                eLink.href = "https://go.hotmart.com/E61115249H"; 
+            } else if(bases[testeAtual].group === 3) {
+                eCapa.style.display = "none";
+                eTitulo.innerText = "Manual Secreto: Mente Livre, Escolhas Fortes";
+                eSub.innerText = "O código para quebrar a dependência e a dúvida interna";
+                eDesc.innerText = "Os números indicam que a ansiedade do amanhã está bloqueando sua segurança. Descubra o exercício exato de inteligência comportamental para tomar decisões sem depender da aprovação de ninguém.";
+                eLink.href = "https://go.hotmart.com/M106194670K"; 
+            } else if(bases[testeAtual].group === 4) {
+                eCapa.src = "capa10.png"; eCapa.style.display = "block";
+                eTitulo.innerText = "Manual Secreto: Mente Leve, Passos Firmes";
+                eSub.innerText = "Destranque suas travas e recupere sua energia vital";
+                eDesc.innerText = "Seus dados apontam que o peso da hiper-responsabilidade ativou bloqueios ocultos. Conheça os passos necessários para reprogramar essas reações automáticas e devolver a disposição máxima aos seus dias.";
+                eLink.href = "https://go.hotmart.com/E106237415W"; 
+            } else if(bases[testeAtual].group === 5) {
+                if (testeAtual === "energia") eCapa.src = "capa13.png";
+                else if (testeAtual === "savador") eCapa.src = "capa14.png";
+                else if (testeAtual === "constancia") eCapa.src = "capa15.png";
+                eCapa.style.display = "block";
+                eTitulo.innerText = "O Reset da Produtividade Alta";
+                eSub.innerText = "Desbloqueie o Código da Constância e Resultados Reais";
+                eDesc.innerText = "Seu teste diagnosticou um dreno crítico na sua execução biológica. Existe um método para blinder seu tempo contra as cargas alheias e estruturar rotinas automáticas de sucesso. Conheça as estratégias científicas tocando abaixo.";
+                eLink.href = "https://go.hotmart.com/R106316236I"; 
+            }
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+ 
+        function irParaPainel() {
+            document.getElementById('resultado').style.display = 'none';
+            document.getElementById('form-generico').style.display = 'none';
+            document.getElementById('tela-painel').style.display = 'block';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
 </body>
 </html>
